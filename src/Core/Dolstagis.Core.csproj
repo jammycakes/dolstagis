@@ -7,7 +7,7 @@
     <ProjectGuid>{8F41C89A-E39B-4593-8E71-99AA69290097}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dolstagis.Core</RootNamespace>
+    <RootNamespace>Dolstagis</RootNamespace>
     <AssemblyName>Dolstagis.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
