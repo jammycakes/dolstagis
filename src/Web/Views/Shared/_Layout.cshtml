@@ -3,17 +3,16 @@
   Bundles.Reference("Content");
 }
 <!DOCTYPE html>
-
 <html>
-<head>
+  <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-  @Bundles.RenderScripts()
-  @Bundles.RenderStylesheets()
-</head>
-<body>
+    @Bundles.RenderScripts()
+    @Bundles.RenderStylesheets()
+  </head>
+  <body>
     <div>
-        @RenderBody()
+      @RenderBody()
     </div>
-</body>
+  </body>
 </html>
