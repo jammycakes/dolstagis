@@ -15,6 +15,7 @@ namespace Dolstagis.Web
     {
         protected void Application_Start()
         {
+            LoggingConfig.InitLogging();
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
