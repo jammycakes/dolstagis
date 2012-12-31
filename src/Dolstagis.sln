@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Tests", "Tests\Do
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{801B0B4F-BFA0-4BB5-AA6A-C72E47979DE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.DataMigrations", "DataMigrations\Dolstagis.DataMigrations.csproj", "{6782BE67-F7DE-4619-AA04-873D2F354D94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6782BE67-F7DE-4619-AA04-873D2F354D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6782BE67-F7DE-4619-AA04-873D2F354D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6782BE67-F7DE-4619-AA04-873D2F354D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6782BE67-F7DE-4619-AA04-873D2F354D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
