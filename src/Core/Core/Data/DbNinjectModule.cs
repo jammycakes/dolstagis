@@ -12,7 +12,7 @@ namespace Dolstagis.Core.Data
 {
     public class DbNinjectModule : NinjectModule
     {
-        private ISessionFactory sessionFactory;
+        public string ConnectionString { get; private set; }
 
         public DbNinjectModule(string connectionString)
         {
@@ -21,25 +21,28 @@ namespace Dolstagis.Core.Data
                 connectionString + "." + Environment.MachineName
             };
 
-            var cs = keys.Select(x => ConfigurationManager.ConnectionStrings[x])
+            this.ConnectionString = keys.Select(x => ConfigurationManager.ConnectionStrings[x])
                 .Where(x => x != null)
                 .Select(x => x.ConnectionString)
                 .FirstOrDefault(x => x != null)
                 ?? connectionString;
+        }
 
-            this.sessionFactory = Fluently.Configure()
+
+        private ISessionFactory BuildSessionFactory()
+        {
+            return Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2008
-                    .ConnectionString(cs)
+                    .ConnectionString(this.ConnectionString)
                     .FormatSql().DoNot.ShowSql()
                 )
                 .Mappings(x => x.FluentMappings.AddFromAssembly(this.GetType().Assembly))
                 .BuildSessionFactory();
         }
 
-
         public override void Load()
         {
-            Rebind<ISession>().ToMethod(x => this.sessionFactory.OpenSession());
+            Bind<ISessionFactory>().ToMethod(x => BuildSessionFactory()).InSingletonScope();
         }
     }
 }

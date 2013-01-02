@@ -1,5 +1,6 @@
 using Dolstagis.Core.Data;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using NHibernate;
 using Ninject;
 using Ninject.Web.Common;
 using System;
@@ -53,6 +54,9 @@ namespace Dolstagis.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(new DbNinjectModule("Dolstagis"));
+            kernel.Bind<ISession>()
+                .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
+                .InRequestScope();
         }
     }
 }
