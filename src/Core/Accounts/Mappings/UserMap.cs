@@ -16,6 +16,7 @@ namespace Dolstagis.Accounts.Mappings
             Map(x => x.EmailAddress).Not.Nullable().Length(250);
             Map(x => x.PasswordHash).Not.Nullable().Length(100);
             Map(x => x.DisplayName).Not.Nullable().Length(100);
+            Map(x => x.IsSuperUser).Not.Nullable();
         }
     }
 }

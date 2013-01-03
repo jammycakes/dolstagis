@@ -17,6 +17,8 @@ namespace Dolstagis.Accounts
 
         public virtual string DisplayName { get; set; }
 
+        public virtual bool IsSuperUser { get; set; }
+
         public User()
         {
             this.UserID = default(long);
