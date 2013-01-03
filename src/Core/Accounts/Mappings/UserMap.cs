@@ -10,6 +10,7 @@ namespace Dolstagis.Accounts.Mappings
     {
         public UserMap()
         {
+            Table("Users");
             Id(x => x.UserID).GeneratedBy.Native().UnsavedValue(default(long));
             Map(x => x.UserName).Not.Nullable().Length(20);
             Map(x => x.EmailAddress).Not.Nullable().Length(250);
