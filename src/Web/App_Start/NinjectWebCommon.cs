@@ -5,6 +5,7 @@ using Ninject;
 using Ninject.Web.Common;
 using System;
 using System.Web;
+using System.Web.Mvc;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -47,6 +48,16 @@ namespace Dolstagis.Web.App_Start
             return kernel;
         }
 
+        private static bool IsInjectedInto<T>(Ninject.Activation.IRequest request)
+        {
+            while (request != null) {
+                if (request.Service != null && typeof(T).IsAssignableFrom(request.Service))
+                    return true;
+                request = request.ParentRequest;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -56,6 +67,7 @@ namespace Dolstagis.Web.App_Start
             kernel.Load(new DbNinjectModule("Dolstagis"));
             kernel.Bind<ISession>()
                 .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
+                .When(x => IsInjectedInto<IController>(x) || IsInjectedInto<IActionFilter>(x))
                 .InRequestScope();
         }
     }
