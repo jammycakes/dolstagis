@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dolstagis.Accounts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,16 @@ namespace Dolstagis.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private UserManager users;
+
+        public HomeController(UserManager userManager) : base()
+        {
+            this.users = userManager;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(this.users.GetAllUsers());
         }
     }
 }

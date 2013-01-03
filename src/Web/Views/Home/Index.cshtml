@@ -1,5 +1,16 @@
-﻿@{
+﻿@model IEnumerable<Dolstagis.Accounts.User>
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+@if (Model.Any()) {
+  <ul>
+    @foreach (var user in Model) {
+      <li>@user.UserID: @user.UserName</li>
+    }
+  </ul>
+}
+else {
+  <p>No users found</p>
+}
