@@ -48,27 +48,21 @@ namespace Dolstagis.Web.App_Start
             return kernel;
         }
 
-        private static bool IsInjectedInto<T>(Ninject.Activation.IRequest request)
-        {
-            while (request != null) {
-                if (request.Service != null && typeof(T).IsAssignableFrom(request.Service))
-                    return true;
-                request = request.ParentRequest;
-            }
-            return false;
-        }
-
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Settings.AllowNullInjection = true;
             kernel.Load(new DbNinjectModule("Dolstagis"));
             kernel.Bind<ISession>()
                 .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
-                .When(x => IsInjectedInto<IController>(x) || IsInjectedInto<IActionFilter>(x))
+                .When(x => HttpContext.Current != null)
                 .InRequestScope();
+            kernel.Bind<ISession>()
+                .ToConstant<ISession>(null)
+                .When(x => HttpContext.Current == null);
         }
     }
 }
