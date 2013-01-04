@@ -53,15 +53,11 @@ namespace Dolstagis.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Settings.AllowNullInjection = true;
             kernel.Load(new Dolstagis.Core.CoreNinjectModule("Dolstagis"));
-            kernel.Bind<ISession>()
-                .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
+            kernel.Bind<Func<ISession>>()
+                .ToMethod(x => () => x.Kernel.Get<ISessionFactory>().OpenSession())
                 .When(x => HttpContext.Current != null)
                 .InRequestScope();
-            kernel.Bind<ISession>()
-                .ToConstant<ISession>(null)
-                .When(x => HttpContext.Current == null);
         }
     }
 }

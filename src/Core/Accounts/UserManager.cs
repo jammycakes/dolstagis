@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using Dolstagis.Core;
+using NHibernate;
 using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,13 @@ using System.Text;
 
 namespace Dolstagis.Accounts
 {
-    public class UserManager
+    public class UserManager : ManagerBase
     {
-        public ISession Session { get; private set; }
+        public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
-        public UserManager(ISession session)
-        {
-            this.Session = session;
-        }
+        public UserManager(ISessionFactory sessionFactory, Func<ISession> lazySession)
+            : base(sessionFactory, lazySession)
+        { }
 
         public IEnumerable<User> GetAllUsers()
         {
