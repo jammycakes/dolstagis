@@ -12,7 +12,7 @@ namespace Dolstagis.Accounts
     {
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
-        public UserManager(ISessionFactory sessionFactory, Func<ISession> lazySession)
+        public UserManager(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
             : base(sessionFactory, lazySession)
         { }
 

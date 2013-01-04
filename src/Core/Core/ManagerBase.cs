@@ -43,10 +43,10 @@ namespace Dolstagis.Core
         /// <param name="sessionFactory"></param>
         /// <param name="lazySession"></param>
 
-        public ManagerBase(ISessionFactory sessionFactory, Func<ISession> lazySession)
+        public ManagerBase(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
         {
             this.SessionFactory = sessionFactory;
-            this._session = new LazyDisposable<ISession>(lazySession);
+            this._session = lazySession;
             this._ownsSession = false;
         }
 

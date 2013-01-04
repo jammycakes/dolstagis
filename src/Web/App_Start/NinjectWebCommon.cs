@@ -1,3 +1,4 @@
+using Dolstagis.Core;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NHibernate;
 using Ninject;
@@ -54,8 +55,11 @@ namespace Dolstagis.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(new Dolstagis.Core.CoreNinjectModule("Dolstagis"));
-            kernel.Bind<Func<ISession>>()
-                .ToMethod(x => () => x.Kernel.Get<ISessionFactory>().OpenSession())
+            kernel.Bind<LazyDisposable<ISession>>()
+                .ToMethod(
+                    x => new LazyDisposable<ISession>
+                        (() => x.Kernel.Get<ISessionFactory>().OpenSession())
+                )
                 .When(x => HttpContext.Current != null)
                 .InRequestScope();
         }
