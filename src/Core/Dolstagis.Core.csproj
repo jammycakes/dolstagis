@@ -59,15 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts\UserManager.cs" />
-    <Compile Include="Core\Data\DbNinjectModule.cs" />
+    <Compile Include="Core\CoreNinjectModule.cs" />
     <Compile Include="Core\Mail\IMailable.cs" />
     <Compile Include="Core\Mail\IMailer.cs" />
-    <Compile Include="Core\Mail\MailNinjectModule.cs" />
     <Compile Include="Core\Mail\Message.cs" />
     <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
     <Compile Include="Core\Time\IClock.cs" />
     <Compile Include="Core\Time\SystemClock.cs" />
-    <Compile Include="Core\Time\TimeNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Accounts\Mappings\UserMap.cs" />
     <Compile Include="Accounts\User.cs" />

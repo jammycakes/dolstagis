@@ -1,4 +1,6 @@
-﻿using FluentNHibernate.Cfg;
+﻿using Dolstagis.Core.Mail;
+using Dolstagis.Core.Time;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using Ninject.Modules;
@@ -8,13 +10,13 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Core.Data
+namespace Dolstagis.Core
 {
-    public class DbNinjectModule : NinjectModule
+    public class CoreNinjectModule : NinjectModule
     {
         public string ConnectionString { get; private set; }
 
-        public DbNinjectModule(string connectionString)
+        public CoreNinjectModule(string connectionString)
         {
             string[] keys = new string[] {
                 connectionString,
@@ -43,6 +45,8 @@ namespace Dolstagis.Core.Data
         public override void Load()
         {
             Bind<ISessionFactory>().ToMethod(x => BuildSessionFactory()).InSingletonScope();
+            Bind<IMailer>().To<SystemNetMailMailer>().InSingletonScope();
+            Bind<IClock>().To<SystemClock>().InSingletonScope();
         }
     }
 }

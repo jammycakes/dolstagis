@@ -54,11 +54,7 @@ namespace Dolstagis.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Settings.AllowNullInjection = true;
-            kernel.Load(
-                new Dolstagis.Core.Data.DbNinjectModule("Dolstagis"),
-                new Dolstagis.Core.Mail.MailNinjectModule(),
-                new Dolstagis.Core.Time.TimeNinjectModule()
-            );
+            kernel.Load(new Dolstagis.Core.CoreNinjectModule("Dolstagis"));
             kernel.Bind<ISession>()
                 .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
                 .When(x => HttpContext.Current != null)
