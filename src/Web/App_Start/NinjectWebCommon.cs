@@ -1,4 +1,3 @@
-using Dolstagis.Core.Data;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NHibernate;
 using Ninject;
@@ -55,7 +54,10 @@ namespace Dolstagis.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Settings.AllowNullInjection = true;
-            kernel.Load(new DbNinjectModule("Dolstagis"));
+            kernel.Load(
+                new Dolstagis.Core.Data.DbNinjectModule("Dolstagis"),
+                new Dolstagis.Core.Mail.MailNinjectModule()
+            );
             kernel.Bind<ISession>()
                 .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
                 .When(x => HttpContext.Current != null)
