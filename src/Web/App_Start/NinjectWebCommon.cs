@@ -56,7 +56,8 @@ namespace Dolstagis.Web.App_Start
             kernel.Settings.AllowNullInjection = true;
             kernel.Load(
                 new Dolstagis.Core.Data.DbNinjectModule("Dolstagis"),
-                new Dolstagis.Core.Mail.MailNinjectModule()
+                new Dolstagis.Core.Mail.MailNinjectModule(),
+                new Dolstagis.Core.Time.TimeNinjectModule()
             );
             kernel.Bind<ISession>()
                 .ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
