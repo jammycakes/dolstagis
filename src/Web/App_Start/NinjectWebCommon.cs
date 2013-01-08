@@ -54,7 +54,10 @@ namespace Dolstagis.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(new Dolstagis.Core.CoreNinjectModule("Dolstagis"));
+            kernel.Load(
+                new Dolstagis.Core.CoreNinjectModule("Dolstagis"),
+                new Dolstagis.Web.Helpers.HelperNinjectModule()
+            );
             kernel.Bind<LazyDisposable<ISession>>()
                 .ToMethod(
                     x => new LazyDisposable<ISession>
