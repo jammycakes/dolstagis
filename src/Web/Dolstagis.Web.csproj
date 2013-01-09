@@ -175,6 +175,7 @@
     <Compile Include="App_Start\LoggingConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +205,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\User\RequestPasswordReset.cshtml" />
+    <Content Include="Views\User\PasswordRequestSent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

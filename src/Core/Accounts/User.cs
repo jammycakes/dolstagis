@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Dolstagis.Core.Mail;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Dolstagis.Accounts
 {
-    public class User
+    public class User : IMailable
     {
         public virtual long UserID { get; protected set; }
 
@@ -22,6 +23,16 @@ namespace Dolstagis.Accounts
         public User()
         {
             this.UserID = default(long);
+        }
+
+        string IMailable.Name
+        {
+            get { return this.DisplayName; }
+        }
+
+        string IMailable.EmailAddress
+        {
+            get { return this.EmailAddress; }
         }
     }
 }
