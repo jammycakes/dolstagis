@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
     <Compile Include="Accounts\UserManager.cs" />
+    <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\CoreNinjectModule.cs" />
     <Compile Include="Core\LazyDisposable.cs" />
     <Compile Include="Core\Mail\IMailable.cs" />
