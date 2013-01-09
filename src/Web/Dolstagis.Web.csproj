@@ -51,10 +51,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.CoffeeScript, Version=2.0.0.17976, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.CoffeeScript.2.0.0\lib\net40-client\Cassette.CoffeeScript.dll</HintPath>
-    </Reference>
     <Reference Include="Cassette.Less, Version=2.0.0.17976, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Cassette.Less.2.0.0\lib\net40-client\Cassette.Less.dll</HintPath>
@@ -75,10 +71,6 @@
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="Jurassic, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
