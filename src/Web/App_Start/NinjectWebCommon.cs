@@ -1,14 +1,16 @@
 using Dolstagis.Core;
+using Dolstagis.Core.IO;
+using Dolstagis.Core.Templates;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NHibernate;
 using Ninject;
 using Ninject.Web.Common;
 using System;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Hosting;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Stop")]
 
 namespace Dolstagis.Web.App_Start
 {
@@ -66,6 +68,10 @@ namespace Dolstagis.Web.App_Start
                 )
                 .When(x => HttpContext.Current != null)
                 .InRequestScope();
+            kernel.Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
+            kernel.Bind<IFilespace>()
+                .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
+                .WhenInjectedInto<ITemplateEngine>();
         }
     }
 }

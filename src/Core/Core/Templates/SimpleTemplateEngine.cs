@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dolstagis.Core.IO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,30 +12,17 @@ namespace Dolstagis.Core.Templates
 {
     public class SimpleTemplateEngine : ITemplateEngine
     {
-        private string root;
+        private IFilespace filespace;
 
-        public SimpleTemplateEngine(string root)
+        public SimpleTemplateEngine(IFilespace filespace)
         {
-            if (root == null) throw new ArgumentNullException("root");
-            var directory = new DirectoryInfo(root);
-            if (!directory.Exists) {
-                throw new IOException("The directory " + root + "does not exist.");
-            }
-            this.root = directory.FullName;
+            this.filespace = filespace;
         }
 
         private string ProcessInternal(string templateName, object model)
         {
-            var fi = new FileInfo(Path.Combine(this.root, templateName));
-            if (!fi.FullName.StartsWith(this.root)) {
-                throw new ArgumentException("Badly formed template name");
-            }
-
-            if (!fi.Exists) {
-                throw new IOException("Template at " + templateName + " not found.");
-            }
-
-            return null;
+            string template = filespace.Read(templateName);
+            return template;
         }
 
         public string Process(string templateName, object model)
