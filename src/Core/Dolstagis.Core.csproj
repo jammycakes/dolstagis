@@ -69,6 +69,8 @@
     <Compile Include="Core\Mail\Message.cs" />
     <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
     <Compile Include="Core\ManagerBase.cs" />
+    <Compile Include="Core\Templates\ITemplateEngine.cs" />
+    <Compile Include="Core\Templates\SimpleTemplateEngine.cs" />
     <Compile Include="Core\Time\IClock.cs" />
     <Compile Include="Core\Time\SystemClock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
