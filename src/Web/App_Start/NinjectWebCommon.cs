@@ -55,7 +55,8 @@ namespace Dolstagis.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(
-                new Dolstagis.Core.CoreNinjectModule("Dolstagis"),
+                new Dolstagis.Core.Data.NHibernateNinjectModule("Dolstagis"),
+                new Dolstagis.Core.CoreNinjectModule(),
                 new Dolstagis.Web.Helpers.HelperNinjectModule()
             );
             kernel.Bind<LazyDisposable<ISession>>()

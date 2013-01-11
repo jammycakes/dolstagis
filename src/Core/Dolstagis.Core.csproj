@@ -62,6 +62,7 @@
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\CoreNinjectModule.cs" />
+    <Compile Include="Core\Data\NHibernateNinjectModule.cs" />
     <Compile Include="Core\LazyDisposable.cs" />
     <Compile Include="Core\Mail\IMailable.cs" />
     <Compile Include="Core\Mail\IMailer.cs" />
