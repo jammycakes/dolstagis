@@ -51,16 +51,38 @@ namespace Dolstagis.Core.IO
         /// <returns>
         ///  The absolute path to the file.
         /// </returns>
-        /// <exception cref="ArgumentException">
-        ///  The filename specifies a path to a file outside this filespace.
-        /// </exception>
 
         public string GetAbsolutePath(string filename)
         {
             string path = Path.Combine(this.Root, filename);
+            return new FileInfo(path).FullName;
+        }
+
+        /// <summary>
+        ///  Ensures that we have specified a file within the filespace, that it is not
+        ///  a directory, and that its containing directory exists.
+        /// </summary>
+        /// <param name="filename">
+        ///  The name of the file we are reading or writing.
+        /// </param>
+        /// <returns>
+        ///  The absolute path to the file.
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        ///  The filename specifies a path to a file outside this filespace, or,
+        ///  the caller has specified a directory, not a file.
+        /// </exception>
+
+        private string EnsureFile(string filename)
+        {
+            string path = GetAbsolutePath(filename);
             if (!path.StartsWith(this.Root, StringComparison.InvariantCultureIgnoreCase))
                 throw new ArgumentException("Specified file is not within the filespace.", "filename");
-            return new FileInfo(path).FullName;
+            if (Directory.Exists(path))
+                throw new ArgumentException("You have specified a directory, not a file.", "filename");
+            var parent = Path.GetDirectoryName(path);
+            Directory.CreateDirectory(parent);
+            return path;
         }
 
         /// <summary>
@@ -78,7 +100,7 @@ namespace Dolstagis.Core.IO
 
         public void Append(string filename, string contents)
         {
-            File.AppendAllText(GetAbsolutePath(filename), contents, this.Encoding);
+            File.AppendAllText(EnsureFile(filename), contents, this.Encoding);
         }
 
         /// <summary>
@@ -96,7 +118,7 @@ namespace Dolstagis.Core.IO
 
         public void AppendLines(string filename, params string[] lines)
         {
-            File.AppendAllLines(GetAbsolutePath(filename), lines, this.Encoding);
+            File.AppendAllLines(EnsureFile(filename), lines, this.Encoding);
         }
 
         /// <summary>
@@ -114,7 +136,7 @@ namespace Dolstagis.Core.IO
 
         public TextReader OpenReader(string filename)
         {
-            return new StreamReader(GetAbsolutePath(filename), this.Encoding);
+            return new StreamReader(EnsureFile(filename), this.Encoding);
         }
 
         /// <summary>
@@ -135,7 +157,7 @@ namespace Dolstagis.Core.IO
 
         public TextWriter OpenWriter(string filename, bool append = false)
         {
-            return new StreamWriter(GetAbsolutePath(filename), append, this.Encoding);
+            return new StreamWriter(EnsureFile(filename), append, this.Encoding);
         }
 
         /// <summary>
@@ -153,7 +175,7 @@ namespace Dolstagis.Core.IO
 
         public string Read(string filename)
         {
-            return File.ReadAllText(GetAbsolutePath(filename), this.Encoding);
+            return File.ReadAllText(EnsureFile(filename), this.Encoding);
         }
 
         /// <summary>
@@ -171,7 +193,7 @@ namespace Dolstagis.Core.IO
 
         public void Write(string filename, string contents)
         {
-            File.WriteAllText(GetAbsolutePath(filename), contents, this.Encoding);
+            File.WriteAllText(EnsureFile(filename), contents, this.Encoding);
         }
     }
 }
