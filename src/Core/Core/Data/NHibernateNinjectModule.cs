@@ -65,6 +65,7 @@ namespace Dolstagis.Core.Data
                     .ConnectionString(this.ConnectionString)
                     .FormatSql()
                     .DoNot.ShowSql()
+                    .Raw("connection.release_mode", "on_close")
                 );
         }
 
