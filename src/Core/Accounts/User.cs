@@ -23,6 +23,7 @@ namespace Dolstagis.Accounts
         public User()
         {
             this.UserID = default(long);
+            this.PasswordHash = "$";
         }
 
         string IMailable.Name

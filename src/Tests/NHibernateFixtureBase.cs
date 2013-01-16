@@ -7,34 +7,38 @@ using NUnit.Framework;
 using NHibernate;
 using Ninject;
 using NHibernate.Tool.hbm2ddl;
+using Dolstagis.Core;
+using System.Data;
 
 namespace Dolstagis.Tests
 {
     public class NHibernateFixtureBase
     {
-        protected static IKernel Kernel { get; private set; }
-
-        static NHibernateFixtureBase()
-        {
-            Kernel = new StandardKernel();
-            Kernel.Load(new NHibernateNinjectModule("tests"));
-            Kernel.Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession());
-        }
+        protected IKernel Kernel { get; private set; }
 
         protected ISession Session { get; private set; }
+
+        protected IDbConnection Connection { get; private set; }
 
         [TestFixtureSetUp]
         public virtual void CreateSession()
         {
+            Kernel = new StandardKernel();
+            Kernel.Load(new NHibernateNinjectModule("tests"));
+            Kernel.Bind<ISession>().ToMethod(c => c.Kernel.Get<ISessionFactory>().OpenSession())
+                .InSingletonScope();
+
             this.Session = Kernel.Get<ISession>();
             var schema = new SchemaExport(Kernel.Get<NHibernate.Cfg.Configuration>());
-            schema.Create(false, true);
+            schema.Execute(true, true, false, this.Session.Connection, null);
+            this.Connection = this.Session.Connection;
         }
 
         [TestFixtureTearDown]
         public virtual void DisposeSession()
         {
-            this.Session.Dispose();
+            this.Session.Close();
+            Kernel.Dispose();
         }
 
         [SetUp]
