@@ -16,6 +16,10 @@ namespace Dolstagis.Accounts
             : base(sessionFactory, lazySession)
         { }
 
+        public UserManager(ISessionFactory sessionFactory, ISession session)
+            : base(sessionFactory, session)
+        { }
+
         public IEnumerable<User> GetAllUsers()
         {
             return this.Session.Query<User>();

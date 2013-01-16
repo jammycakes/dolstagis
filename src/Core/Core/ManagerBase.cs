@@ -38,7 +38,7 @@ namespace Dolstagis.Core
 
         /// <summary>
         ///  Creates a new instance of the <see cref="ManagerBase"/> subclass with an
-        ///  injected session whose lifecycle is managed elsewhere.
+        ///  injected lazy session whose lifecycle is managed elsewhere.
         /// </summary>
         /// <param name="sessionFactory"></param>
         /// <param name="lazySession"></param>
@@ -47,6 +47,20 @@ namespace Dolstagis.Core
         {
             this.SessionFactory = sessionFactory;
             this._session = lazySession;
+            this._ownsSession = false;
+        }
+
+        /// <summary>
+        ///  Creates a new instance of the <see cref="ManagerBase"/> subclass with an
+        ///  injected session whose lifecycle is managed elsewhere.
+        /// </summary>
+        /// <param name="sessionFactory"></param>
+        /// <param name="session"></param>
+
+        public ManagerBase(ISessionFactory sessionFactory, ISession session)
+        {
+            this.SessionFactory = sessionFactory;
+            this._session = new LazyDisposable<ISession>(() => session);
             this._ownsSession = false;
         }
 
