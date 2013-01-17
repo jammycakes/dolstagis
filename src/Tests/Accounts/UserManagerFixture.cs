@@ -11,21 +11,43 @@ namespace Dolstagis.Tests.Accounts
     [TestFixture]
     public class UserManagerFixture : NHibernateFixtureBase
     {
-        [Test]
-        public void CanCreateUser()
+        private UserManager userManager;
+
+        protected override void BeforeFixture()
         {
-            using (var um = Kernel.Get<UserManager>()) {
-                var user = new User() {
-                    UserName = "jeremy.clarkson",
-                    EmailAddress = "theorangutan@topgear.com",
-                    DisplayName = "Jeremy Clarkson",
-                    IsSuperUser = true
-                };
-                this.Session.Save(user);
-                this.Session.Clear();
-                var user1 = um.GetAllUsers().First();
-                Assert.AreEqual(user.UserName, user1.UserName);
-            }
+            userManager = Kernel.Get<UserManager>();
+            this.Session.Save(new User() {
+                UserName = "JeremyClarkson",
+                EmailAddress = "jeremy.clarkson@topgear.com",
+                DisplayName = "Jeremy Clarkson",
+                IsSuperUser = true
+            });
+            this.Session.Save(new User() {
+                UserName = "thehamsterscage",
+                EmailAddress = "richard.hammond@topgear.com",
+                DisplayName = "Richard Hammond",
+                IsSuperUser = false
+            });
+            this.Session.Save(new User() {
+                UserName = "MrJamesMay",
+                EmailAddress = "james.may@topgear.com",
+                DisplayName = "James May",
+                IsSuperUser = false
+            });
+            this.Session.Save(new User() {
+                UserName = "TheStig",
+                EmailAddress = "the.stig@topgear.com",
+                DisplayName = "The Stig",
+                IsSuperUser = false
+            });
+        }
+
+        [Test]
+        public void CanFetchUserByName()
+        {
+            var user = userManager.GetUserByUserName("TheHamstersCage");
+            Assert.IsNotNull(user);
+            Assert.AreEqual("Richard Hammond", user.DisplayName);
         }
     }
 }
