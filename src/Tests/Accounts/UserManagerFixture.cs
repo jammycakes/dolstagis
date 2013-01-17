@@ -45,9 +45,16 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanFetchUserByName()
         {
-            var user = userManager.GetUserByUserName("TheHamstersCage");
+            var user = userManager.GetUserByUserName("TheHamstersCage"); // verify case insensitivity
             Assert.IsNotNull(user);
             Assert.AreEqual("Richard Hammond", user.DisplayName);
+        }
+
+        [Test]
+        public void CanNotFetchNonexistentUser()
+        {
+            var user = userManager.GetUserByUserName("TheOldStig");
+            Assert.IsNull(user);
         }
     }
 }
