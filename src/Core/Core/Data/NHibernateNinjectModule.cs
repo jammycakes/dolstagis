@@ -63,7 +63,7 @@ namespace Dolstagis.Core.Data
             var db = SQLiteConfiguration.Standard
                 .ConnectionString(this.ConnectionString)
                 .FormatSql()
-                .DoNot.ShowSql();
+                .ShowSql();
             if (this.keepConnectionAlive)
                 db = db.Raw("connection.release_mode", "on_close");
             return db;
