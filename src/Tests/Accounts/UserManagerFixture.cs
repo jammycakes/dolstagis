@@ -56,5 +56,12 @@ namespace Dolstagis.Tests.Accounts
             var user = userManager.GetUserByUserName("TheOldStig");
             Assert.IsNull(user);
         }
+
+        [Test]
+        public void CanFetchUserByEmail()
+        {
+            var user = userManager.GetUsersByUserNameOrEmail("richard.hammond@topgear.com").Single();
+            Assert.AreEqual("Richard Hammond", user.DisplayName);
+        }
     }
 }
