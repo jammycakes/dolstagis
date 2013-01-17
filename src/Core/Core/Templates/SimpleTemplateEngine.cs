@@ -19,10 +19,18 @@ namespace Dolstagis.Core.Templates
             this.filespace = filespace;
         }
 
+        private static readonly Regex re = new Regex(@"\{\{(.+?)\}\}");
+
         private string ProcessInternal(string templateName, object model)
         {
             string template = filespace.Read(templateName);
-            return template;
+            return re.Replace(template, x => {
+                var prop = model.GetType().GetProperty(x.Groups[1].Value);
+                if (prop == null) return x.Value;
+                if (prop.GetIndexParameters().Any()) return x.Value;
+                object obj = prop.GetValue(model, null);
+                return (obj != null ? obj.ToString() : String.Empty);
+            });
         }
 
         public string Process(string templateName, object model)
