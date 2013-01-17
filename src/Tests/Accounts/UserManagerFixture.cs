@@ -22,7 +22,6 @@ namespace Dolstagis.Tests.Accounts
                     IsSuperUser = true
                 };
                 this.Session.Save(user);
-                this.Session.Flush();
                 this.Session.Clear();
                 var user1 = um.GetAllUsers().First();
                 Assert.AreEqual(user.UserName, user1.UserName);

@@ -14,10 +14,12 @@ namespace Dolstagis.Core.Data
     {
         public string ConnectionString { get; private set; }
 
-        private Func<FluentConfiguration> configurationProvider;
+        private Func<IPersistenceConfigurer> configurationProvider;
+        private bool keepConnectionAlive;
 
-        public NHibernateNinjectModule(string connectionString)
+        public NHibernateNinjectModule(string connectionString, bool keepConnectionAlive = false)
         {
+            this.keepConnectionAlive = keepConnectionAlive;
             string[] keys = new string[] {
                 connectionString,
                 connectionString + "." + Environment.MachineName
@@ -27,8 +29,8 @@ namespace Dolstagis.Core.Data
                 .Where(x => x != null)
                 .FirstOrDefault(x => x.ConnectionString != null);
 
-            IDictionary<string, Func<FluentConfiguration>> providers =
-                new Dictionary<string,Func<FluentConfiguration>>() {
+            IDictionary<string, Func<IPersistenceConfigurer>> providers =
+                new Dictionary<string, Func<IPersistenceConfigurer>>() {
                     { "System.Data.Sqlite", this.ConfigureSqlite },
                     { "System.Data.SqlClient", this.ConfigureMsSql }
                 };
@@ -49,29 +51,27 @@ namespace Dolstagis.Core.Data
         }
 
 
-        private FluentConfiguration ConfigureMsSql()
+        private IPersistenceConfigurer ConfigureMsSql()
         {
-            return Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008
-                    .ConnectionString(this.ConnectionString)
-                    .FormatSql().DoNot.ShowSql()
-                );
+            return MsSqlConfiguration.MsSql2008
+                .ConnectionString(this.ConnectionString)
+                .FormatSql().DoNot.ShowSql();
         }
 
-        private FluentConfiguration ConfigureSqlite()
+        private IPersistenceConfigurer ConfigureSqlite()
         {
-            return Fluently.Configure()
-                .Database(SQLiteConfiguration.Standard
-                    .ConnectionString(this.ConnectionString)
-                    .FormatSql()
-                    .DoNot.ShowSql()
-                    .Raw("connection.release_mode", "on_close")
-                );
+            var db = SQLiteConfiguration.Standard
+                .ConnectionString(this.ConnectionString)
+                .FormatSql()
+                .DoNot.ShowSql();
+            if (this.keepConnectionAlive)
+                db = db.Raw("connection.release_mode", "on_close");
+            return db;
         }
 
         private NHibernate.Cfg.Configuration BuildConfiguration()
         {
-            return this.configurationProvider()
+            return Fluently.Configure().Database(this.configurationProvider())
                 .Mappings(x => x.FluentMappings.AddFromAssembly(this.GetType().Assembly))
                 .BuildConfiguration();
         }

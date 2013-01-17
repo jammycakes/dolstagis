@@ -21,10 +21,10 @@ namespace Dolstagis.Tests
         protected IDbConnection Connection { get; private set; }
 
         [TestFixtureSetUp]
-        public virtual void CreateSession()
+        public void CreateSession()
         {
             Kernel = new StandardKernel();
-            Kernel.Load(new NHibernateNinjectModule("tests"));
+            Kernel.Load(new NHibernateNinjectModule("tests", true));
             Kernel.Bind<ISession>().ToMethod(c => c.Kernel.Get<ISessionFactory>().OpenSession())
                 .InSingletonScope();
 
