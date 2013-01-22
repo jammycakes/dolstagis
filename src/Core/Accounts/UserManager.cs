@@ -87,6 +87,21 @@ namespace Dolstagis.Accounts
         }
 
         /// <summary>
+        ///  Fetches a user token by token ID.
+        /// </summary>
+        /// <param name="token">
+        ///  The token GUID.
+        /// </param>
+        /// <returns>
+        ///  A <see cref="UserToken"/> instance, or null if none present.
+        /// </returns>
+
+        public UserToken GetToken(Guid token)
+        {
+            return this.Session.Get<UserToken>(token);
+        }
+
+        /// <summary>
         ///  Sends a password reset message to all accounts registered with this user name or
         ///  email address.
         /// </summary>

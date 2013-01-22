@@ -75,13 +75,13 @@ namespace Dolstagis.Tests.Accounts
         }
 
         [Test]
-        public void CanCreateUserToken()
+        public void CanCreateAndFetchUserToken()
         {
             var tokens = userManager.CreateTokens("thehamsterscage", "resetpassword");
             Assert.AreEqual(1, tokens.Count());
             Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
             this.Session.Clear();
-            var token = this.Session.Get<UserToken>(tokens.First().Token);
+            var token = userManager.GetToken(tokens.First().Token);
             Assert.IsNotNull(token);
             Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
         }
