@@ -1,6 +1,8 @@
 ﻿using Dolstagis.Core;
+using Dolstagis.Core.Time;
 using NHibernate;
 using NHibernate.Linq;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,9 @@ namespace Dolstagis.Accounts
 {
     public class UserManager : ManagerBase
     {
+        [Inject]
+        public IClock Clock { get; set; }
+
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
         public UserManager(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
@@ -55,6 +60,30 @@ namespace Dolstagis.Accounts
             value = value.ToLower();
             return this.Session.Query<User>()
                 .Where(x => x.UserName.ToLower() == value || x.EmailAddress.ToLower() == value);
+        }
+
+        /// <summary>
+        ///  Creates user tokens for all users with a given username or email address.
+        /// </summary>
+        /// <param name="username">
+        ///  The name of the user to create.
+        /// </param>
+        /// <param name="action">
+        ///  The action which this token is to execute.
+        /// </param>
+        /// <returns>
+        ///  A list of <see cref="UserToken"/> instances.
+        /// </returns>
+
+        public IEnumerable<UserToken> CreateTokens(string username, string action)
+        {
+            var users = GetUsersByUserNameOrEmail(username);
+            var tokens = users.Select(x => new UserToken(x, action, this.Clock))
+                .ToList();  // We need this to freeze the UserToken instances.
+            foreach (var token in tokens)
+                this.Session.Persist(token);
+            this.Session.Flush();
+            return tokens;
         }
 
         /// <summary>
