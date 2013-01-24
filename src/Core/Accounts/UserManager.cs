@@ -1,4 +1,6 @@
 ﻿using Dolstagis.Core;
+using Dolstagis.Core.Mail;
+using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
 using NHibernate;
 using NHibernate.Linq;
@@ -14,6 +16,12 @@ namespace Dolstagis.Accounts
     {
         [Inject]
         public IClock Clock { get; set; }
+
+        [Inject]
+        public IMailer mailer { get; set; }
+
+        [Inject]
+        public ITemplateEngine templateEngine { get; set; }
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
@@ -112,8 +120,16 @@ namespace Dolstagis.Accounts
 
         public int RequestPasswordReset(string name)
         {
-            var users = GetUsersByUserNameOrEmail(name);
-            return users.Count();
+            var tokens = CreateTokens(name, "ResetPassword");
+            foreach (var token in tokens) {
+                var message = new Message() {
+                    Html = this.templateEngine.Process("Accounts/ResetPassword.html", token),
+                    Text = this.templateEngine.Process("Accounts/ResetPassword.txt", token),
+                    Subject = "Reset your password"
+                };
+                this.mailer.Send(token.User, message);
+            }
+            return tokens.Count();
         }
     }
 }
