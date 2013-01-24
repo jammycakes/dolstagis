@@ -17,10 +17,10 @@ namespace Dolstagis.Accounts
         [Inject]
         public IClock Clock { get; set; }
 
-        [Inject]
+        [Inject, Optional]
         public IMailer mailer { get; set; }
 
-        [Inject]
+        [Inject, Optional]
         public ITemplateEngine templateEngine { get; set; }
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
@@ -107,6 +107,18 @@ namespace Dolstagis.Accounts
         public UserToken GetToken(Guid token)
         {
             return this.Session.Get<UserToken>(token);
+        }
+
+        /// <summary>
+        ///  Deletes a user token.
+        /// </summary>
+        /// <param name="token">
+        ///  The token to be deleted.
+        /// </param>
+
+        public void DeleteToken(UserToken token)
+        {
+            this.Session.Delete(token);
         }
 
         /// <summary>

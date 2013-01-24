@@ -1,4 +1,5 @@
 ﻿using Dolstagis.Accounts;
+using Dolstagis.Core.IO;
 using Dolstagis.Core.Time;
 using Moq;
 using Ninject;
@@ -84,6 +85,22 @@ namespace Dolstagis.Tests.Accounts
             var token = userManager.GetToken(tokens.First().Token);
             Assert.IsNotNull(token);
             Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
+        }
+
+        [Test]
+        public void DeletingUserTokenDoesNotDeleteUser()
+        {
+            var tokens = userManager.CreateTokens("thehamsterscage", "resetpassword");
+            Assert.AreEqual(1, tokens.Count());
+            Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
+            this.Session.Clear();
+            userManager.DeleteToken(tokens.First());
+            this.Session.Flush();
+            this.Session.Clear();
+            var token = userManager.GetToken(tokens.First().Token);
+            Assert.IsNull(token, "Token has not been deleted.");
+            var user = userManager.GetUserByUserName(tokens.First().User.UserName);
+            Assert.IsNotNull(user, "User has been deleted.");
         }
     }
 }
