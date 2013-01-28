@@ -85,8 +85,9 @@ namespace Dolstagis.Accounts
 
         public IEnumerable<UserToken> CreateTokens(string username, string action)
         {
+            var expires = Clock.UtcNow().Add(TimeSpan.FromHours(2));
             var users = GetUsersByUserNameOrEmail(username);
-            var tokens = users.Select(x => new UserToken(x, action, this.Clock))
+            var tokens = users.Select(x => new UserToken(x, action, expires))
                 .ToList();  // We need this to freeze the UserToken instances.
             foreach (var token in tokens)
                 this.Session.Persist(token);

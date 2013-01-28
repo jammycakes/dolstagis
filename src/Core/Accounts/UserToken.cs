@@ -12,19 +12,19 @@ namespace Dolstagis.Accounts
 
         public virtual User User { get; protected set; }
 
-        public virtual string Action { get; set; }
+        public virtual string Action { get; protected set; }
 
         public virtual DateTime Expires { get; protected set; }
 
         protected UserToken()
         { }
 
-        public UserToken(User user, string action, IClock clock)
+        public UserToken(User user, string action, DateTime expires)
         {
             this.Token = Guid.NewGuid();
             this.User = user;
             this.Action = action;
-            this.Expires = clock.UtcNow();
+            this.Expires = expires;
         }
     }
 }
