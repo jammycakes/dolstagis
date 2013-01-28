@@ -17,7 +17,7 @@ namespace Dolstagis.DataMigrations._0001
                 .WithColumn("UserID").AsInt64().NotNullable()
                     .ForeignKey("Users", "UserID").OnUpdate(Rule.Cascade).OnDelete(Rule.Cascade)
                 .WithColumn("Action").AsString(32).NotNullable()
-                .WithColumn("DateCreated").AsDateTime().WithDefault(SystemMethods.CurrentUTCDateTime);
+                .WithColumn("Expires").AsDateTime().WithDefault(SystemMethods.CurrentUTCDateTime);
         }
     }
 }

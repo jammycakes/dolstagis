@@ -14,7 +14,7 @@ namespace Dolstagis.Accounts
 
         public virtual string Action { get; set; }
 
-        public virtual DateTime DateCreated { get; protected set; }
+        public virtual DateTime Expires { get; protected set; }
 
         protected UserToken()
         { }
@@ -24,7 +24,7 @@ namespace Dolstagis.Accounts
             this.Token = Guid.NewGuid();
             this.User = user;
             this.Action = action;
-            this.DateCreated = clock.UtcNow();
+            this.Expires = clock.UtcNow();
         }
     }
 }

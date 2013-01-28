@@ -14,7 +14,7 @@ namespace Dolstagis.Accounts.Mappings
             Id(x => x.Token).GeneratedBy.Assigned();
             this.References(x => x.User, "UserID").Not.LazyLoad();
             this.Map(x => x.Action).Length(32);
-            this.Map(x => x.DateCreated);
+            this.Map(x => x.Expires);
         }
     }
 }
