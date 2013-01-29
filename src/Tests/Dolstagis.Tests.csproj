@@ -69,7 +69,7 @@
   <ItemGroup>
     <Compile Include="Accounts\UserManagerFixture.cs" />
     <Compile Include="Core\AppConfigSettingsFixture.cs" />
-    <Compile Include="Core\AppSettingsTestData.cs" />
+    <Compile Include="Core\AppConfigSettingsFixture.TestData.cs" />
     <Compile Include="Core\Templates\SimpleTemplateEngineFixture.cs" />
     <Compile Include="NHibernateFixtureBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

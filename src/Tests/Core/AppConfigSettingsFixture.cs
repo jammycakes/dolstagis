@@ -7,14 +7,14 @@ using NUnit.Framework;
 namespace Dolstagis.Tests.Core
 {
     [TestFixture]
-    public class AppConfigSettingsFixture
+    public partial class AppConfigSettingsFixture
     {
-        private AppSettingsTestData testData;
+        private GoodTestData testData;
 
         [TestFixtureSetUp]
         public void CreateTestData()
         {
-            this.testData = new AppSettingsTestData();
+            this.testData = new GoodTestData();
         }
 
         [Test]
