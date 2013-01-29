@@ -10,11 +10,12 @@ namespace Dolstagis.Core.Mail
 {
     public class SystemNetMailMailer : IMailer
     {
-        private static readonly MailAddress DefaultSender
-            = new MailAddress(
-                ConfigurationManager.AppSettings["Dolstagis.Core.Mail.SenderAddress"],
-                ConfigurationManager.AppSettings["Dolstagis.Core.Mail.SenderName"]
-            );
+        private IMailSettings settings;
+
+        public SystemNetMailMailer(IMailSettings settings)
+        {
+            this.settings = settings;
+        }
 
         private MailAddress CreateMailAddress(IMailable mailable)
         {
@@ -54,7 +55,7 @@ namespace Dolstagis.Core.Mail
             if (sender != null)
                 msg.From = CreateMailAddress(sender);
             else
-                msg.From = DefaultSender;
+                msg.From = settings.GetSenderMailAddress();
             using (var client = new SmtpClient()) {
                 client.Send(msg);
             }

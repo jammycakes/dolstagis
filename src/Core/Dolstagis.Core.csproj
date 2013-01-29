@@ -69,6 +69,8 @@
     <Compile Include="Core\LazyDisposable.cs" />
     <Compile Include="Core\Mail\IMailable.cs" />
     <Compile Include="Core\Mail\IMailer.cs" />
+    <Compile Include="Core\Mail\IMailSettings.cs" />
+    <Compile Include="Core\Mail\MailSettings.cs" />
     <Compile Include="Core\Mail\Message.cs" />
     <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
     <Compile Include="Core\ManagerBase.cs" />
