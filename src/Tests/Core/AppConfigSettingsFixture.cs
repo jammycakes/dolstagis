@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
+using System.Configuration;
 
 namespace Dolstagis.Tests.Core
 {
@@ -45,6 +43,38 @@ namespace Dolstagis.Tests.Core
         public void CanParseEnumValue()
         {
             Assert.AreEqual(DateTimeKind.Local, testData.EnumValue);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void BadDateThrowsCorrectException()
+        {
+            var badDate = new BadDate();
+            Assert.IsNull(badDate);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void BadIntThrowsCorrectException()
+        {
+            var badInt = new BadInt();
+            Assert.IsNull(badInt);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void BadEnumThrowsCorrectException()
+        {
+            var badEnum = new BadEnum();
+            Assert.IsNull(badEnum);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void BadBoolThrowsCorrectException()
+        {
+            var badBool = new BadBool();
+            Assert.IsNull(badBool);
         }
     }
 }

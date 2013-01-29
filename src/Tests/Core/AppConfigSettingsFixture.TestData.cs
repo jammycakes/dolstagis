@@ -1,8 +1,5 @@
 ﻿using Dolstagis.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Dolstagis.Tests.Core
 {
@@ -19,6 +16,26 @@ namespace Dolstagis.Tests.Core
             public DateTime DateTimeValue { get; private set; }
 
             public DateTimeKind EnumValue { get; private set; }
+        }
+
+        private class BadDate : AppConfigSettingsBase
+        {
+            public DateTime BadDateValue { get; private set; }
+        }
+
+        private class BadInt : AppConfigSettingsBase
+        {
+            public int BadIntValue { get; private set; }
+        }
+
+        private class BadEnum : AppConfigSettingsBase
+        {
+            public DateTimeKind BadEnumValue { get; private set; }
+        }
+
+        private class BadBool : AppConfigSettingsBase
+        {
+            public bool BadBoolValue { get; private set; }
         }
     }
 }
