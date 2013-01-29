@@ -61,6 +61,7 @@
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
+    <Compile Include="Core\AppConfigSettingsBase.cs" />
     <Compile Include="Core\CoreNinjectModule.cs" />
     <Compile Include="Core\Data\NHibernateNinjectModule.cs" />
     <Compile Include="Core\IO\IFilespace.cs" />
