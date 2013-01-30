@@ -59,6 +59,7 @@ namespace Dolstagis.Web.App_Start
             kernel.Load(
                 new Dolstagis.Core.Data.NHibernateNinjectModule("Dolstagis"),
                 new Dolstagis.Core.CoreNinjectModule(),
+                new Dolstagis.Accounts.AccountsNinjectModule(),
                 new Dolstagis.Web.Helpers.HelperNinjectModule()
             );
             kernel.Bind<LazyDisposable<ISession>>()

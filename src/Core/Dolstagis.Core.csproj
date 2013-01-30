@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\AccountsNinjectModule.cs" />
     <Compile Include="Accounts\IAccountSettings.cs" />
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
     <Compile Include="Accounts\AccountSettings.cs" />

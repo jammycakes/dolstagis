@@ -13,9 +13,7 @@ namespace Dolstagis.Core
             Bind<IMailer>().To<SystemNetMailMailer>().InSingletonScope();
             Bind<IClock>().To<SystemClock>().InSingletonScope();
             Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
-
             Bind<IMailSettings>().To<MailSettings>().InSingletonScope();
-            Bind<IAccountSettings>().To<AccountSettings>().InSingletonScope();
         }
     }
 }
