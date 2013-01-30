@@ -16,6 +16,8 @@ namespace Dolstagis.Tests.Core
             public DateTime DateTimeValue { get; private set; }
 
             public DateTimeKind EnumValue { get; private set; }
+
+            public TimeSpan TimeSpanValue { get; private set; }
         }
 
         private class BadDate : AppConfigSettingsBase
@@ -36,6 +38,16 @@ namespace Dolstagis.Tests.Core
         private class BadBool : AppConfigSettingsBase
         {
             public bool BadBoolValue { get; private set; }
+        }
+
+        private class BadTimeSpan : AppConfigSettingsBase
+        {
+            public TimeSpan BadTimeSpanValue { get; private set; }
+        }
+
+        private class OutOfRangeTimeSpan : AppConfigSettingsBase
+        {
+            public TimeSpan OutOfRangeTimeSpanValue { get; private set; }
         }
     }
 }

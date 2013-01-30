@@ -74,6 +74,14 @@ namespace Dolstagis.Core
                     else if (prop.PropertyType.IsAssignableFrom(typeof(DateTime))) {
                         prop.SetValue(this, DateTime.Parse(value), null);
                     }
+                    else if (prop.PropertyType.IsAssignableFrom(typeof(TimeSpan))) {
+                        try {
+                            prop.SetValue(this, TimeSpan.Parse(value), null);
+                        }
+                        catch (OverflowException ex) {
+                            ThrowConfigException(key, ex);
+                        }
+                    }
                 }
                 catch (FormatException ex) {
                     ThrowConfigException(key, ex);

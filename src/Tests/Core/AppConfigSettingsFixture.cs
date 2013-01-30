@@ -46,6 +46,12 @@ namespace Dolstagis.Tests.Core
         }
 
         [Test]
+        public void CanParseTimeSpan()
+        {
+            Assert.AreEqual(new TimeSpan(2, 10, 30, 50), testData.TimeSpanValue);
+        }
+
+        [Test]
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadDateThrowsCorrectException()
         {
@@ -75,6 +81,22 @@ namespace Dolstagis.Tests.Core
         {
             var badBool = new BadBool();
             Assert.IsNull(badBool);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void BadTimeSpanThrowsCorrectException()
+        {
+            var badTimeSpan = new BadTimeSpan();
+            Assert.IsNull(badTimeSpan);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void OutOfRangeTimeSpanThrowsCorrectException()
+        {
+            var badTimeSpan = new OutOfRangeTimeSpan();
+            Assert.IsNull(badTimeSpan);
         }
     }
 }
