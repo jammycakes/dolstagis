@@ -55,5 +55,20 @@ namespace Dolstagis.Accounts
             this.Action = action;
             this.Expires = expires;
         }
+
+        /// <summary>
+        ///  Gets a value indicating whether the token is valid.
+        /// </summary>
+        /// <param name="now">
+        ///  The current time.
+        /// </param>
+        /// <returns>
+        ///  true if the token is valid and has not expired; otherwise false.
+        /// </returns>
+
+        public virtual bool IsValid(DateTime now)
+        {
+            return now < this.Expires;
+        }
     }
 }

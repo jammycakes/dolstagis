@@ -98,16 +98,26 @@ namespace Dolstagis.Accounts
         /// <summary>
         ///  Fetches a user token by token ID.
         /// </summary>
-        /// <param name="token">
+        /// <param name="tokenID">
         ///  The token GUID.
         /// </param>
         /// <returns>
         ///  A <see cref="UserToken"/> instance, or null if none present.
         /// </returns>
 
-        public UserToken GetToken(Guid token)
+        public UserToken GetToken(Guid tokenID)
         {
-            return this.Session.Get<UserToken>(token);
+            var token = this.Session.Get<UserToken>(tokenID);
+            if (token == null) {
+                return null;
+            }
+            else if (token.IsValid(this.Clock.UtcNow())) {
+                return token;
+            }
+            else {
+                DeleteToken(token);
+                return null;
+            }
         }
 
         /// <summary>
