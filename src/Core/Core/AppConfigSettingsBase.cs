@@ -41,6 +41,10 @@ namespace Dolstagis.Core
                     if (value != null) {
                         SetValue(prop, value, key);
                     }
+                    else if (prop.GetCustomAttributes(typeof(RequiredAttribute), true).Any()) {
+                        throw new ConfigurationErrorsException(String.Format
+                            ("Required value {0} has not been configured.", key));
+                    }
                 }
             }
         }

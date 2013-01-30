@@ -49,5 +49,23 @@ namespace Dolstagis.Tests.Core
         {
             public TimeSpan OutOfRangeTimeSpanValue { get; private set; }
         }
+
+        private class RequiredField : AppConfigSettingsBase
+        {
+            [Required]
+            public string RequiredValue { get; private set; }
+        }
+
+        private class OptionalField : AppConfigSettingsBase
+        {
+            public OptionalField()
+            {
+                this.OptionalIntWithDefault = 42;
+            }
+
+            public string OptionalString { get; private set; }
+            public int OptionalIntWithDefault { get; private set; }
+            public int OptionalIntWithNoDefault { get; private set; }
+        }
     }
 }

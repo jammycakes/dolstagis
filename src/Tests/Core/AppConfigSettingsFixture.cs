@@ -98,5 +98,22 @@ namespace Dolstagis.Tests.Core
             var badTimeSpan = new OutOfRangeTimeSpan();
             Assert.IsNull(badTimeSpan);
         }
+
+        [Test]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void MissingRequiredValueThrowsException()
+        {
+            var missingRequired = new RequiredField();
+            Assert.IsNull(missingRequired);
+        }
+
+        [Test]
+        public void MissingOptionalValueDoesNotThrowException()
+        {
+            var missingOptional = new OptionalField();
+            Assert.IsNull(missingOptional.OptionalString);
+            Assert.AreEqual(42, missingOptional.OptionalIntWithDefault);
+            Assert.AreEqual(default(int), missingOptional.OptionalIntWithNoDefault);
+        }
     }
 }
