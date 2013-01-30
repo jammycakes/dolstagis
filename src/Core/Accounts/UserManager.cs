@@ -23,6 +23,9 @@ namespace Dolstagis.Accounts
         [Inject, Optional]
         public ITemplateEngine templateEngine { get; set; }
 
+        [Inject]
+        public IAccountSettings Settings { get; set; }
+
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
         public UserManager(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
@@ -85,7 +88,7 @@ namespace Dolstagis.Accounts
 
         public IEnumerable<UserToken> CreateTokens(string username, string action)
         {
-            var expires = Clock.UtcNow().Add(TimeSpan.FromHours(2));
+            var expires = Clock.UtcNow().Add(Settings.TokenLifetime);
             var users = GetUsersByUserNameOrEmail(username);
             var tokens = users.Select(x => new UserToken(x, action, expires))
                 .ToList();  // We need this to freeze the UserToken instances.

@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\IAccountSettings.cs" />
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
+    <Compile Include="Accounts\AccountSettings.cs" />
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\AppConfigSettingsBase.cs" />

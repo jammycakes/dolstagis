@@ -20,6 +20,8 @@ namespace Dolstagis.Tests.Accounts
 
         protected override void BeforeFixture()
         {
+            this.Kernel.Bind<IAccountSettings>().To<AccountSettings>().InSingletonScope();
+
             var mClock = new Mock<IClock>();
             mClock.Setup(x => x.Now()).Returns(time.ToLocalTime());
             mClock.Setup(x => x.UtcNow()).Returns(time);

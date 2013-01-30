@@ -1,4 +1,5 @@
-﻿using Dolstagis.Core.Mail;
+﻿using Dolstagis.Accounts;
+using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
 using Ninject.Modules;
@@ -14,6 +15,7 @@ namespace Dolstagis.Core
             Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
 
             Bind<IMailSettings>().To<MailSettings>().InSingletonScope();
+            Bind<IAccountSettings>().To<AccountSettings>().InSingletonScope();
         }
     }
 }
