@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dolstagis.Core.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Dolstagis.Accounts
     ///  Encapsulates the configuration settings for the user account manager.
     /// </summary>
 
-    public class AccountSettings : Dolstagis.Core.AppConfigSettingsBase, Dolstagis.Accounts.IAccountSettings
+    public class AccountSettings : AppConfigSettingsBase, IAccountSettings
     {
         public AccountSettings()
         {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Core.Configuration
 {
     /// <summary>
     ///  Provides a base class for reading settings from the appSettings section

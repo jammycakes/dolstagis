@@ -1,7 +1,7 @@
-﻿using Dolstagis.Core;
+﻿using Dolstagis.Core.Configuration;
 using System;
 
-namespace Dolstagis.Tests.Core
+namespace Dolstagis.Tests.Core.Configuration
 {
     public partial class AppConfigSettingsFixture
     {

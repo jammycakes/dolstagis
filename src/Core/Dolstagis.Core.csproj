@@ -63,7 +63,7 @@
     <Compile Include="Accounts\AccountSettings.cs" />
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
-    <Compile Include="Core\AppConfigSettingsBase.cs" />
+    <Compile Include="Core\Configuration\AppConfigSettingsBase.cs" />
     <Compile Include="Core\CoreNinjectModule.cs" />
     <Compile Include="Core\Data\NHibernateNinjectModule.cs" />
     <Compile Include="Core\IO\IFilespace.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="Core\Mail\Message.cs" />
     <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
     <Compile Include="Core\ManagerBase.cs" />
-    <Compile Include="Core\RequiredAttribute.cs" />
+    <Compile Include="Core\Configuration\RequiredAttribute.cs" />
     <Compile Include="Core\Templates\ITemplateEngine.cs" />
     <Compile Include="Core\Templates\SimpleTemplateEngine.cs" />
     <Compile Include="Core\Time\IClock.cs" />
