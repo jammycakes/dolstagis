@@ -1,32 +1,32 @@
-﻿using BCrypt.Net;
+﻿using bc = BCrypt.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords
+namespace Dolstagis.Accounts.Passwords.BCrypt
 {
     /// <summary>
     ///  Hashes and verifies passwords using the Bcrypt algorithm.
     /// </summary>
 
-    public class BcryptPasswordProvider : IPasswordProvider
+    public class BCryptPasswordProvider : IPasswordProvider
     {
-        public BcryptSettings Settings { get; private set; }
+        public BCryptSettings Settings { get; private set; }
 
-        public BcryptPasswordProvider(BcryptSettings settings)
+        public BCryptPasswordProvider(BCryptSettings settings)
         {
             this.Settings = settings;
         }
 
         public string ComputeHash(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, this.Settings.WorkFactor);
+            return bc.BCrypt.HashPassword(password, this.Settings.WorkFactor);
         }
 
         public PasswordResult Verify(string password, string hash)
         {
-            if (BCrypt.Net.BCrypt.Verify(password, hash)) {
+            if (bc.BCrypt.Verify(password, hash)) {
                 return PasswordResult.Correct;
             }
             else {

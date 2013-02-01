@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords
+namespace Dolstagis.Accounts.Passwords.BCrypt
 {
-    public class BcryptSettings : AppConfigSettingsBase
+    public class BCryptSettings : AppConfigSettingsBase
     {
-        public BcryptSettings()
+        public BCryptSettings()
         {
             this.WorkFactor = 10;
         }
