@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Dolstagis.Accounts.Passwords.BCrypt
 {
-    public class BCryptSettings : AppConfigSettingsBase
+    public class BCryptSettings : AppConfigSettingsBase, Dolstagis.Accounts.Passwords.BCrypt.IBCryptSettings
     {
         public BCryptSettings()
         {

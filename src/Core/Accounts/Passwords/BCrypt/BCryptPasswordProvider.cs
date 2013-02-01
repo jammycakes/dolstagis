@@ -12,9 +12,9 @@ namespace Dolstagis.Accounts.Passwords.BCrypt
 
     public class BCryptPasswordProvider : IPasswordProvider
     {
-        public BCryptSettings Settings { get; private set; }
+        public IBCryptSettings Settings { get; private set; }
 
-        public BCryptPasswordProvider(BCryptSettings settings)
+        public BCryptPasswordProvider(IBCryptSettings settings)
         {
             this.Settings = settings;
         }
