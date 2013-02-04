@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProviderFixture.cs" />
     <Compile Include="Accounts\UserManagerFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.TestData.cs" />
