@@ -1,5 +1,6 @@
 ﻿using Dolstagis.Accounts.Passwords;
 using Dolstagis.Accounts.Passwords.BCrypt;
+using Dolstagis.Accounts.Passwords.Sha512;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -42,6 +43,17 @@ namespace Dolstagis.Tests.Accounts.Passwords.BCrypt
             var hash = GetProvider(oldWorkFactor).ComputeHash(password);
             var testResult = GetProvider(newWorkFactor).Verify(password, hash);
             Assert.AreEqual(PasswordResult.CorrectButInsecure, testResult);
+        }
+
+        [Test]
+        public void IgnoresPasswordFromOtherProvider()
+        {
+            string password = "Passw0rd1";
+            var provider = GetProvider(8);
+            var otherProvider = new Sha512PasswordProvider();
+            var hash = otherProvider.ComputeHash(password);
+            var testResult = provider.Verify(password, hash);
+            Assert.AreEqual(PasswordResult.Unrecognised, testResult);
         }
     }
 }

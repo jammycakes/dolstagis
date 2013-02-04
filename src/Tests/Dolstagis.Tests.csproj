@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProviderFixture.cs" />
+    <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProviderFixture.cs" />
     <Compile Include="Accounts\UserManagerFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.TestData.cs" />
@@ -98,6 +99,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

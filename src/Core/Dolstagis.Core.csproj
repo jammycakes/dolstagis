@@ -67,6 +67,7 @@
     <Compile Include="Accounts\Passwords\BCrypt\IBCryptSettings.cs" />
     <Compile Include="Accounts\Passwords\IPasswordProvider.cs" />
     <Compile Include="Accounts\Passwords\PasswordResult.cs" />
+    <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProvider.cs" />
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsBase.cs" />
