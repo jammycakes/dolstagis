@@ -1,5 +1,6 @@
 ﻿using Dolstagis.Accounts.Passwords;
 using Dolstagis.Accounts.Passwords.BCrypt;
+using Dolstagis.Accounts.Passwords.PlainText;
 using Dolstagis.Accounts.Passwords.Sha512;
 using Ninject.Modules;
 using System;
@@ -31,6 +32,9 @@ namespace Dolstagis.Accounts
 
             Bind<IPasswordProvider>().To<BCryptPasswordProvider>().WhenInjectedInto<AggregatePasswordProvider>();
             Bind<IPasswordProvider>().To<Sha512PasswordProvider>().WhenInjectedInto<AggregatePasswordProvider>();
+#if DEBUG
+            Bind<IPasswordProvider>().To<PlainTextPasswordProvider>().WhenInjectedInto<AggregatePasswordProvider>();
+#endif
         }
     }
 }
