@@ -1,4 +1,5 @@
-﻿using Dolstagis.Core;
+﻿using Dolstagis.Accounts.Passwords;
+using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
@@ -25,6 +26,9 @@ namespace Dolstagis.Accounts
 
         [Inject]
         public IAccountSettings Settings { get; set; }
+
+        [Inject]
+        public IPasswordProvider PasswordProvider { get; set; }
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
@@ -72,6 +76,39 @@ namespace Dolstagis.Accounts
             return this.Session.Query<User>()
                 .Where(x => x.UserName.ToLower() == value || x.EmailAddress.ToLower() == value);
         }
+
+
+        /// <summary>
+        ///  Gets a user by login credentials.
+        /// </summary>
+        /// <param name="username">
+        ///  The name of the user to get.
+        /// </param>
+        /// <param name="password">
+        ///  The password of the user to get.
+        /// </param>
+        /// <returns>
+        ///  A <see cref="User"/> object, or null if the user was not found.
+        /// </returns>
+
+        public User Login(string username, string password)
+        {
+            var user = GetUserByUserName(username);
+            if (user == null) return null;
+            var isValid = this.PasswordProvider.Verify(password, user.PasswordHash);
+            switch (isValid) {
+                case PasswordResult.CorrectButInsecure:
+                    user.PasswordHash = this.PasswordProvider.ComputeHash(password);
+                    this.Session.Flush();
+                    return user;
+                case PasswordResult.Correct:
+                    return user;
+                default:
+                    return null;
+            }
+        }
+
+
 
         /// <summary>
         ///  Creates user tokens for all users with a given username or email address.

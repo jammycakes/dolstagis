@@ -14,7 +14,7 @@ namespace Dolstagis.Accounts
 
         public virtual string EmailAddress { get; set; }
 
-        public virtual string PasswordHash { get; protected set; }
+        public virtual string PasswordHash { get; set; }
 
         public virtual string DisplayName { get; set; }
 

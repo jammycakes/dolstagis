@@ -1,4 +1,6 @@
 ﻿using Dolstagis.Accounts;
+using Dolstagis.Accounts.Passwords;
+using Dolstagis.Accounts.Passwords.BCrypt;
 using Dolstagis.Core.IO;
 using Dolstagis.Core.Time;
 using Moq;
@@ -33,6 +35,7 @@ namespace Dolstagis.Tests.Accounts
                 UserName = "JeremyClarkson",
                 EmailAddress = "jeremy.clarkson@topgear.com",
                 DisplayName = "Jeremy Clarkson",
+                PasswordHash = "$pt$password",
                 IsSuperUser = true
             });
             this.Session.Save(new User() {
@@ -76,6 +79,19 @@ namespace Dolstagis.Tests.Accounts
             var user = userManager.GetUsersByUserNameOrEmail("richard.hammond@topgear.com").Single();
             Assert.AreEqual("Richard Hammond", user.DisplayName);
         }
+
+        [Test]
+        public void CanLoginAndAutomaticallyUpgradesPassword()
+        {
+            var user = userManager.Login("JeremyClarkson", "password");
+            Assert.AreEqual("Jeremy Clarkson", user.DisplayName);
+            Assert.False(user.PasswordHash.Contains("password"));
+
+            var bcrypt = this.Kernel.Get<BCryptPasswordProvider>();
+            var result = bcrypt.Verify("password", user.PasswordHash);
+            Assert.AreEqual(PasswordResult.Correct, result);
+        }
+
 
         [Test]
         public void CanCreateAndFetchUserToken()
