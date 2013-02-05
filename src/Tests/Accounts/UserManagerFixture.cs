@@ -71,9 +71,9 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanFetchUserByName()
         {
-            var user = userManager.GetUserByUserName("TheHamstersCage"); // verify case insensitivity
+            var user = userManager.GetUserByUserName(RichardHammond.UserName.ToUpper()); // verify case insensitivity
             Assert.IsNotNull(user);
-            Assert.AreEqual("Richard Hammond", user.DisplayName);
+            Assert.AreEqual(RichardHammond.DisplayName, user.DisplayName);
         }
 
         [Test]
@@ -86,15 +86,15 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanFetchUserByEmail()
         {
-            var user = userManager.GetUsersByUserNameOrEmail("richard.hammond@topgear.com").Single();
-            Assert.AreEqual("Richard Hammond", user.DisplayName);
+            var user = userManager.GetUsersByUserNameOrEmail(RichardHammond.EmailAddress).Single();
+            Assert.AreEqual(RichardHammond.DisplayName, user.DisplayName);
         }
 
         [Test]
         public void CanLoginAndAutomaticallyUpgradesPassword()
         {
-            var user = userManager.Login("JeremyClarkson", "password");
-            Assert.AreEqual("Jeremy Clarkson", user.DisplayName);
+            var user = userManager.Login(JeremyClarkson.UserName, "password");
+            Assert.AreEqual(JeremyClarkson.DisplayName, user.DisplayName);
             Assert.False(user.PasswordHash.Contains("password"));
 
             var bcrypt = this.Kernel.Get<BCryptPasswordProvider>();
@@ -106,21 +106,21 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanCreateAndFetchUserToken()
         {
-            var tokens = userManager.CreateTokens("thehamsterscage", "resetpassword");
+            var tokens = userManager.CreateTokens(RichardHammond.UserName, "resetpassword");
             Assert.AreEqual(1, tokens.Count());
-            Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
+            Assert.AreEqual(RichardHammond.DisplayName, tokens.First().User.DisplayName);
             this.Session.Clear();
             var token = userManager.GetToken(tokens.First().Token);
             Assert.IsNotNull(token);
-            Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
+            Assert.AreEqual(RichardHammond.DisplayName, tokens.First().User.DisplayName);
         }
 
         [Test]
         public void DeletingUserTokenDoesNotDeleteUser()
         {
-            var tokens = userManager.CreateTokens("thehamsterscage", "resetpassword");
+            var tokens = userManager.CreateTokens(RichardHammond.UserName, "resetpassword");
             Assert.AreEqual(1, tokens.Count());
-            Assert.AreEqual("Richard Hammond", tokens.First().User.DisplayName);
+            Assert.AreEqual(RichardHammond.DisplayName, tokens.First().User.DisplayName);
             this.Session.Clear();
             userManager.DeleteToken(tokens.First());
             this.Session.Flush();
