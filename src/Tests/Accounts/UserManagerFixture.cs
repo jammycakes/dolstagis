@@ -20,6 +20,35 @@ namespace Dolstagis.Tests.Accounts
         private IClock clock;
         private DateTime time = DateTime.UtcNow;
 
+        private User JeremyClarkson = new User() {
+            UserName = "JeremyClarkson",
+            EmailAddress = "jeremy.clarkson@topgear.com",
+            DisplayName = "Jeremy Clarkson",
+            PasswordHash = "$pt$password",
+            IsSuperUser = true
+        };
+
+        private User RichardHammond = new User() {
+            UserName = "thehamsterscage",
+            EmailAddress = "richard.hammond@topgear.com",
+            DisplayName = "Richard Hammond",
+            IsSuperUser = false
+        };
+
+        private User JamesMay = new User() {
+            UserName = "MrJamesMay",
+            EmailAddress = "james.may@topgear.com",
+            DisplayName = "James May",
+            IsSuperUser = false
+        };
+
+        private User TheStig = new User() {
+            UserName = "TheStig",
+            EmailAddress = "the.stig@topgear.com",
+            DisplayName = "The Stig",
+            IsSuperUser = false
+        };
+
         protected override void BeforeFixture()
         {
             this.Kernel.Load(new AccountsNinjectModule());
@@ -31,31 +60,12 @@ namespace Dolstagis.Tests.Accounts
             this.Kernel.Rebind<IClock>().ToConstant(clock);
 
             userManager = Kernel.Get<UserManager>();
-            this.Session.Save(new User() {
-                UserName = "JeremyClarkson",
-                EmailAddress = "jeremy.clarkson@topgear.com",
-                DisplayName = "Jeremy Clarkson",
-                PasswordHash = "$pt$password",
-                IsSuperUser = true
-            });
-            this.Session.Save(new User() {
-                UserName = "thehamsterscage",
-                EmailAddress = "richard.hammond@topgear.com",
-                DisplayName = "Richard Hammond",
-                IsSuperUser = false
-            });
-            this.Session.Save(new User() {
-                UserName = "MrJamesMay",
-                EmailAddress = "james.may@topgear.com",
-                DisplayName = "James May",
-                IsSuperUser = false
-            });
-            this.Session.Save(new User() {
-                UserName = "TheStig",
-                EmailAddress = "the.stig@topgear.com",
-                DisplayName = "The Stig",
-                IsSuperUser = false
-            });
+            this.Session.Save(JeremyClarkson);
+            this.Session.Save(RichardHammond);
+            this.Session.Save(JamesMay);
+            this.Session.Save(TheStig);
+            this.Session.Flush();
+            this.Session.Clear();
         }
 
         [Test]
