@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Passwords\AggregatePasswordProviderFixture.cs" />
     <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProviderFixture.cs" />
     <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProviderFixture.cs" />
     <Compile Include="Accounts\UserManagerFixture.cs" />

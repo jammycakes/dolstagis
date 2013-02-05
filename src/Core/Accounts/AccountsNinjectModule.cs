@@ -1,5 +1,6 @@
 ﻿using Dolstagis.Accounts.Passwords;
 using Dolstagis.Accounts.Passwords.BCrypt;
+using Dolstagis.Accounts.Passwords.Sha512;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,17 @@ namespace Dolstagis.Accounts
 
             /* ====== Password providers ====== */
 
+            Unbind<IPasswordProvider>();
+            Bind<IPasswordProvider>().To<AggregatePasswordProvider>().WhenInjectedInto<UserManager>();
+
             /*
              * Add multiple password providers if you like here, but always put the
              * most secure one first. Passwords hashed using providers other than
              * the first one will be upgraded to use the first one.
              */
 
-            Unbind<IPasswordProvider>();
-            Bind<IPasswordProvider>().To<BCryptPasswordProvider>();
+            Bind<IPasswordProvider>().To<BCryptPasswordProvider>().WhenInjectedInto<AggregatePasswordProvider>();
+            Bind<IPasswordProvider>().To<Sha512PasswordProvider>().WhenInjectedInto<AggregatePasswordProvider>();
         }
     }
 }

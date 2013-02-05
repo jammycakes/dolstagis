@@ -62,6 +62,7 @@
     <Compile Include="Accounts\IAccountSettings.cs" />
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
     <Compile Include="Accounts\AccountSettings.cs" />
+    <Compile Include="Accounts\Passwords\AggregatePasswordProvider.cs" />
     <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProvider.cs" />
     <Compile Include="Accounts\Passwords\BCrypt\BCryptSettings.cs" />
     <Compile Include="Accounts\Passwords\BCrypt\IBCryptSettings.cs" />
