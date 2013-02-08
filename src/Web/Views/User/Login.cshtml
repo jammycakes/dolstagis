@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="POST">
+  <ul>
+    <li><input type="text" id="username" name="username" placeholder="Your user name or email" /></li>
+    <li><input type="password" id="password" name="password" placeholder="Your password" /></li>
+    <li>
+      @Html.CheckBox("persist")
+      <label for="persist">Keep me logged in</label>
+    </li>
+    <li><input type="submit" value="Log in" /></li>
+  </ul>
+</form>

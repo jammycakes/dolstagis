@@ -201,6 +201,7 @@
     <Content Include="Views\User\RequestPasswordReset.cshtml" />
     <Content Include="Views\User\PasswordRequestSent.cshtml" />
     <Content Include="Views\UserToken\TestToken.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
