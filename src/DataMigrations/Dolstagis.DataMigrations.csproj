@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0001\CreateUserSessionsTable.cs" />
     <Compile Include="0001\CreateUsersTable.cs" />
     <Compile Include="0001\CreateUserTokensTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

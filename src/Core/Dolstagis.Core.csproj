@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Accounts\AccountsNinjectModule.cs" />
     <Compile Include="Accounts\IAccountSettings.cs" />
+    <Compile Include="Accounts\Mappings\UserSessionMap.cs" />
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
     <Compile Include="Accounts\AccountSettings.cs" />
     <Compile Include="Accounts\Passwords\AggregatePasswordProvider.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Accounts\Passwords\PasswordResult.cs" />
     <Compile Include="Accounts\Passwords\PlainText\PlainTextPasswordProvider.cs" />
     <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProvider.cs" />
+    <Compile Include="Accounts\UserSession.cs" />
     <Compile Include="Accounts\UserManager.cs" />
     <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsBase.cs" />
