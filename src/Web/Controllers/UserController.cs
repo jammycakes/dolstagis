@@ -30,12 +30,12 @@ namespace Dolstagis.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string username, string password, bool persist)
         {
-            var user = users.Login(username, password);
-            if (user != null) {
-                var cookie = FormsAuthentication.GetAuthCookie(user.UserID.ToString(), persist);
-                var url = FormsAuthentication.GetRedirectUrl(user.UserID.ToString(), persist);
+            var session = users.Login(username, password);
+            if (session != null) {
+                var cookie = FormsAuthentication.GetAuthCookie(session.SessionID, persist);
+                var url = FormsAuthentication.GetRedirectUrl(session.SessionID, persist);
                 this.Response.SetCookie(cookie);
-                this.Flash("Welcome back, " + user.DisplayName, Level.Info);
+                this.Flash("Welcome back, " + session.User.DisplayName, Level.Info);
                 return Redirect(url);
             }
             else {

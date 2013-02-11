@@ -91,7 +91,7 @@ namespace Dolstagis.Accounts
         ///  A <see cref="User"/> object, or null if the user was not found.
         /// </returns>
 
-        public User Login(string username, string password)
+        public UserSession Login(string username, string password)
         {
             var user = GetUserByUserName(username);
             if (user == null) return null;
@@ -100,9 +100,12 @@ namespace Dolstagis.Accounts
                 case PasswordResult.CorrectButInsecure:
                     user.PasswordHash = this.PasswordProvider.ComputeHash(password);
                     this.Session.Flush();
-                    return user;
+                    goto case PasswordResult.Correct;
                 case PasswordResult.Correct:
-                    return user;
+                    var result = new UserSession(user, Clock.UtcNow());
+                    this.Session.Save(result);
+                    this.Session.Flush();
+                    return result;
                 default:
                     return null;
             }

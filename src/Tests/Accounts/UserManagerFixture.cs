@@ -93,12 +93,12 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanLoginAndAutomaticallyUpgradesPassword()
         {
-            var user = userManager.Login(JeremyClarkson.UserName, "password");
-            Assert.AreEqual(JeremyClarkson.DisplayName, user.DisplayName);
-            Assert.False(user.PasswordHash.Contains("password"));
+            var session = userManager.Login(JeremyClarkson.UserName, "password");
+            Assert.AreEqual(JeremyClarkson.DisplayName, session.User.DisplayName);
+            Assert.False(session.User.PasswordHash.Contains("password"));
 
             var bcrypt = this.Kernel.Get<BCryptPasswordProvider>();
-            var result = bcrypt.Verify("password", user.PasswordHash);
+            var result = bcrypt.Verify("password", session.User.PasswordHash);
             Assert.AreEqual(PasswordResult.Correct, result);
         }
 
