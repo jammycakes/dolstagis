@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 
 namespace Dolstagis.Accounts
 {
-    public class User : IMailable
+    public class User : IMailable, IIdentity
     {
         public virtual long UserID { get; protected set; }
 
@@ -34,6 +35,21 @@ namespace Dolstagis.Accounts
         string IMailable.EmailAddress
         {
             get { return this.EmailAddress; }
+        }
+
+        string IIdentity.AuthenticationType
+        {
+            get { return "Dolstagis"; }
+        }
+
+        bool IIdentity.IsAuthenticated
+        {
+            get { return true; }
+        }
+
+        string IIdentity.Name
+        {
+            get { return this.UserName; }
         }
     }
 }

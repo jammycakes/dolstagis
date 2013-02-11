@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Dolstagis.Accounts
 {
-    public class UserSession
+    public class UserSession : IPrincipal
     {
         public virtual string SessionID { get; protected set; }
 
@@ -30,6 +30,16 @@ namespace Dolstagis.Accounts
             this.User = user;
             this.DateCreated = date;
             this.DateLastAccessed = date;
+        }
+
+        IIdentity IPrincipal.Identity
+        {
+            get { return this.User; }
+        }
+
+        bool IPrincipal.IsInRole(string role)
+        {
+            return false;
         }
     }
 }
