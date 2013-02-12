@@ -14,6 +14,16 @@
     @Html.FlashedMessages()
 
     <div id="all">
+
+      <div id="topbanner">
+        @if (User.Identity.IsAuthenticated) {
+          Html.RenderPartial("LoggedIn");
+        }
+        else {
+          Html.RenderPartial("NotLoggedIn");
+        }
+      </div>
+
       @RenderBody()
     </div>
   </body>

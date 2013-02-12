@@ -202,6 +202,8 @@
     <Content Include="Views\User\PasswordRequestSent.cshtml" />
     <Content Include="Views\UserToken\TestToken.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\LoggedIn.cshtml" />
+    <Content Include="Views\Shared\NotLoggedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
