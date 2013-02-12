@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Dolstagis.Accounts;
+using Dolstagis.Web.App_Start;
+using Ninject;
+using System;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Dolstagis.Web.App_Start;
 
 namespace Dolstagis.Web
 {
@@ -13,6 +12,9 @@ namespace Dolstagis.Web
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : System.Web.HttpApplication
     {
+        [Inject]
+        public Func<UserManager> UserManagerFactory { get; set; }
+
         protected void Application_Start()
         {
             LoggingConfig.InitLogging();
@@ -21,6 +23,18 @@ namespace Dolstagis.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+            if (this.Context.User == null || this.Context.User.Identity == null) return;
+            if (!this.Context.User.Identity.IsAuthenticated) return;
+
+            using (var userManager = UserManagerFactory()) {
+                var session = userManager.AccessSession(this.Context.User.Identity.Name);
+                if (session == null) return;
+                this.Context.User = session;
+            }
         }
     }
 }

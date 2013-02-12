@@ -99,7 +99,6 @@ namespace Dolstagis.Accounts
             switch (isValid) {
                 case PasswordResult.CorrectButInsecure:
                     user.PasswordHash = this.PasswordProvider.ComputeHash(password);
-                    this.Session.Flush();
                     goto case PasswordResult.Correct;
                 case PasswordResult.Correct:
                     var result = new UserSession(user, Clock.UtcNow());
@@ -111,6 +110,26 @@ namespace Dolstagis.Accounts
             }
         }
 
+
+        /// <summary>
+        ///  Accesses a user session (ie gets it and updates the last access time)
+        /// </summary>
+        /// <param name="sessionID">
+        ///  The session ID.
+        /// </param>
+        /// <returns>
+        ///  The <see cref="UserSession"/> instance, or null if there isn't one.
+        /// </returns>
+
+        public UserSession AccessSession(string sessionID)
+        {
+            var session = this.Session.Get<UserSession>(sessionID);
+            if (session != null) {
+                session.DateLastAccessed = this.Clock.UtcNow();
+                this.Session.Flush();
+            }
+            return session;
+        }
 
 
         /// <summary>
