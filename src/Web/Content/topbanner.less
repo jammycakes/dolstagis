@@ -1,0 +1,40 @@
+@import "core";
+
+#topbanner {
+
+    @background: #399;
+    @foreground: #fff;
+    @hover: #6cc;
+    @padding: 4px;
+
+    .clearfix();
+    background-color: @background;
+    color: @foreground;
+
+    a {
+        .tabs();
+        color: @foreground;
+        display: block;
+        padding: @padding;
+
+        &:hover {
+            background-color: @hover;
+        }
+    }
+
+    ul {
+        float: right;
+        width: auto;
+        margin: @padding 1em 0px 1em;
+        padding: 0px;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            width: auto;
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+    }
+}
