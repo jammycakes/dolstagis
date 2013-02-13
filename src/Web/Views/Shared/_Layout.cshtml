@@ -11,8 +11,6 @@
     @Bundles.RenderStylesheets()
   </head>
   <body>
-    @Html.FlashedMessages()
-
     <div id="all">
 
       <div id="topbanner">
@@ -23,7 +21,7 @@
           Html.RenderPartial("NotLoggedIn");
         }
       </div>
-
+      @Html.FlashedMessages()
       @RenderBody()
     </div>
   </body>
