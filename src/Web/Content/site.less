@@ -1,5 +1,6 @@
 @import "colours";
 @import "topbanner";
+@import "flash";
 
 body {
     background-color: @background;
@@ -14,35 +15,3 @@ body {
 }
 
 
-ul#flash {
-    width: 100%;
-    color: black;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-
-    .alert(@background) {
-        background-color: @background;
-        border-bottom: 1px solid darken(@background, 50%);
-    }
-
-    li {
-        margin: 0px;
-        padding: 0.5em;
-        list-style: none;
-    }
-
-    .error {
-        .alert(red);
-        font-weight: bold;
-    }
-
-    .warning {
-        .alert(orange);
-    }
-
-    .info {
-        .alert(yellow);
-    }
-}

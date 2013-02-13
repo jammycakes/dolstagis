@@ -1,0 +1,56 @@
+@import "core";
+
+ul#flash {
+
+    @error: red;
+    @warning: yellow;
+    @info: #33ff33;
+    @text: black;
+
+    @padding: @base-padding;
+    @border-radius: @base-padding;
+    @separation: @base-separation;
+
+    .alert(@background) {
+        background-color: @background;
+    }
+
+    color: @text;
+    text-align: center;
+    margin: @separation;
+    padding: 0px;
+    list-style: none;
+    border: 1px solid @text;
+    border-radius: @border-radius;
+
+    li {
+        margin: 0px;
+        padding: 0.5em;
+        list-style: none;
+        border-top: 1px dotted @text;
+
+        &:first-child {
+            border-top-left-radius: @border-radius;
+            border-top-right-radius: @border-radius;
+            border-top: none;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: @border-radius;
+            border-bottom-right-radius: @border-radius;
+        }
+    }
+
+    .error {
+        .alert(@error);
+        font-weight: bold;
+    }
+
+    .warning {
+        .alert(@warning);
+    }
+
+    .info {
+        .alert(@info);
+    }
+}
