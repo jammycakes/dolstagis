@@ -9,6 +9,7 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 
 namespace Dolstagis.Accounts
@@ -129,6 +130,21 @@ namespace Dolstagis.Accounts
                 this.Session.Flush();
             }
             return session;
+        }
+
+        /// <summary>
+        ///  Deletes a user session.
+        /// </summary>
+        /// <param name="userSession">
+        ///  The session to delete.
+        /// </param>
+
+        public void DeleteSession(UserSession userSession)
+        {
+            if (userSession != null) {
+                this.Session.Delete(userSession);
+                this.Session.Flush();
+            }
         }
 
 

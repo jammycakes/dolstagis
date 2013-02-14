@@ -32,7 +32,6 @@ namespace Dolstagis.Web
 
             using (var userManager = UserManagerFactory()) {
                 var session = userManager.AccessSession(this.Context.User.Identity.Name);
-                if (session == null) return;
                 this.Context.User = session;
             }
         }

@@ -64,5 +64,15 @@ namespace Dolstagis.Web.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Logout()
+        {
+            this.users.DeleteSession(this.User as UserSession);
+            this.Flash("You are now logged out.");
+            FormsAuthentication.SignOut();
+            return Redirect(FormsAuthentication.DefaultUrl);
+        }
     }
 }
