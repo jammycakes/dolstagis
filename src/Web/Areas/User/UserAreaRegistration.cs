@@ -15,6 +15,13 @@ namespace Dolstagis.Web.Areas.User
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
+                "User_token",
+                "User/{token}",
+                new { controller = "UserToken" },
+                new { token = @"^\{[0-9A-Fa-f]{8}\-([0-9A-Fa-f]{4}\-){3}[0-9A-Fa-f]{12}\}$" }
+            );
+
+            context.MapRoute(
                 "User_main",
                 "User/{action}",
                 new { controller = "User" }

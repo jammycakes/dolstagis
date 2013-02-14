@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Dolstagis.Web.Controllers
+namespace Dolstagis.Web.Areas.User.Controllers
 {
     public class UserTokenController : Controller
     {
