@@ -166,8 +166,9 @@
     <Compile Include="App_Start\CassetteConfiguration.cs" />
     <Compile Include="App_Start\LoggingConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Controllers\UserTokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,6 +192,8 @@
     <Content Include="Content\core.less" />
     <Content Include="Content\topbanner.less" />
     <Content Include="Content\flash.less" />
+    <Content Include="Areas\User\Views\Web.config" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
@@ -202,14 +205,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\User\RequestPasswordReset.cshtml" />
-    <Content Include="Views\User\PasswordRequestSent.cshtml" />
+    <Content Include="Areas\User\Views\User\RequestPasswordReset.cshtml" />
+    <Content Include="Areas\User\Views\User\PasswordRequestSent.cshtml" />
     <Content Include="Views\UserToken\TestToken.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Areas\User\Views\User\Login.cshtml" />
     <Content Include="Views\Shared\LoggedIn.cshtml" />
     <Content Include="Views\Shared\NotLoggedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

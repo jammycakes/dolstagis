@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace Dolstagis.Web.Controllers
+namespace Dolstagis.Web.Areas.User.Controllers
 {
     public class UserController : Controller
     {
