@@ -1,0 +1,18 @@
+@import "core/branding";
+@import "core/core";
+
+.two-col {
+    .centred(@full-width);
+    .clearfix();
+
+    .left {
+        float: left;
+        width: @sidebar-width;
+        margin-right: @section-spacing;
+    }
+
+    .body {
+        float: right;
+        width: @full-width - @sidebar-width - @section-spacing;
+    }
+}
