@@ -2,20 +2,20 @@
 @import "../core/branding";
 
 #topbanner {
-
     .clearfix();
     background-color: @topbanner-background;
     color: @topbanner-text;
 
-    a {
-        .rounded-corners-top(@widget-border-radius);
-        color: @topbanner-text;
-        display: block;
-        padding: @widget-padding;
+    h1 {
+        float: left;
+        margin: 0px;
+        padding: @widget-padding 1em 0px;
+        font: @title-font;
+    }
 
-        &:hover {
-            background-color: lighten(@topbanner-background, 25%);
-        }
+    a {
+        text-decoration: none;
+        color: @title-text;
     }
 
     ul {
@@ -31,6 +31,17 @@
             margin: 0px;
             padding: 0px;
             list-style-type: none;
+
+            a {
+                .rounded-corners-top(@widget-border-radius);
+                color: @topbanner-text;
+                display: block;
+                padding: @widget-padding;
+
+                &:hover {
+                    background-color: lighten(@topbanner-background, 25%);
+                }
+            }
         }
     }
 }
