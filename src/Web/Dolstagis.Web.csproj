@@ -189,7 +189,7 @@
     <None Include="Content\css\readme.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\layout.less" />
-    <Content Include="Content\css\core\colours.less" />
+    <Content Include="Content\css\core\branding.less" />
     <Content Include="Content\css\core\core.less" />
     <Content Include="Content\css\layout\topbanner.less" />
     <Content Include="Content\css\layout\flash.less" />

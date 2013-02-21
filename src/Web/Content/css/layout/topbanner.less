@@ -1,31 +1,27 @@
 @import "../core/core";
+@import "../core/branding";
 
 #topbanner {
 
-    @background: #399;
-    @foreground: #fff;
-    @hover: #6cc;
-    @padding: 4px;
-
     .clearfix();
-    background-color: @background;
-    color: @foreground;
+    background-color: @topbanner-background;
+    color: @topbanner-text;
 
     a {
         .tabs();
-        color: @foreground;
+        color: @topbanner-text;
         display: block;
-        padding: @padding;
+        padding: @widget-padding;
 
         &:hover {
-            background-color: @hover;
+            background-color: lighten(@topbanner-background, 25%);
         }
     }
 
     ul {
         float: right;
         width: auto;
-        margin: @padding 1em 0px 1em;
+        margin: @widget-padding 1em 0px 1em;
         padding: 0px;
         list-style-type: none;
 
