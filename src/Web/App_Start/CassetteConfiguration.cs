@@ -23,7 +23,7 @@ namespace Dolstagis.Web.App_Start
              * dependencies.
              */
 
-            bundles.AddPerIndividualFile<StylesheetBundle>("Content");
+            bundles.AddPerIndividualFile<StylesheetBundle>("Content/css");
         }
     }
 }
