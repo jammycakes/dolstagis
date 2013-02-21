@@ -1,12 +1,32 @@
 @base-padding: 5px;
 @base-separation: 10px;
 
-.clearfix() {
-    overflow: hidden;
+.rounded-corners(@radius) {
+    border-radius: @radius;
 }
 
-.tabs() {
-    border-radius: 4px 4px 0px 0px;
+.rounded-corners-top(@radius) {
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+}
+
+.rounded-corners-bottom(@radius) {
+    border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.rounded-corners-left(@radius) {
+    border-top-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.rounded-corners-right(@radius) {
+    border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.clearfix() {
+    overflow: hidden;
 }
 
 .centred(@width) {
