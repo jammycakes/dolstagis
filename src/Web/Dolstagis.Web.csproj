@@ -186,6 +186,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\css\layout\body.less" />
+    <Content Include="Content\css\2col.less" />
     <None Include="Content\css\readme.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\layout.less" />
@@ -195,6 +197,7 @@
     <Content Include="Content\css\layout\flash.less" />
     <Content Include="Areas\User\Views\Web.config" />
     <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Content\css\simple.less" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
