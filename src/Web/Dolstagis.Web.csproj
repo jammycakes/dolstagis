@@ -212,6 +212,8 @@
     <Content Include="Areas\User\Views\User\Login.cshtml" />
     <Content Include="Views\Shared\LoggedIn.cshtml" />
     <Content Include="Views\Shared\NotLoggedIn.cshtml" />
+    <Content Include="Views\Shared\_2col.cshtml" />
+    <Content Include="Views\Shared\_simple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\User\Views\Shared\" />
