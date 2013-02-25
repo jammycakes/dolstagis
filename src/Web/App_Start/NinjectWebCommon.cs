@@ -62,11 +62,7 @@ namespace Dolstagis.Web.App_Start
                 new Dolstagis.Accounts.AccountsNinjectModule(),
                 new Dolstagis.Web.Helpers.HelperNinjectModule()
             );
-            kernel.Bind<LazyDisposable<ISession>>()
-                .ToMethod(
-                    x => new LazyDisposable<ISession>
-                        (() => x.Kernel.Get<ISessionFactory>().OpenSession())
-                )
+            kernel.Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
                 .When(x => HttpContext.Current != null)
                 .InRequestScope();
             kernel.Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();

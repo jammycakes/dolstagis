@@ -33,10 +33,6 @@ namespace Dolstagis.Accounts
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
-        public UserManager(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
-            : base(sessionFactory, lazySession)
-        { }
-
         public UserManager(ISessionFactory sessionFactory, ISession session)
             : base(sessionFactory, session)
         { }

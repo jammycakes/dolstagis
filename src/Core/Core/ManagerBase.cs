@@ -8,18 +8,11 @@ namespace Dolstagis.Core
 {
     public abstract class ManagerBase : IDisposable
     {
-        private LazyDisposable<ISession> _session;
         private bool _ownsSession = false;
 
         protected ISessionFactory SessionFactory { get; private set; }
 
-        protected ISession Session
-        {
-            get
-            {
-                return _session.Value;
-            }
-        }
+        protected ISession Session { get; private set; }
 
         /// <summary>
         ///  Creates a new instance of the <see cref="ManagerBase"/> subclass that
@@ -32,23 +25,10 @@ namespace Dolstagis.Core
         public ManagerBase(ISessionFactory sessionFactory)
         {
             this.SessionFactory = sessionFactory;
-            this._session = new LazyDisposable<ISession>(() => SessionFactory.OpenSession());
+            this.Session = SessionFactory.OpenSession();
             this._ownsSession = true;
         }
 
-        /// <summary>
-        ///  Creates a new instance of the <see cref="ManagerBase"/> subclass with an
-        ///  injected lazy session whose lifecycle is managed elsewhere.
-        /// </summary>
-        /// <param name="sessionFactory"></param>
-        /// <param name="lazySession"></param>
-
-        public ManagerBase(ISessionFactory sessionFactory, LazyDisposable<ISession> lazySession)
-        {
-            this.SessionFactory = sessionFactory;
-            this._session = lazySession;
-            this._ownsSession = false;
-        }
 
         /// <summary>
         ///  Creates a new instance of the <see cref="ManagerBase"/> subclass with an
@@ -60,7 +40,7 @@ namespace Dolstagis.Core
         public ManagerBase(ISessionFactory sessionFactory, ISession session)
         {
             this.SessionFactory = sessionFactory;
-            this._session = new LazyDisposable<ISession>(() => session);
+            this.Session = session;
             this._ownsSession = false;
         }
 
@@ -78,7 +58,7 @@ namespace Dolstagis.Core
         protected virtual void Dispose(bool disposing)
         {
             if (disposing && this._ownsSession) {
-                this._session.Dispose();
+                this.Session.Dispose();
             }
         }
     }
