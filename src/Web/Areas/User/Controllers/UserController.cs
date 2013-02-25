@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private UserManager users;
@@ -66,7 +67,6 @@ namespace Dolstagis.Web.Areas.User.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult Logout()
         {
             this.users.DeleteSession(this.User as UserSession);
