@@ -64,7 +64,8 @@ namespace Dolstagis.Web.App_Start
             );
             kernel.Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
                 .When(x => HttpContext.Current != null)
-                .InRequestScope();
+                .InRequestScope()
+                .OnDeactivation(x => x.Flush());
             kernel.Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
             kernel.Bind<IFilespace>()
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))

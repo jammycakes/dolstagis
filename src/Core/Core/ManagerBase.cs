@@ -58,6 +58,7 @@ namespace Dolstagis.Core
         protected virtual void Dispose(bool disposing)
         {
             if (disposing && this._ownsSession) {
+                this.Session.Flush();
                 this.Session.Dispose();
             }
         }
