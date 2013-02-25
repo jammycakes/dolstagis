@@ -1,0 +1,24 @@
+﻿@model Dolstagis.Accounts.User
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_2col.cshtml";
+}
+
+<h2>Profile for @Model.DisplayName</h2>
+
+<form method="post">
+  <fieldset>
+    <legend>Your details</legend>
+    <dl>
+      <dt>@Html.LabelFor(x => x.UserName)</dt>
+      <dd>@Html.TextBoxFor(x => x.UserName, new { @readonly="readonly" })</dd>
+      <dt>@Html.LabelFor(x => x.DisplayName)</dt>
+      <dd>@Html.TextBoxFor(x => x.DisplayName)</dd>
+      <dt>@Html.LabelFor(x => x.EmailAddress)</dt>
+      <dd>@Html.TextBoxFor(x => x.EmailAddress)</dd>
+      <dt>&nbsp;</dt>
+      <dd><input type="submit" value="Save changes" /></dd>
+    </dl>
+  </fieldset>
+</form>

@@ -74,5 +74,21 @@ namespace Dolstagis.Web.Areas.User.Controllers
             FormsAuthentication.SignOut();
             return Redirect(FormsAuthentication.DefaultUrl);
         }
+
+        [HttpGet]
+        public ActionResult Profile()
+        {
+            return View(this.User.Identity);
+        }
+
+        [HttpPost]
+        public ActionResult Profile(string displayName, string emailAddress)
+        {
+            var user = this.User.Identity as Accounts.User;
+            user.DisplayName = displayName;
+            user.EmailAddress = emailAddress;
+            this.Flash("Your details have been saved.");
+            return View(user);
+        }
     }
 }
