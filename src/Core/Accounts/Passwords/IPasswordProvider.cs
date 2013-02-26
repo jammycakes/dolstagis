@@ -34,5 +34,11 @@ namespace Dolstagis.Accounts.Passwords
         /// </returns>
 
         PasswordResult Verify(string password, string hash);
+
+        /// <summary>
+        ///  Returns a human readable description of the password hash method.
+        /// </summary>
+
+        string Description { get; }
     }
 }

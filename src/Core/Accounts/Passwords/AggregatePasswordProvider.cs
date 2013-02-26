@@ -45,5 +45,13 @@ namespace Dolstagis.Accounts.Passwords
             }
             return PasswordResult.Unrecognised;
         }
+
+        public string Description
+        {
+            get
+            {
+                return this.providers.Select(x => x.Description).FirstOrDefault();
+            }
+        }
     }
 }

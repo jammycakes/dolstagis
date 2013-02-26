@@ -40,5 +40,13 @@ namespace Dolstagis.Accounts.Passwords.Sha512
             return String.Compare(check, hash, true) == 0
                 ? PasswordResult.Correct : PasswordResult.Incorrect;
         }
+
+        public string Description
+        {
+            get
+            {
+                return "SHA512 with a 128-bit salt";
+            }
+        }
     }
 }

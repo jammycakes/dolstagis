@@ -35,6 +35,14 @@ namespace Dolstagis.Accounts.Passwords.PlainText
             }
             return PasswordResult.Unrecognised;
         }
+
+        public string Description
+        {
+            get
+            {
+                return "Plain text";
+            }
+        }
     }
 }
 

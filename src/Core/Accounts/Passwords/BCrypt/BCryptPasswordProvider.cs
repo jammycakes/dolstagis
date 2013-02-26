@@ -61,5 +61,13 @@ namespace Dolstagis.Accounts.Passwords.BCrypt
                 return PasswordResult.Incorrect;
             }
         }
+
+        public string Description
+        {
+            get
+            {
+                return "BCrypt with a work factor of " + this.Settings.WorkFactor;
+            }
+        }
     }
 }
