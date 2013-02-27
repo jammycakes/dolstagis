@@ -193,6 +193,7 @@
     <Content Include="Areas\User\Views\User\ChangePassword.cshtml" />
     <Content Include="Areas\User\Views\User\PasswordChanged.cshtml" />
     <Content Include="Areas\User\Views\User\Sessions.cshtml" />
+    <Content Include="Areas\User\Views\User\partial\SessionRow.cshtml" />
     <None Include="Content\css\readme.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\layout.less" />

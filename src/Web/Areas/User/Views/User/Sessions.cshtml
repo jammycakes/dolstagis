@@ -12,15 +12,13 @@
   <tr>
     <th colspan="3">Your current session</th>
   </tr>
-  <tr>
-    <td>Current session</td>
-  </tr>
+  @{Html.RenderPartial("partial/SessionRow", Model);}
   <tr>
     <th colspan="3">Your other sessions</th>
   </tr>
-  @foreach (UserSession session in this.Model.User.Sessions.Where(x => x != this.Model).OrderByDescending(x => x.DateLastAccessed)) {
-    <tr>
-      <td>@session.DateCreated</td>
-    </tr>
+  @foreach (UserSession session in this.Model.User.Sessions
+    .Where(x => x != this.Model)
+    .OrderByDescending(x => x.DateLastAccessed)) {
+    Html.RenderPartial("partial/SessionRow", session);
   }
 </table>
