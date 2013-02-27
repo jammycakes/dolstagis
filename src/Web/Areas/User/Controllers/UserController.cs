@@ -1,4 +1,5 @@
 ﻿using Dolstagis.Accounts;
+using Dolstagis.Core;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
 using System;
@@ -89,6 +90,32 @@ namespace Dolstagis.Web.Areas.User.Controllers
             user.EmailAddress = emailAddress;
             this.Flash("Your details have been saved.");
             return View(user);
+        }
+
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            this.ViewData["HashAlgorithm"] = this.users.PasswordProvider.Description;
+            return View(this.User.Identity);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string oldPassword, string newPassword, string confirm)
+        {
+            if (newPassword != confirm) {
+                this.Flash("Passwords do not match.", Level.Error);
+                return ChangePassword();
+            }
+            else {
+                try {
+                    this.users.ChangePassword((Accounts.User)this.User.Identity, oldPassword, newPassword);
+                }
+                catch (UserException ex) {
+                    this.Flash(ex.Message, Level.Error);
+                    return ChangePassword();
+                }
+            }
+            return View("PasswordChanged");
         }
     }
 }

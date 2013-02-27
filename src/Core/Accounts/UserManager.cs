@@ -228,5 +228,28 @@ namespace Dolstagis.Accounts
             }
             return tokens.Count();
         }
+
+        /// <summary>
+        ///  Attempts to change a user's password.
+        /// </summary>
+        /// <param name="user">
+        ///  The user whose password we are changing.
+        /// </param>
+        /// <param name="oldPassword">
+        ///  The old password.
+        /// </param>
+        /// <param name="newPassword">
+        ///  The new password.
+        /// </param>
+
+        public void ChangePassword(User user, string oldPassword, string newPassword)
+        {
+            var verification = this.PasswordProvider.Verify(oldPassword, user.PasswordHash);
+            if (verification != PasswordResult.Correct && verification != PasswordResult.CorrectButInsecure) {
+                throw new UserException("Your password was not correct.");
+            }
+
+            user.PasswordHash = this.PasswordProvider.ComputeHash(newPassword);
+        }
     }
 }

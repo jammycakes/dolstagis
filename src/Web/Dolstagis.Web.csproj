@@ -190,6 +190,8 @@
     <Content Include="Content\css\2col.less" />
     <Content Include="Areas\User\Views\User\Profile.cshtml" />
     <Content Include="Areas\User\Views\User\_Profile.cshtml" />
+    <Content Include="Areas\User\Views\User\ChangePassword.cshtml" />
+    <Content Include="Areas\User\Views\User\PasswordChanged.cshtml" />
     <None Include="Content\css\readme.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\layout.less" />
