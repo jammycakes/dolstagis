@@ -117,5 +117,11 @@ namespace Dolstagis.Web.Areas.User.Controllers
             }
             return View("PasswordChanged");
         }
+
+        [HttpGet]
+        public ActionResult Sessions()
+        {
+            return View(this.User);
+        }
     }
 }
