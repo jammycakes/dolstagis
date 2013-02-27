@@ -17,6 +17,7 @@ namespace Dolstagis.Accounts.Mappings
             Map(x => x.PasswordHash).Not.Nullable().Length(100);
             Map(x => x.DisplayName).Not.Nullable().Length(100);
             Map(x => x.IsSuperUser).Not.Nullable();
+            HasMany<UserSession>(x => x.Sessions).KeyColumn("UserID").LazyLoad().Inverse();
         }
     }
 }

@@ -130,5 +130,16 @@ namespace Dolstagis.Tests.Accounts
             var user = userManager.GetUserByUserName(tokens.First().User.UserName);
             Assert.IsNotNull(user, "User has been deleted.");
         }
+
+        [Test]
+        public void CanGetSessionsFromUser()
+        {
+            var userSession = userManager.Login(JeremyClarkson.UserName, "password");
+            this.Session.Flush();
+            this.Session.Clear();
+            var userSession2 = this.Session.Get<UserSession>(userSession.SessionID);
+            var user2 = userSession2.User;
+            CollectionAssert.Contains(userSession2.User.Sessions, userSession2);
+        }
     }
 }
