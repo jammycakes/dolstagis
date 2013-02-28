@@ -1,6 +1,8 @@
 using Dolstagis.Core;
+using Dolstagis.Core.Caching;
 using Dolstagis.Core.IO;
 using Dolstagis.Core.Templates;
+using Dolstagis.Web.Helpers.Caching;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NHibernate;
 using Ninject;
@@ -70,6 +72,7 @@ namespace Dolstagis.Web.App_Start
             kernel.Bind<IFilespace>()
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
                 .WhenInjectedInto<ITemplateEngine>();
+            kernel.Bind<ICache>().ToMethod(x => new HttpRuntimeCache(HttpRuntime.Cache));
         }
     }
 }
