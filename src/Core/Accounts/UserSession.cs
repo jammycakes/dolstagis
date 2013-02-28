@@ -17,6 +17,8 @@ namespace Dolstagis.Accounts
 
         public virtual DateTime DateLastAccessed { get; set; }
 
+        public virtual string IPAddress { get; set; }
+
         protected UserSession()
         {
         }

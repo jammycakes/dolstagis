@@ -17,7 +17,8 @@ namespace Dolstagis.DataMigrations._0001
                 .WithColumn("UserID").AsInt64().NotNullable()
                     .ForeignKey("Users", "UserID").OnUpdate(Rule.Cascade).OnDelete(Rule.Cascade)
                 .WithColumn("DateCreated").AsDateTime().NotNullable()
-                .WithColumn("DateLastAccessed").AsDateTime().NotNullable();
+                .WithColumn("DateLastAccessed").AsDateTime().NotNullable()
+                .WithColumn("IPAddress").AsAnsiString(50).PrimaryKey().NotNullable();
         }
     }
 }
