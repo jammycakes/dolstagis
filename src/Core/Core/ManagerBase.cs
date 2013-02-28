@@ -1,4 +1,6 @@
-﻿using NHibernate;
+﻿using Dolstagis.Core.Caching;
+using NHibernate;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +10,24 @@ namespace Dolstagis.Core
 {
     public abstract class ManagerBase : IDisposable
     {
+        private ICache _cache = new NullCache();
         private bool _ownsSession = false;
 
         protected ISessionFactory SessionFactory { get; private set; }
 
         protected ISession Session { get; private set; }
+
+        /// <summary>
+        ///  Gets or sets the <see cref="ICache"/> instance used for caching.
+        /// </summary>
+
+        [Inject, Optional]
+        public ICache Cache
+        {
+            get { return _cache; }
+            set { _cache = value; }
+        }
+
 
         /// <summary>
         ///  Creates a new instance of the <see cref="ManagerBase"/> subclass that
