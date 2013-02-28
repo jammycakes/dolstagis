@@ -173,6 +173,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Caching\HttpRuntimeCache.cs" />
     <Compile Include="Helpers\FlashHelpers.cs" />
     <Compile Include="Helpers\Flash\FlashMessage.cs" />
     <Compile Include="Helpers\Flash\FlashMessageStore.cs" />
