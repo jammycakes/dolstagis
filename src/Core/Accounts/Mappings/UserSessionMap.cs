@@ -14,6 +14,7 @@ namespace Dolstagis.Accounts.Mappings
             Id(x => x.SessionID).Length(32).GeneratedBy.Assigned();
             References(x => x.User, "UserID").Not.LazyLoad();
             References(x => x.UserAgent, "UserAgentID");
+            Map(x => x.IPAddress);
             Map(x => x.DateCreated);
             Map(x => x.DateLastAccessed);
         }

@@ -108,6 +108,7 @@ namespace Dolstagis.Accounts
                     goto case PasswordResult.Correct;
                 case PasswordResult.Correct:
                     var result = new UserSession(user, userAgent, Clock.UtcNow());
+                    result.IPAddress = request.UserHostAddress;
                     this.Session.Save(result);
                     this.Session.Flush();
                     return result;
