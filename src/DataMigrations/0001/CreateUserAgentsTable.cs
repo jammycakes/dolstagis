@@ -14,7 +14,8 @@ namespace Dolstagis.DataMigrations._0001
         {
             Create.Table("UserAgents")
                 .WithColumn("UserAgentID").AsInt32().Identity().PrimaryKey().NotNullable()
-                .WithColumn("String").AsString(Int32.MaxValue).NotNullable();   // nvarchar(max)
+                .WithColumn("String").AsString(Int32.MaxValue) // nvarchar(max)
+                    .NotNullable().Indexed();
         }
     }
 }

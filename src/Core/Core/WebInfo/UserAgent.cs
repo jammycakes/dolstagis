@@ -9,6 +9,6 @@ namespace Dolstagis.Core.WebInfo
     {
         public int UserAgentID { get; protected set; }
 
-        public string String { get; protected set; }
+        public string String { get; set; }
     }
 }
