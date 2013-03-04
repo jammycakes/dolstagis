@@ -32,7 +32,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Login(string username, string password, bool persist)
         {
-            var session = users.Login(username, password);
+            var session = users.Login(username, password, this.Request);
             if (session != null) {
                 var cookie = FormsAuthentication.GetAuthCookie(session.SessionID, persist);
                 var url = FormsAuthentication.GetRedirectUrl(session.SessionID, persist);

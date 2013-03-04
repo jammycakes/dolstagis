@@ -3,6 +3,7 @@ using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
+using Dolstagis.Core.WebInfo;
 using NHibernate;
 using NHibernate.Linq;
 using Ninject;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
+using System.Web;
 
 namespace Dolstagis.Accounts
 {
@@ -30,6 +32,9 @@ namespace Dolstagis.Accounts
 
         [Inject]
         public IPasswordProvider PasswordProvider { get; set; }
+
+        [Inject]
+        public WebInfoManager WebInfo { get; set; }
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 
@@ -84,13 +89,17 @@ namespace Dolstagis.Accounts
         /// <param name="password">
         ///  The password of the user to get.
         /// </param>
+        /// <param name="request">
+        ///  The <see cref="HttpRequestBase"/> instance encapsulating this login request.
+        /// </param>
         /// <returns>
         ///  A <see cref="User"/> object, or null if the user was not found.
         /// </returns>
 
-        public UserSession Login(string username, string password)
+        public UserSession Login(string username, string password, HttpRequestBase request)
         {
             var user = GetUserByUserName(username);
+            var userAgent = WebInfo.GetUserAgent(request.UserAgent);
             if (user == null) return null;
             var isValid = this.PasswordProvider.Verify(password, user.PasswordHash);
             switch (isValid) {
@@ -98,7 +107,7 @@ namespace Dolstagis.Accounts
                     user.PasswordHash = this.PasswordProvider.ComputeHash(password);
                     goto case PasswordResult.Correct;
                 case PasswordResult.Correct:
-                    var result = new UserSession(user, Clock.UtcNow());
+                    var result = new UserSession(user, userAgent, Clock.UtcNow());
                     this.Session.Save(result);
                     this.Session.Flush();
                     return result;

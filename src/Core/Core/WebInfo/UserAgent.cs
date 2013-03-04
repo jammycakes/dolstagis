@@ -7,8 +7,8 @@ namespace Dolstagis.Core.WebInfo
 {
     public class UserAgent
     {
-        public int UserAgentID { get; protected set; }
+        public virtual int UserAgentID { get; protected set; }
 
-        public string String { get; set; }
+        public virtual string String { get; set; }
     }
 }

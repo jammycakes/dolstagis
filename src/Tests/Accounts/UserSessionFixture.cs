@@ -14,7 +14,7 @@ namespace Dolstagis.Tests.Accounts
         public void SessionIDIs32CharsLong()
         {
             for (var i = 0; i < 1000; i++) {
-                var session = new UserSession(null, DateTime.UtcNow);
+                var session = new UserSession(null, null, DateTime.UtcNow);
                 Assert.AreEqual(session.SessionID.Length, 32);
             }
         }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Dolstagis.DataMigrations._0001
 {
-    [Migration(3)]
+    [Migration(4)]
     public class CreateUserSessionsTable : AutoReversingMigration
     {
         public override void Up()
@@ -18,7 +18,9 @@ namespace Dolstagis.DataMigrations._0001
                     .ForeignKey("Users", "UserID").OnUpdate(Rule.Cascade).OnDelete(Rule.Cascade)
                 .WithColumn("DateCreated").AsDateTime().NotNullable()
                 .WithColumn("DateLastAccessed").AsDateTime().NotNullable()
-                .WithColumn("IPAddress").AsAnsiString(50).PrimaryKey().NotNullable();
+                .WithColumn("IPAddress").AsAnsiString(50).PrimaryKey().NotNullable()
+                .WithColumn("UserAgentID").AsInt32().NotNullable()
+                    .ForeignKey("UserAgents", "UserAgentID").OnUpdate(Rule.None).OnDelete(Rule.None);
         }
     }
 }

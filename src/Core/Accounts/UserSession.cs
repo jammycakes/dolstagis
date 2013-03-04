@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dolstagis.Core.WebInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,6 +14,8 @@ namespace Dolstagis.Accounts
 
         public virtual User User { get; protected set; }
 
+        public virtual UserAgent UserAgent { get; protected set; }
+
         public virtual DateTime DateCreated { get; protected set; }
 
         public virtual DateTime DateLastAccessed { get; set; }
@@ -23,13 +26,14 @@ namespace Dolstagis.Accounts
         {
         }
 
-        public UserSession(User user, DateTime date) : this()
+        public UserSession(User user, UserAgent userAgent, DateTime date) : this()
         {
             byte[] sid = new byte[24];
             var rng = new RNGCryptoServiceProvider();
             rng.GetBytes(sid);
             this.SessionID = Convert.ToBase64String(sid);
             this.User = user;
+            this.UserAgent = userAgent;
             this.DateCreated = date;
             this.DateLastAccessed = date;
         }

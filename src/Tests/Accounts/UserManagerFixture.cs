@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 
 namespace Dolstagis.Tests.Accounts
 {
@@ -68,6 +69,13 @@ namespace Dolstagis.Tests.Accounts
             this.Session.Clear();
         }
 
+        private HttpRequestBase GetMockRequest()
+        {
+            var mock = new Mock<HttpRequestBase>();
+            mock.SetupGet(x => x.UserAgent).Returns("Mozilla/5.0 MSIE");
+            return mock.Object;
+        }
+
         [Test]
         public void CanFetchUserByName()
         {
@@ -93,7 +101,7 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanLoginAndAutomaticallyUpgradesPassword()
         {
-            var session = userManager.Login(JeremyClarkson.UserName, "password");
+            var session = userManager.Login(JeremyClarkson.UserName, "password", GetMockRequest());
             Assert.AreEqual(JeremyClarkson.DisplayName, session.User.DisplayName);
             Assert.False(session.User.PasswordHash.Contains("password"));
 
@@ -134,7 +142,7 @@ namespace Dolstagis.Tests.Accounts
         [Test]
         public void CanGetSessionsFromUser()
         {
-            var userSession = userManager.Login(JeremyClarkson.UserName, "password");
+            var userSession = userManager.Login(JeremyClarkson.UserName, "password", GetMockRequest());
             this.Session.Flush();
             this.Session.Clear();
             var userSession2 = this.Session.Get<UserSession>(userSession.SessionID);
