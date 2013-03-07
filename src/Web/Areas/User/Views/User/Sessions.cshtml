@@ -1,4 +1,4 @@
-﻿@model Dolstagis.Accounts.UserSession
+﻿@model IEnumerable<UserSession>
 @using Dolstagis.Accounts;
 
 @{
@@ -12,13 +12,16 @@
   <tr>
     <th colspan="3">Your current session</th>
   </tr>
-  @{Html.RenderPartial("partial/SessionRow", Model);}
-  <tr>
-    <th colspan="3">Your other sessions</th>
-  </tr>
-  @foreach (UserSession session in this.Model.User.Sessions
-    .Where(x => x != this.Model)
-    .OrderByDescending(x => x.DateLastAccessed)) {
-    Html.RenderPartial("partial/SessionRow", session);
+
+  @Html.Partial("partial/SessionRow", this.User)
+  @if (this.Model.Any(x => x != this.User)) {
+    <tr>
+      <th colspan="3">Your other sessions</th>
+    </tr>
+    foreach (UserSession session in this.Model
+      .Where(x => x != this.User)
+      .OrderByDescending(x => x.DateLastAccessed)) {
+      @Html.Partial("partial/SessionRow", session)
+    }
   }
 </table>

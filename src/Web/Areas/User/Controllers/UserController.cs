@@ -121,7 +121,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpGet]
         public ActionResult Sessions()
         {
-            return View(this.User);
+            return View(this.users.GetSessionsForUser(this.User.Identity as Accounts.User).ToList());
         }
     }
 }

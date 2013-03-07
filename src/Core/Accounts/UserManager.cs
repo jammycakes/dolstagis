@@ -150,6 +150,27 @@ namespace Dolstagis.Accounts
             }
         }
 
+        /// <summary>
+        ///  Gets all a user's sessions with a single database query.
+        /// </summary>
+        /// <param name="user">
+        ///  The user whose sessions we are to list.
+        /// </param>
+        /// <returns>
+        ///  A list of user sessions.
+        /// </returns>
+        /// <remarks>
+        ///  This eliminates a select n+1 problem when listing a user's login sessions.
+        ///  User agent information will also be retrieved.
+        /// </remarks>
+
+        public IEnumerable<UserSession> GetSessionsForUser(User user)
+        {
+            return this.Session.Query<UserSession>().Fetch(x => x.UserAgent)
+                .Where(s => s.User == user)
+                .OrderByDescending(s => s.DateLastAccessed);
+        }
+
 
         /// <summary>
         ///  Creates user tokens for all users with a given username or email address.
