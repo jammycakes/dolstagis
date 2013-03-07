@@ -92,6 +92,7 @@
     <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
     <Compile Include="Core\ManagerBase.cs" />
     <Compile Include="Core\Configuration\RequiredAttribute.cs" />
+    <Compile Include="Core\Manager.cs" />
     <Compile Include="Core\Templates\ITemplateEngine.cs" />
     <Compile Include="Core\Templates\SimpleTemplateEngine.cs" />
     <Compile Include="Core\Time\IClock.cs" />
