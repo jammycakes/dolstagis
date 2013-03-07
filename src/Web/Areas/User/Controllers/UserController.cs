@@ -77,13 +77,13 @@ namespace Dolstagis.Web.Areas.User.Controllers
         }
 
         [HttpGet]
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             return View(this.User.Identity);
         }
 
         [HttpPost]
-        public ActionResult Profile(string displayName, string emailAddress)
+        public new ActionResult Profile(string displayName, string emailAddress)
         {
             var user = this.User.Identity as Accounts.User;
             user.DisplayName = displayName;
