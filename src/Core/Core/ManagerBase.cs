@@ -1,4 +1,5 @@
 ﻿using Dolstagis.Core.Caching;
+using Dolstagis.Core.Time;
 using NHibernate;
 using Ninject;
 using System;
@@ -11,6 +12,7 @@ namespace Dolstagis.Core
     public abstract class ManagerBase : IDisposable
     {
         private ICache _cache = new NullCache();
+        private IClock _clock = new SystemClock();
         private bool _ownsSession = false;
 
         protected ISessionFactory SessionFactory { get; private set; }
@@ -28,6 +30,16 @@ namespace Dolstagis.Core
             set { _cache = value; }
         }
 
+        /// <summary>
+        ///  Gets or sets the <see cref="IClock"/> instance used to manage the time.
+        /// </summary>
+
+        [Inject, Optional]
+        public IClock Clock
+        {
+            get { return _clock; }
+            set { _clock = value; }
+        }
 
         /// <summary>
         ///  Creates a new instance of the <see cref="ManagerBase"/> subclass that

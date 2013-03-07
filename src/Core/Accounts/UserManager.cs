@@ -18,9 +18,6 @@ namespace Dolstagis.Accounts
 {
     public class UserManager : ManagerBase
     {
-        [Inject]
-        public IClock Clock { get; set; }
-
         [Inject, Optional]
         public IMailer mailer { get; set; }
 
