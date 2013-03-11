@@ -123,5 +123,12 @@ namespace Dolstagis.Web.Areas.User.Controllers
         {
             return View(this.users.GetSessionsForUser(this.User.Identity as Accounts.User).ToList());
         }
+
+        [HttpDelete]
+        public ActionResult DeleteSession(string id)
+        {
+            this.users.DeleteSession(id);
+            return Content("success");
+        }
     }
 }

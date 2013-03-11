@@ -151,6 +151,23 @@ namespace Dolstagis.Accounts
         }
 
         /// <summary>
+        ///  Deletes a user session by ID.
+        /// </summary>
+        /// <param name="sessionID">
+        ///  The session ID.
+        /// </param>
+        /// <returns>
+        ///  The session which has been deleted.
+        /// </returns>
+
+        public UserSession DeleteSession(string sessionID)
+        {
+            var userSession = this.Session.Get<UserSession>(sessionID);
+            DeleteSession(userSession);
+            return userSession;
+        }
+
+        /// <summary>
         ///  Gets all a user's sessions with a single database query.
         /// </summary>
         /// <param name="user">
