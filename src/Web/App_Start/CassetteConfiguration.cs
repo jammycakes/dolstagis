@@ -1,6 +1,7 @@
 using Cassette;
 using Cassette.Scripts;
 using Cassette.Stylesheets;
+using System.Text.RegularExpressions;
 
 namespace Dolstagis.Web.App_Start
 {
@@ -11,7 +12,10 @@ namespace Dolstagis.Web.App_Start
     {
         public void Configure(BundleCollection bundles)
         {
-            bundles.AddPerSubDirectory<ScriptBundle>("Scripts");
+            bundles.AddPerSubDirectory<ScriptBundle>("Scripts", new FileSearch {
+                Pattern = "*.js",
+                Exclude = new Regex(@"\.(?:intellisense|min)\.js$")
+            });
 
             /*
              * Stylesheets are configured per file. This is because Less CSS

@@ -1,0 +1,15 @@
+﻿JavaScript organisation
+=======================
+
+To facilitate debugging, we take all responsibility for script minification.
+Therefore, you MUST make sure that you include the unminified version of your
+scripts here.
+
+Scripts with names ending in .intellisense.js or .min.js will NOT be bundled
+and will NOT be loaded into your page.
+
+Organisation
+============
+Scripts common to all pages on the site should be placed in the root directory.
+Scripts specific to one area of the site should be placed in a subdirectory
+named after that area.
