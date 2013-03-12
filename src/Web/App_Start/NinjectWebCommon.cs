@@ -10,6 +10,7 @@ using Ninject.Web.Common;
 using System;
 using System.Web;
 using System.Web.Hosting;
+using System.Web.Http;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -49,6 +50,7 @@ namespace Dolstagis.Web.App_Start
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
             RegisterServices(kernel);
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
             return kernel;
         }
 
