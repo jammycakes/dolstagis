@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Mvc;
+using Dolstagis.Web.App_Start;
 
 namespace Dolstagis.Web.Areas.User
 {
@@ -14,6 +16,15 @@ namespace Dolstagis.Web.Areas.User
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
+            context.MapHttpRoute(
+                name: "UserAjax",
+                routeTemplate: "user/ajax/{action}/{id}",
+                defaults: new {
+                    controller = "UserAjax",
+                    id = RouteParameter.Optional
+                }
+            );
+
             context.MapRoute(
                 "User_token",
                 "User/{token}",
