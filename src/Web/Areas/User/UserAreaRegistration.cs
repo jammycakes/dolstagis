@@ -17,7 +17,7 @@ namespace Dolstagis.Web.Areas.User
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapHttpRoute(
-                name: "UserAjax",
+                name: "User_ajax",
                 routeTemplate: "user/ajax/{action}/{id}",
                 defaults: new {
                     controller = "UserAjax",
