@@ -3,7 +3,7 @@ using Cassette.Scripts;
 using Cassette.Stylesheets;
 using System.Text.RegularExpressions;
 
-namespace Dolstagis.Web.App_Start
+namespace Dolstagis.Web.Infrastructure
 {
     /// <summary>
     /// Configures the Cassette asset bundles for the web application.

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
-using Dolstagis.Web.App_Start;
+using Dolstagis.Web.Infrastructure;
 
 namespace Dolstagis.Web.Areas.User
 {

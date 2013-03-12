@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Http.Dependencies;
 using System.Web.Http.Services;
 
-namespace Dolstagis.Web.App_Start
+namespace Dolstagis.Web.Infrastructure
 {
     public class NinjectScope : IDependencyScope
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http.Dependencies;
 
-namespace Dolstagis.Web.App_Start
+namespace Dolstagis.Web.Infrastructure
 {
     public class NinjectResolver : NinjectScope, IDependencyResolver
     {
