@@ -1,5 +1,6 @@
 ﻿using Dolstagis.Accounts;
 using Dolstagis.Web.Infrastructure;
+using Dolstagis.Web.Infrastructure.Config;
 using Ninject;
 using System;
 using System.Web.Http;

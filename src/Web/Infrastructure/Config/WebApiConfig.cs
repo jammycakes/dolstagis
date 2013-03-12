@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Dolstagis.Web.Infrastructure
+namespace Dolstagis.Web.Infrastructure.Config
 {
     public static class WebApiConfig
     {

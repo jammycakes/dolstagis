@@ -9,7 +9,7 @@ using NLog.Common;
 using NLog.Config;
 using NLog.Targets;
 
-namespace Dolstagis.Web.Infrastructure
+namespace Dolstagis.Web.Infrastructure.Config
 {
     public static class LoggingConfig
     {

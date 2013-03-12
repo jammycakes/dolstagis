@@ -166,11 +166,11 @@
   <ItemGroup>
     <Compile Include="Infrastructure\AreaHttpControllerSelector.cs" />
     <Compile Include="Infrastructure\AreaRegistrationContextExtensions.cs" />
-    <Compile Include="Infrastructure\CassetteConfiguration.cs" />
-    <Compile Include="Infrastructure\LoggingConfig.cs" />
+    <Compile Include="Infrastructure\Config\CassetteConfiguration.cs" />
+    <Compile Include="Infrastructure\Config\LoggingConfig.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
     <Compile Include="Infrastructure\NinjectScope.cs" />
-    <Compile Include="Infrastructure\NinjectWebCommon.cs" />
+    <Compile Include="Infrastructure\Config\NinjectWebCommon.cs" />
     <Compile Include="Areas\User\Controllers\UserAjaxController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,9 +189,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\FilterConfig.cs" />
-    <Compile Include="Infrastructure\RouteConfig.cs" />
-    <Compile Include="Infrastructure\WebApiConfig.cs" />
+    <Compile Include="Infrastructure\Config\FilterConfig.cs" />
+    <Compile Include="Infrastructure\Config\RouteConfig.cs" />
+    <Compile Include="Infrastructure\Config\WebApiConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\css\layout\body.less" />
     <Content Include="Content\css\2col.less" />

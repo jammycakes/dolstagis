@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Dolstagis.Web.Infrastructure
+namespace Dolstagis.Web.Infrastructure.Config
 {
     public class FilterConfig
     {

@@ -12,10 +12,10 @@ using System.Web;
 using System.Web.Hosting;
 using System.Web.Http;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.Infrastructure.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.Infrastructure.NinjectWebCommon), "Stop")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Stop")]
 
-namespace Dolstagis.Web.Infrastructure
+namespace Dolstagis.Web.Infrastructure.Config
 {
     public static class NinjectWebCommon 
     {
