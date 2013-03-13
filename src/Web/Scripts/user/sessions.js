@@ -11,8 +11,7 @@
       var sessionID = $(this).data('sessionid');
       $.ajax({
         type: 'DELETE',
-        url: '/user/deletesession',
-        data: { id: sessionID },
+        url: '/user/ajax/session?id=' + encodeURIComponent(sessionID),
         success: function (data, textStatus, jqXHR) {
           $(self).parents('tr').first().fadeDelete();
         }

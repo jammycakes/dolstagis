@@ -18,31 +18,23 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.userManager = userManager;
         }
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        /// <summary>
+        ///  Ends a user session.
+        /// </summary>
+        /// <param name="id">
+        ///  The ID of the session to delete.
+        /// </param>
+
+        [HttpDelete, ActionName("session")]
+        public void EndSession(string id)
         {
-            return new string[] { "value1", "value2" };
+            this.userManager.DeleteSession(id);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpGet, ActionName("session")]
+        public string GetSession(string id)
         {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            return id;
         }
     }
 }

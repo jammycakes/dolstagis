@@ -164,6 +164,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\User\Controllers\UserAjaxController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Infrastructure\AreaHttpControllerSelector.cs" />
     <Compile Include="Infrastructure\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Infrastructure\Config\CassetteConfiguration.cs" />
@@ -171,7 +174,6 @@
     <Compile Include="Infrastructure\NinjectResolver.cs" />
     <Compile Include="Infrastructure\NinjectScope.cs" />
     <Compile Include="Infrastructure\Config\NinjectWebCommon.cs" />
-    <Compile Include="Areas\User\Controllers\UserAjaxController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\User\Controllers\UserController.cs" />
