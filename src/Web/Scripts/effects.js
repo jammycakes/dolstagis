@@ -46,4 +46,10 @@
     }
   };
 
+  $(function () {
+    $(document).ajaxError(function (event, jqXHR, ajaxSettings, thrownError) {
+      dolstagis.ui.flash('Sorry, an error occurred when communicating with the web server.', 'error');
+    });
+  });
+
 })(jQuery);
