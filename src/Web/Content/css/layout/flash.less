@@ -29,6 +29,22 @@ ul#flash {
         &:last-child {
             .rounded-corners-bottom(@widget-border-radius);
         }
+
+        .close {
+            display:none;
+        }
+
+        &:hover .close {
+            display: block;
+            float: right;
+            position: absolute;
+            right: 24px;
+            width: 16px;
+            height: 16px;
+            overflow: hidden;
+            font-size: 0px;
+            background: url(/content/images/icons/accept.png) left top no-repeat;
+        }
     }
 
     .error {

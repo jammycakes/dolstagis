@@ -31,6 +31,21 @@
     $(document).ajaxError(function (event, jqXHR, ajaxSettings, thrownError) {
       dolstagis.ui.flash('Sorry, an error occurred when communicating with the web server.', 'error');
     });
+
+    $(document).on('mouseover', '#flash li', function() {
+      var $link = $(this).find('.close');
+      if ($link.length == 0)
+        $(this).prepend('<a href="#" class="close" title="Dismiss this message">Close</a>');
+    });
+
+    $(document).on('click', '#flash li a.close', function (e) {
+      e.preventDefault();
+      var $li = $(this).parents('li').first();
+      var $ul = $li.parent();
+      $li.fadeDelete(function () {
+        if ($ul.children().length == 0) $ul.remove();
+      });
+    });
   });
 
 })(jQuery);
