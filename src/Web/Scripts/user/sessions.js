@@ -19,5 +19,16 @@
       e.preventDefault();
     });
 
+    $('#user-sessions').on('click', '.delete-others', function (e) {
+      var self = this;
+      $.ajax({
+        type: 'DELETE',
+        url: '/user/ajax/other-sessions',
+        success: function (data, textStatus, jqXHR) {
+          $(self).parents('tr').first().nextAll().fadeDelete();
+        }
+      });
+      e.preventDefault()
+    });
   });
 })(jQuery);

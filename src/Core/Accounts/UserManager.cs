@@ -13,6 +13,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Web;
+using NHibernate.Type;
 
 namespace Dolstagis.Accounts
 {
@@ -165,6 +166,23 @@ namespace Dolstagis.Accounts
             var userSession = this.Session.Get<UserSession>(sessionID);
             DeleteSession(userSession);
             return userSession;
+        }
+
+        /// <summary>
+        ///  Delete all other sessions for a user.
+        /// </summary>
+        /// <param name="currentSession">
+        ///  The user's current session.
+        /// </param>
+
+        public void DeleteOtherSessions(UserSession currentSession)
+        {
+            if (currentSession == null) return;
+            this.Session.Delete(
+                "from UserSession where SessionID != ? and User = ?",
+                new object[] { currentSession.SessionID, currentSession.User },
+                new IType[] { NHibernateUtil.String, NHibernateUtil.Entity(typeof(User)) }
+            );
         }
 
         /// <summary>

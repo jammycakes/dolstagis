@@ -31,6 +31,12 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.userManager.DeleteSession(id);
         }
 
+        [HttpDelete, ActionName("other-sessions")]
+        public void EndOtherSessions()
+        {
+            this.userManager.DeleteOtherSessions(this.User as UserSession);
+        }
+
         [HttpGet, ActionName("session")]
         public string GetSession(string id)
         {
