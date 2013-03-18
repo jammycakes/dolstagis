@@ -34,9 +34,20 @@ namespace Dolstagis.Web.Areas.User.Controllers
         {
             var session = users.Login(username, password, this.Request);
             if (session != null) {
-                var cookie = FormsAuthentication.GetAuthCookie(session.SessionID, persist);
+                HttpCookie authCookie;
+                if (persist) {
+                    var time = TimeSpan.FromDays(3652.5);
+                    var ticket = new FormsAuthenticationTicket
+                        (session.SessionID, true, Convert.ToInt32(time.TotalMinutes));
+                    var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+                    authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                    authCookie.Expires = DateTime.Now.Add(time);
+                }
+                else {
+                    authCookie = FormsAuthentication.GetAuthCookie(session.SessionID, false);
+                }
+                this.Response.SetCookie(authCookie);
                 var url = FormsAuthentication.GetRedirectUrl(session.SessionID, persist);
-                this.Response.SetCookie(cookie);
                 this.Flash("Welcome back, " + session.User.DisplayName, Level.Info);
                 return Redirect(url);
             }
