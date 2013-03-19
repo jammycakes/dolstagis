@@ -42,9 +42,8 @@
       e.preventDefault();
       var $li = $(this).parents('li').first();
       var $ul = $li.parent();
-      $li.fadeDelete(function () {
-        if ($ul.children().length == 0) $ul.remove();
-      });
+      var $toFade = $ul.children().length > 1 ? $li : $ul;
+      $toFade.fadeDelete();
     });
   });
 
