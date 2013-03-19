@@ -1,4 +1,4 @@
-﻿// @reference ../effects.js
+﻿// @reference ../ui.js
 // @reference ../jquery-1.8.3.js
 
 (function ($, undefined) {

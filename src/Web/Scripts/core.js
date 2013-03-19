@@ -1,6 +1,5 @@
 ﻿// @reference jquery-1.8.3.js
 
-
 var dolstagis = window.dolstagis = {
 
   define: function define(ns, target) {
