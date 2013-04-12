@@ -24,5 +24,12 @@ namespace Dolstagis.Accounts
         /// </summary>
 
         public TimeSpan TokenLifetime { get; private set; }
+
+        /// <summary>
+        ///  Indicates that registration is open to the public.
+        ///  If this is not the case, registration is by invitation only.
+        /// </summary>
+
+        public bool AllowRegistration { get; private set; }
     }
 }
