@@ -8,7 +8,7 @@ namespace Dolstagis.Accounts
 {
     public class Invitation : IMailable
     {
-        public virtual string InvitationID { get; protected set; }
+        public virtual string InvitationID { get; set; }
 
         public virtual User InvitingUser { get; set; }
 
@@ -18,7 +18,7 @@ namespace Dolstagis.Accounts
 
         public virtual User Invitee { get; set; }
 
-        public virtual DateTime DateCreated { get; protected set; }
+        public virtual DateTime DateCreated { get; set; }
 
         public virtual DateTime? DateSent { get; set; }
 
