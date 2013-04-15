@@ -45,7 +45,7 @@ namespace Dolstagis.Accounts
 
         bool IPrincipal.IsInRole(string role)
         {
-            return false;
+            return this.User.IsSuperUser;
         }
     }
 }
