@@ -19,4 +19,13 @@
         }
       });
   };
+
+  $(function () {
+    $('table').on('change', 'input.select-all:checkbox', function () {
+      var checked = this.checked;
+      $(this).parents('table').find('input:checkbox').each(function () {
+        this.checked = checked;
+      });
+    });
+  });
 })(jQuery);

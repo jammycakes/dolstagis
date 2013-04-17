@@ -8,6 +8,9 @@
 
 <table>
   <tr>
+    <th>
+      <input type="checkbox" class="select-all" />
+    </th>
     <th>User ID</th>
     <th>User name</th>
     <th>Email</th>
@@ -15,6 +18,9 @@
   </tr>
   @foreach (var user in Model) {
     <tr>
+      <td>
+        <input type="checkbox" name="select" value="@user.UserID" />
+      </td>
       <td>@user.UserID</td>
       <td>@user.UserName</td>
       <td>
