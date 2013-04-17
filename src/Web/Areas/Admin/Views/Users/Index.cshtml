@@ -1,6 +1,26 @@
-﻿@{
+﻿@model IEnumerable<Dolstagis.Accounts.User>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_2col.cshtml";
 }
 
 <h2>User list</h2>
+
+<table>
+  <tr>
+    <th>User ID</th>
+    <th>User name</th>
+    <th>Email</th>
+    <th>Name</th>
+  </tr>
+  @foreach (var user in Model) {
+    <tr>
+      <td>@user.UserID</td>
+      <td>@user.UserName</td>
+      <td>
+        <a href="mailto:@user.EmailAddress">@user.EmailAddress</a>
+      </td>
+      <td>@user.DisplayName</td>
+    </tr>
+  }
+</table>
