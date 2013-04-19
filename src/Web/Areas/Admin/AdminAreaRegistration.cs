@@ -21,7 +21,7 @@ namespace Dolstagis.Web.Areas.Admin
                 routeTemplate: "admin/ajax/{action}/{id}",
                 defaults: new {
                     controller = "AdminAjax",
-                    id = RouteParameter.Optional
+                    id = UrlParameter.Optional
                 }
             );
 
