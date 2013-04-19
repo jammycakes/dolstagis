@@ -170,12 +170,8 @@
     <Compile Include="Areas\User\Controllers\UserAjaxController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\AreaHttpControllerSelector.cs" />
-    <Compile Include="Infrastructure\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Infrastructure\Config\CassetteConfiguration.cs" />
     <Compile Include="Infrastructure\Config\LoggingConfig.cs" />
-    <Compile Include="Infrastructure\NinjectResolver.cs" />
-    <Compile Include="Infrastructure\NinjectScope.cs" />
     <Compile Include="Infrastructure\Config\NinjectWebCommon.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -196,7 +192,6 @@
   <ItemGroup>
     <Compile Include="Infrastructure\Config\FilterConfig.cs" />
     <Compile Include="Infrastructure\Config\RouteConfig.cs" />
-    <Compile Include="Infrastructure\Config\WebApiConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\css\layout\body.less" />
     <Content Include="Content\css\2col.less" />

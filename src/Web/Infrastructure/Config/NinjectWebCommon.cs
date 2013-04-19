@@ -50,7 +50,6 @@ namespace Dolstagis.Web.Infrastructure.Config
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
             RegisterServices(kernel);
-            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
             return kernel;
         }
 

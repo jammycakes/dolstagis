@@ -3,8 +3,6 @@ using Dolstagis.Web.Infrastructure;
 using Dolstagis.Web.Infrastructure.Config;
 using Ninject;
 using System;
-using System.Web.Http;
-using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -21,13 +19,8 @@ namespace Dolstagis.Web
         {
             LoggingConfig.InitLogging();
             AreaRegistration.RegisterAllAreas();
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            GlobalConfiguration.Configuration.Services.Replace(
-                typeof(IHttpControllerSelector),
-                new AreaHttpControllerSelector(GlobalConfiguration.Configuration)
-            );
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
