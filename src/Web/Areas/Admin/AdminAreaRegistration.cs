@@ -1,5 +1,4 @@
-﻿using System.Web.Http;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Dolstagis.Web.Infrastructure;
 
 namespace Dolstagis.Web.Areas.Admin
@@ -16,12 +15,12 @@ namespace Dolstagis.Web.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapHttpRoute(
-                name: "Admin_ajax",
-                routeTemplate: "admin/ajax/{action}/{id}",
-                defaults: new {
+            context.MapRoute(
+                "Admin_ajax",
+                "admin/ajax/{action}/{id}",
+                new {
                     controller = "AdminAjax",
-                    id = RouteParameter.Optional
+                    id = UrlParameter.Optional
                 }
             );
 
