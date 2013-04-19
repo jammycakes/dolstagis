@@ -3,13 +3,11 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {
-    public class UserAjaxController : ApiController
+    public class UserAjaxController : Controller
     {
         private UserManager userManager;
 
@@ -26,21 +24,23 @@ namespace Dolstagis.Web.Areas.User.Controllers
         /// </param>
 
         [HttpDelete, ActionName("session")]
-        public void EndSession(string id)
+        public ActionResult EndSession(string id)
         {
             this.userManager.DeleteSession(id);
+            return Content("OK");
         }
 
         [HttpDelete, ActionName("other-sessions")]
-        public void EndOtherSessions()
+        public ActionResult EndOtherSessions()
         {
             this.userManager.DeleteOtherSessions(this.User as UserSession);
+            return Content("OK");
         }
 
         [HttpGet, ActionName("session")]
-        public string GetSession(string id)
+        public ActionResult GetSession(string id)
         {
-            return id;
+            return Content(id.ToString());
         }
     }
 }
