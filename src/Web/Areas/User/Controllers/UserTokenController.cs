@@ -1,9 +1,11 @@
-﻿using Dolstagis.Accounts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Dolstagis.Accounts;
+using Dolstagis.Web.Helpers;
+using Dolstagis.Web.Helpers.Flash;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {
@@ -35,6 +37,26 @@ namespace Dolstagis.Web.Areas.User.Controllers
         public ActionResult TestToken()
         {
             return View(token);
+        }
+
+        [HttpGet]
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(string newPassword, string confirmPassword)
+        {
+            if (newPassword != confirmPassword) {
+                this.Flash("Passwords do not match.", Level.Error);
+                return View();
+            }
+            else {
+                userManager.SetPassword(this.token.User, newPassword);
+                this.Flash("Your password has been changed.");
+                return Redirect("/");
+            }
         }
     }
 }
