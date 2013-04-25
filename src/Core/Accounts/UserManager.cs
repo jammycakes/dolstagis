@@ -97,7 +97,6 @@ namespace Dolstagis.Accounts
         public UserSession Login(string username, string password, HttpRequestBase request)
         {
             var user = GetUserByUserName(username);
-            var userAgent = WebInfo.GetUserAgent(request.UserAgent);
             if (user == null) return null;
             var isValid = this.PasswordProvider.Verify(password, user.PasswordHash);
             switch (isValid) {
@@ -105,14 +104,36 @@ namespace Dolstagis.Accounts
                     user.PasswordHash = this.PasswordProvider.ComputeHash(password);
                     goto case PasswordResult.Correct;
                 case PasswordResult.Correct:
-                    var result = new UserSession(user, userAgent, Clock.UtcNow());
-                    result.IPAddress = request.UserHostAddress;
-                    this.Session.Save(result);
-                    this.Session.Flush();
-                    return result;
+                    return CreateSessionFor(user, request.UserAgent, request.UserHostAddress);
                 default:
                     return null;
             }
+        }
+
+        /// <summary>
+        ///  Create a new session for the given user.
+        /// </summary>
+        /// <param name="user">
+        ///  The user for whom we are creating a new login session.
+        /// </param>
+        /// <param name="sUserAgent">
+        ///  The user agent string.
+        /// </param>
+        /// <param name="ipAddress">
+        ///  The user's client IP address.
+        /// </param>
+        /// <returns>
+        ///  A new <see cref="UserSession"/> instance.
+        /// </returns>
+
+        public UserSession CreateSessionFor(User user, string sUserAgent, string ipAddress)
+        {
+            var userAgent = WebInfo.GetUserAgent(sUserAgent);
+            var result = new UserSession(user, userAgent, Clock.UtcNow());
+            result.IPAddress = ipAddress;
+            this.Session.Save(result);
+            this.Session.Flush();
+            return result;
         }
 
 
@@ -312,7 +333,18 @@ namespace Dolstagis.Accounts
                 throw new UserException("Your password was not correct.");
             }
 
-            user.PasswordHash = this.PasswordProvider.ComputeHash(newPassword);
+            this.SetPassword(user, newPassword);
+        }
+
+        /// <summary>
+        ///  Sets a user's password, without checking the old one first.
+        /// </summary>
+        /// <param name="user">The user whose password we are changing.</param>
+        /// <param name="password">The new password.</param>
+
+        public void SetPassword(User user, string password)
+        {
+            user.PasswordHash = this.PasswordProvider.ComputeHash(password);
         }
     }
 }
