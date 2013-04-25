@@ -11,6 +11,7 @@ using System;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Http;
+using Dolstagis.Core.Mail;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Stop")]
@@ -74,6 +75,9 @@ namespace Dolstagis.Web.Infrastructure.Config
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
                 .WhenInjectedInto<ITemplateEngine>();
             kernel.Bind<ICache>().ToMethod(x => new HttpRuntimeCache(HttpRuntime.Cache));
+#if DEBUG
+            kernel.Rebind<IMailer>().To<MailLogger>().InSingletonScope();
+#endif
         }
     }
 }
