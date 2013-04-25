@@ -70,7 +70,6 @@ namespace Dolstagis.Web.Infrastructure.Config
                 .When(x => HttpContext.Current != null)
                 .InRequestScope()
                 .OnDeactivation(x => x.Flush());
-            kernel.Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
             kernel.Bind<IFilespace>()
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
                 .WhenInjectedInto<ITemplateEngine>();
