@@ -34,18 +34,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         {
             var session = users.Login(username, password, this.Request);
             if (session != null) {
-                HttpCookie authCookie;
-                if (persist) {
-                    var time = TimeSpan.FromDays(3652.5);
-                    var ticket = new FormsAuthenticationTicket
-                        (session.SessionID, true, Convert.ToInt32(time.TotalMinutes));
-                    var encryptedTicket = FormsAuthentication.Encrypt(ticket);
-                    authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                    authCookie.Expires = DateTime.Now.Add(time);
-                }
-                else {
-                    authCookie = FormsAuthentication.GetAuthCookie(session.SessionID, false);
-                }
+                HttpCookie authCookie = UserControllerHelper.GetAuthCookie(session, persist);
                 this.Response.SetCookie(authCookie);
                 var url = FormsAuthentication.GetRedirectUrl(session.SessionID, persist);
                 this.Flash("Welcome back, " + session.User.DisplayName, Level.Info);
@@ -56,6 +45,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
                 return View();
             }
         }
+
 
         [HttpGet]
         [AllowAnonymous]

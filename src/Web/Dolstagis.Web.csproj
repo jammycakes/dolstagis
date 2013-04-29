@@ -153,6 +153,7 @@
     <Compile Include="Areas\User\Controllers\UserAjaxController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\User\Controllers\UserControllerHelper.cs" />
     <Compile Include="Infrastructure\Config\CassetteConfiguration.cs" />
     <Compile Include="Infrastructure\Config\LoggingConfig.cs" />
     <Compile Include="Infrastructure\Config\NinjectWebCommon.cs" />
