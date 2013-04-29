@@ -220,7 +220,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Areas\User\Views\User\RequestPasswordReset.cshtml" />
-    <Content Include="Areas\User\Views\User\PasswordRequestSent.cshtml" />
+    <Content Include="Areas\User\Views\User\PasswordResetSent.cshtml" />
     <Content Include="Areas\User\Views\UserToken\TestToken.cshtml" />
     <Content Include="Areas\User\Views\User\Login.cshtml" />
     <Content Include="Views\Shared\LoggedIn.cshtml" />
