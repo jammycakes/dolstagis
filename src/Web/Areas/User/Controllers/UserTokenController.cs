@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Dolstagis.Accounts;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
@@ -54,7 +55,14 @@ namespace Dolstagis.Web.Areas.User.Controllers
             }
             else {
                 userManager.SetPassword(this.token.User, newPassword);
-                this.Flash("Your password has been changed.");
+                var session = userManager.CreateSessionFor
+                    (this.token.User, this.Request.UserAgent, this.Request.UserHostAddress);
+                HttpCookie authCookie = UserControllerHelper.GetAuthCookie(session, false);
+                this.Flash("Welcome back, " + session.User.DisplayName +
+                    ". Your password has been changed and you have been logged in.",
+                    Level.Info);
+                this.Response.SetCookie(authCookie);
+                userManager.DeleteToken(token);
                 return Redirect("/");
             }
         }
