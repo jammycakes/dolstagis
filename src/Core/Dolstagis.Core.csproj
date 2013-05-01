@@ -64,6 +64,7 @@
     <Compile Include="Accounts\IAccountSettings.cs" />
     <Compile Include="Accounts\Invitation.cs" />
     <Compile Include="Accounts\InvitationManager.cs" />
+    <Compile Include="Accounts\InvitationState.cs" />
     <Compile Include="Accounts\Mappings\InvitationMap.cs" />
     <Compile Include="Accounts\Mappings\UserSessionMap.cs" />
     <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
