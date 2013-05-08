@@ -2,6 +2,11 @@
   <li>
     <a href="/user/profile">@User.Identity.Name</a>
   </li>
+  @if (User.IsInRole("admin")) {
+    <li>
+      <a href="/admin">Site admin</a>
+    </li>
+  }
   <li>
     <a href="/user/logout">Logout</a>
   </li>
