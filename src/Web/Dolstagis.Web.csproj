@@ -150,6 +150,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAjaxController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\User\Controllers\UserAjaxController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -189,6 +190,7 @@
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\User\Views\UserToken\ResetPassword.cshtml" />
     <Content Include="Areas\User\Views\Shared\ChoosePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Content\css\readme.txt" />
     <Content Include="Content\images\icons\accept.png" />
     <Content Include="Global.asax" />
