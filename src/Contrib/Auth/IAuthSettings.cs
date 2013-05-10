@@ -2,7 +2,7 @@
 
 namespace Dolstagis.Contrib.Auth
 {
-    public interface IAccountSettings
+    public interface IAuthSettings
     {
         TimeSpan TokenLifetime { get; }
     }

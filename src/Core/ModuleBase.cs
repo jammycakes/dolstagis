@@ -14,7 +14,7 @@ namespace Dolstagis.Core
     ///  migrations.
     /// </summary>
 
-    public abstract class Module : NinjectModule
+    public abstract class ModuleBase : NinjectModule
     {
         private IEnumerable<Type> EnumerateSubclasses(Type baseClass)
         {
@@ -37,7 +37,7 @@ namespace Dolstagis.Core
              * This allows us to get all the loaded modules with a simple IOC resolution.
              */
 
-            Bind<Module>().ToConstant(this).InSingletonScope();
+            Bind<ModuleBase>().ToConstant(this).InSingletonScope();
         }
     }
 }

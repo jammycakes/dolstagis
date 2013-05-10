@@ -24,7 +24,7 @@ namespace Dolstagis.Contrib.Auth
         public ITemplateEngine templateEngine { get; set; }
 
         [Inject]
-        public IAccountSettings Settings { get; set; }
+        public IAuthSettings Settings { get; set; }
 
         [Inject]
         public IPasswordProvider PasswordProvider { get; set; }

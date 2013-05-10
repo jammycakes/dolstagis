@@ -7,7 +7,7 @@ using Ninject.Modules;
 
 namespace Dolstagis.Contrib.Auth
 {
-    public class AccountsNinjectModule : Module
+    public class AuthModule : ModuleBase
     {
         public override void Load()
         {
@@ -15,7 +15,7 @@ namespace Dolstagis.Contrib.Auth
 
             /* ====== Settings ====== */
 
-            Bind<IAccountSettings>().To<AccountSettings>();
+            Bind<IAuthSettings>().To<AuthSettings>();
             Bind<IBCryptSettings>().To<BCryptSettings>();
 
             /* ====== Password providers ====== */

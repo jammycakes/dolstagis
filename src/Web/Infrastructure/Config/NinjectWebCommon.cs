@@ -61,7 +61,7 @@ namespace Dolstagis.Web.Infrastructure.Config
             kernel.Load(
                 new Dolstagis.Core.Data.NHibernateNinjectModule("Dolstagis"),
                 new Dolstagis.Core.CoreNinjectModule(),
-                new Dolstagis.Contrib.Auth.AccountsNinjectModule(),
+                new Dolstagis.Contrib.Auth.AuthModule(),
                 new Dolstagis.Web.Helpers.HelperNinjectModule()
             );
             kernel.Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())

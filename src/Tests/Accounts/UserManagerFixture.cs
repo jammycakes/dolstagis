@@ -50,7 +50,7 @@ namespace Dolstagis.Tests.Accounts
 
         protected override void BeforeFixture()
         {
-            this.Kernel.Load(new AccountsNinjectModule());
+            this.Kernel.Load(new AuthModule());
 
             var mClock = new Mock<IClock>();
             mClock.Setup(x => x.Now()).Returns(time.ToLocalTime());

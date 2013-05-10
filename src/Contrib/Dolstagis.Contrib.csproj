@@ -60,9 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auth\AccountSettings.cs" />
-    <Compile Include="Auth\AccountsNinjectModule.cs" />
-    <Compile Include="Auth\IAccountSettings.cs" />
+    <Compile Include="Auth\AuthSettings.cs" />
+    <Compile Include="Auth\AuthModule.cs" />
+    <Compile Include="Auth\IAuthSettings.cs" />
     <Compile Include="Auth\Models\Invitation.cs" />
     <Compile Include="Auth\InvitationManager.cs" />
     <Compile Include="Auth\Models\InvitationState.cs" />

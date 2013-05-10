@@ -79,7 +79,7 @@
     <Compile Include="ManagerBase.cs" />
     <Compile Include="Configuration\RequiredAttribute.cs" />
     <Compile Include="Manager.cs" />
-    <Compile Include="Module.cs" />
+    <Compile Include="ModuleBase.cs" />
     <Compile Include="Templates\ITemplateEngine.cs" />
     <Compile Include="Templates\SimpleTemplateEngine.cs" />
     <Compile Include="Time\IClock.cs" />

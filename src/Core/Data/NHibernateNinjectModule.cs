@@ -72,7 +72,7 @@ namespace Dolstagis.Core.Data
         private NHibernate.Cfg.Configuration BuildConfiguration(IKernel kernel)
         {
             var mappings =
-                from module in kernel.GetAll<Module>()
+                from module in kernel.GetAll<ModuleBase>()
                 from t in module.GetNHibernateMappings()
                 select t;
 
