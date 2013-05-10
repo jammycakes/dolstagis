@@ -82,6 +82,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Batteries\Dolstagis.Batteries.csproj">
+      <Project>{d9ce563c-49ea-4385-ae3c-37898c1e3f0b}</Project>
+      <Name>Dolstagis.Batteries</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Dolstagis.Core.csproj">
       <Project>{8f41c89a-e39b-4593-8e71-99aa69290097}</Project>
       <Name>Dolstagis.Core</Name>

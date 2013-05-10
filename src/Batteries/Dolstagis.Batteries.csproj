@@ -52,6 +52,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\AccountSettings.cs" />
+    <Compile Include="Accounts\AccountsNinjectModule.cs" />
+    <Compile Include="Accounts\IAccountSettings.cs" />
+    <Compile Include="Accounts\Invitation.cs" />
+    <Compile Include="Accounts\InvitationManager.cs" />
+    <Compile Include="Accounts\InvitationState.cs" />
+    <Compile Include="Accounts\Mappings\InvitationMap.cs" />
+    <Compile Include="Accounts\Mappings\UserMap.cs" />
+    <Compile Include="Accounts\Mappings\UserSessionMap.cs" />
+    <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
+    <Compile Include="Accounts\Passwords\AggregatePasswordProvider.cs" />
+    <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProvider.cs" />
+    <Compile Include="Accounts\Passwords\BCrypt\BCryptSettings.cs" />
+    <Compile Include="Accounts\Passwords\BCrypt\IBCryptSettings.cs" />
+    <Compile Include="Accounts\Passwords\IPasswordProvider.cs" />
+    <Compile Include="Accounts\Passwords\PasswordResult.cs" />
+    <Compile Include="Accounts\Passwords\PlainText\PlainTextPasswordProvider.cs" />
+    <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProvider.cs" />
+    <Compile Include="Accounts\User.cs" />
+    <Compile Include="Accounts\UserManager.cs" />
+    <Compile Include="Accounts\UserSession.cs" />
+    <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

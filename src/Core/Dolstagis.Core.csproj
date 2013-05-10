@@ -60,26 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\AccountsNinjectModule.cs" />
-    <Compile Include="Accounts\IAccountSettings.cs" />
-    <Compile Include="Accounts\Invitation.cs" />
-    <Compile Include="Accounts\InvitationManager.cs" />
-    <Compile Include="Accounts\InvitationState.cs" />
-    <Compile Include="Accounts\Mappings\InvitationMap.cs" />
-    <Compile Include="Accounts\Mappings\UserSessionMap.cs" />
-    <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
-    <Compile Include="Accounts\AccountSettings.cs" />
-    <Compile Include="Accounts\Passwords\AggregatePasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\BCryptSettings.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\IBCryptSettings.cs" />
-    <Compile Include="Accounts\Passwords\IPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\PasswordResult.cs" />
-    <Compile Include="Accounts\Passwords\PlainText\PlainTextPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProvider.cs" />
-    <Compile Include="Accounts\UserSession.cs" />
-    <Compile Include="Accounts\UserManager.cs" />
-    <Compile Include="Accounts\UserToken.cs" />
     <Compile Include="Core\Caching\CacheExtensions.cs" />
     <Compile Include="Core\Caching\ICache.cs" />
     <Compile Include="Core\Caching\NullCache.cs" />
@@ -108,8 +88,6 @@
     <Compile Include="Core\WebInfo\UserAgent.cs" />
     <Compile Include="Core\WebInfo\WebInfoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Accounts\Mappings\UserMap.cs" />
-    <Compile Include="Accounts\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

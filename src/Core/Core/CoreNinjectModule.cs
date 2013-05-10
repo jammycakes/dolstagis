@@ -1,5 +1,4 @@
-﻿using Dolstagis.Accounts;
-using Dolstagis.Core.Mail;
+﻿using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
 using Ninject.Modules;
