@@ -21,6 +21,14 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.users = userManager;
         }
 
+        private Dolstagis.Accounts.User AuthenticatedUser
+        {
+            get
+            {
+                return this.User as Dolstagis.Accounts.User;
+            }
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Login()
@@ -123,6 +131,15 @@ namespace Dolstagis.Web.Areas.User.Controllers
         public ActionResult Sessions()
         {
             return View(this.users.GetSessionsForUser(this.User.Identity as Accounts.User).ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Invite()
+        {
+            if (AuthenticatedUser == null || !AuthenticatedUser.CanInvite) {
+                return HttpNotFound();
+            }
+            return View(AuthenticatedUser);
         }
     }
 }

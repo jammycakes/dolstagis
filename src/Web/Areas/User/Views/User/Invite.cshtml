@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Invite";
+    Layout = "~/Views/Shared/_simple.cshtml";
+    var invitations = (((Dolstagis.Accounts.User)User).Invitations;
+}
+
+<h2>Invite a friend</h2>
+
+<form method="post">
+  @if (invitations > 0){
+    <p>You have @invitations @(invitations > 0 ? "invitations" : "invitation") remaining.</p>
+  }
+  <dl>
+    <dt>
+      <label for="ctlName">Your friend's name:</label>
+    </dt>
+    <dd>
+      <input type="text" id="ctlName" name="name" />
+    </dd>
+    <dt>
+      <label for="ctlEmail">E-mail address:</label>
+    </dt>
+    <dd>
+      <input type="text" id="ctlEmail" name="email" />
+    </dd>
+    <dt>
+      <label for="ctlMessage">Message:</label>
+    </dt>
+    <dd>
+      <textarea id="ctlMessage" name="message" />
+    </dd>
+    <dt>&nbsp;</dt>
+    <dd>
+      <input type="submit" value="Send invitation" />
+    </dd>
+  </dl>
+</form>

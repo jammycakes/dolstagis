@@ -191,6 +191,7 @@
     <Content Include="Areas\User\Views\UserToken\ResetPassword.cshtml" />
     <Content Include="Areas\User\Views\Shared\ChoosePassword.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\User\Views\User\Invite.cshtml" />
     <None Include="Content\css\readme.txt" />
     <Content Include="Content\images\icons\accept.png" />
     <Content Include="Global.asax" />
