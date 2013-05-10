@@ -1,9 +1,5 @@
-﻿using Dolstagis.Contrib.Auth;
-using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Dolstagis.Contrib.Auth;
 using Dolstagis.Contrib.Auth.Models;
 
 namespace Dolstagis.Web.Areas.User.Controllers

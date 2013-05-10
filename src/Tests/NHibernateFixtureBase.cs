@@ -1,14 +1,9 @@
-﻿using Dolstagis.Core.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
+﻿using System.Data;
+using Dolstagis.Core.Data;
 using NHibernate;
-using Ninject;
 using NHibernate.Tool.hbm2ddl;
-using Dolstagis.Core;
-using System.Data;
+using Ninject;
+using NUnit.Framework;
 
 namespace Dolstagis.Tests
 {

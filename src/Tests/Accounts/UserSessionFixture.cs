@@ -1,10 +1,6 @@
-﻿using Dolstagis.Contrib.Auth;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using Dolstagis.Contrib.Auth.Models;
+using NUnit.Framework;
 
 namespace Dolstagis.Tests.Accounts
 {

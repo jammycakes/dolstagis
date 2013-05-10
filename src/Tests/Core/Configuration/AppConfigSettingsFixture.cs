@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Configuration;
+using NUnit.Framework;
 
 namespace Dolstagis.Tests.Core.Configuration
 {

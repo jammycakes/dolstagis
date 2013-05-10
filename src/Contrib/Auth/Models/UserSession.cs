@@ -1,10 +1,7 @@
-﻿using Dolstagis.Core.WebInfo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Security.Cryptography;
 using System.Security.Principal;
-using System.Text;
+using Dolstagis.Core.WebInfo;
 
 namespace Dolstagis.Contrib.Auth.Models
 {

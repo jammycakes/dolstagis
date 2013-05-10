@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 
 using NLog;
-using NLog.Common;
 using NLog.Config;
 using NLog.Targets;
 

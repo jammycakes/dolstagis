@@ -1,20 +1,17 @@
-﻿using Dolstagis.Contrib.Auth.Passwords;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Dolstagis.Contrib.Auth.Models;
+using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
-using Dolstagis.Core.Time;
 using Dolstagis.Core.WebInfo;
 using NHibernate;
 using NHibernate.Linq;
-using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Web;
 using NHibernate.Type;
-using Dolstagis.Contrib.Auth.Models;
+using Ninject;
 
 namespace Dolstagis.Contrib.Auth
 {

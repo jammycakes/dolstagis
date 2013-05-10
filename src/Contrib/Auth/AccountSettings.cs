@@ -1,8 +1,5 @@
-﻿using Dolstagis.Core.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
+using Dolstagis.Core.Configuration;
 
 namespace Dolstagis.Contrib.Auth
 {

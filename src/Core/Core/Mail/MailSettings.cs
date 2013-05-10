@@ -1,9 +1,5 @@
-﻿using Dolstagis.Core.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
+﻿using System.Net.Mail;
+using Dolstagis.Core.Configuration;
 
 namespace Dolstagis.Core.Mail
 {

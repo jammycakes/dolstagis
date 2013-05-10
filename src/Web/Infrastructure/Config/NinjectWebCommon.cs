@@ -1,17 +1,15 @@
-using Dolstagis.Core;
+using System;
+using System.Web;
+using System.Web.Hosting;
 using Dolstagis.Core.Caching;
 using Dolstagis.Core.IO;
+using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Web.Helpers.Caching;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NHibernate;
 using Ninject;
 using Ninject.Web.Common;
-using System;
-using System.Web;
-using System.Web.Hosting;
-using System.Web.Http;
-using Dolstagis.Core.Mail;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethod(typeof(Dolstagis.Web.Infrastructure.Config.NinjectWebCommon), "Stop")]

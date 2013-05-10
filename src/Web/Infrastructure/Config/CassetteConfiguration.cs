@@ -1,7 +1,7 @@
+using System.Text.RegularExpressions;
 using Cassette;
 using Cassette.Scripts;
 using Cassette.Stylesheets;
-using System.Text.RegularExpressions;
 
 namespace Dolstagis.Web.Infrastructure.Config
 {

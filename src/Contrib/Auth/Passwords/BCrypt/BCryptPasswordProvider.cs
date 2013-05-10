@@ -1,9 +1,6 @@
-﻿using bc = BCrypt.Net;
+﻿using System;
 using NLog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using bc = BCrypt.Net;
 
 namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {

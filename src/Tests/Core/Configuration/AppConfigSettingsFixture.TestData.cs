@@ -1,5 +1,5 @@
-﻿using Dolstagis.Core.Configuration;
-using System;
+﻿using System;
+using Dolstagis.Core.Configuration;
 
 namespace Dolstagis.Tests.Core.Configuration
 {

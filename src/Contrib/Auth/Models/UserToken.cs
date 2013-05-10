@@ -1,8 +1,4 @@
-﻿using Dolstagis.Core.Time;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 
 namespace Dolstagis.Contrib.Auth.Models
 {

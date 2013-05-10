@@ -1,11 +1,11 @@
-﻿using Dolstagis.Web.Helpers.Flash;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Dolstagis.Web.Helpers.Flash;
 
 namespace Dolstagis.Web.Helpers
 {

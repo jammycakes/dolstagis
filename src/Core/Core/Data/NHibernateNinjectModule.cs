@@ -1,12 +1,12 @@
-﻿using FluentNHibernate.Cfg;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using Ninject;
 using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 
 namespace Dolstagis.Core.Data
 {

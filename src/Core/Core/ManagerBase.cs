@@ -1,11 +1,8 @@
-﻿using Dolstagis.Core.Caching;
+﻿using System;
+using Dolstagis.Core.Caching;
 using Dolstagis.Core.Time;
 using NHibernate;
 using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Dolstagis.Core
 {

@@ -1,17 +1,14 @@
-﻿using Dolstagis.Contrib.Auth;
+﻿using System;
+using System.Linq;
+using System.Web;
+using Dolstagis.Contrib.Auth;
+using Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Contrib.Auth.Passwords.BCrypt;
-using Dolstagis.Core.IO;
 using Dolstagis.Core.Time;
 using Moq;
 using Ninject;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using Dolstagis.Contrib.Auth.Models;
 
 namespace Dolstagis.Tests.Accounts
 {

@@ -1,10 +1,9 @@
-﻿using Dolstagis.Contrib.Auth;
-using Dolstagis.Web.Infrastructure;
-using Dolstagis.Web.Infrastructure.Config;
-using Ninject;
-using System;
+﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Dolstagis.Contrib.Auth;
+using Dolstagis.Web.Infrastructure.Config;
+using Ninject;
 
 namespace Dolstagis.Web
 {
