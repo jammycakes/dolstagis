@@ -1,8 +1,9 @@
-﻿<ul>
+﻿@model Dolstagis.Accounts.User
+<ul>
   <li>
-    <a href="/user/profile">@User.Identity.Name</a>
+    <a href="/user/profile">@Model.DisplayName</a>
   </li>
-  @if (User.IsInRole("admin")) {
+  @if (Model.IsSuperUser) {
     <li>
       <a href="/admin">Site admin</a>
     </li>
