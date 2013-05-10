@@ -7,8 +7,8 @@
     <ProjectGuid>{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dolstagis.Batteries</RootNamespace>
-    <AssemblyName>Dolstagis.Batteries</AssemblyName>
+    <RootNamespace>Dolstagis.Contrib</RootNamespace>
+    <AssemblyName>Dolstagis.Contrib</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

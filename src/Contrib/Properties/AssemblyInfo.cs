@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dolstagis.Batteries")]
+[assembly: AssemblyTitle("Dolstagis.Contrib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dolstagis Solutions")]
-[assembly: AssemblyProduct("Batteries")]
+[assembly: AssemblyProduct("Contrib")]
 [assembly: AssemblyCopyright("Copyright © Dolstagis Solutions 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

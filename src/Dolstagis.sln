@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{801B0B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.DataMigrations", "DataMigrations\Dolstagis.DataMigrations.csproj", "{6782BE67-F7DE-4619-AA04-873D2F354D94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Batteries", "Batteries\Dolstagis.Batteries.csproj", "{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Contrib", "Contrib\Dolstagis.Contrib.csproj", "{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
