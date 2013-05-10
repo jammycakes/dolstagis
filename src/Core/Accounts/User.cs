@@ -21,6 +21,8 @@ namespace Dolstagis.Accounts
 
         public virtual bool IsSuperUser { get; set; }
 
+        public virtual int Invitations { get; set; }
+
         public virtual IList<UserSession> Sessions { get; protected set; }
 
         public User()
