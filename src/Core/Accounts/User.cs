@@ -56,5 +56,13 @@ namespace Dolstagis.Accounts
         {
             get { return this.UserName; }
         }
+
+        public virtual bool CanInvite
+        {
+            get
+            {
+                return this.Invitations > 0 || this.IsSuperUser;
+            }
+        }
     }
 }

@@ -35,16 +35,6 @@ namespace Dolstagis.Accounts
             return Convert.ToBase64String(bytes, Base64FormattingOptions.None).Substring(0, 32);
         }
 
-        private Invitation CreateInvitation(User sender)
-        {
-            var invitation = new Invitation();
-            invitation.InvitationID = GenerateInvitationID();
-            invitation.InvitingUser = sender;
-            invitation.DateCreated = DateTime.UtcNow;
-            return invitation;
-        }
-
-
         /// <summary>
         ///  Assigns a given number of invitations to all selected users.
         /// </summary>
@@ -58,42 +48,8 @@ namespace Dolstagis.Accounts
         public void AssignInvitations(IEnumerable<User> users, int invitationsPerUser)
         {
             foreach (var user in users) {
-                for (int i = 0; i < invitationsPerUser; i++) {
-                    this.Session.Save(CreateInvitation(user));
-                }
+                user.Invitations += invitationsPerUser;
             }
-        }
-
-        /// <summary>
-        ///  Gets all unsent invitations available to a user.
-        /// </summary>
-        /// <param name="sender">
-        ///  The user to whom the invitations are to be allocated.
-        /// </param>
-        /// <returns>
-        ///  A query yielding a list of available invitations.
-        /// </returns>
-
-        private IQueryable<Invitation> GetAvailableInvitationsFor(User sender)
-        {
-            return this.Session.Query<Invitation>()
-                .Where(x => x.InvitingUser == sender)
-                .Where(x => x.Invitee == null && x.InviteeEmail == null);
-        }
-
-        /// <summary>
-        ///  Gets the number of invitations available to a user.
-        /// </summary>
-        /// <param name="sender">
-        ///  The user being queried for invitation availability.
-        /// </param>
-        /// <returns>
-        ///  The number of unsent invitations available to the user.
-        /// </returns>
-
-        public int GetAvailableInvitationCountFor(User sender)
-        {
-            return GetAvailableInvitationsFor(sender).Count();
         }
 
         /// <summary>
@@ -117,18 +73,20 @@ namespace Dolstagis.Accounts
 
         public Invitation GetInvitation(User sender, string inviteeName, string inviteeEmail)
         {
-            var invitation = GetAvailableInvitationsFor(sender).FirstOrDefault();
-            if (invitation == null) {
-                if (sender.IsSuperUser) {
-                    invitation = CreateInvitation(sender);
-                    this.Session.Save(invitation);
-                }
-                else {
-                    throw new UserException("Sorry, you do not have any invitations to send.");
-                }
+            if (!sender.CanInvite) {
+                throw new UserException("Sorry, you do not have any invitations to send.");
             }
-            invitation.InviteeName = inviteeName;
-            invitation.InviteeEmail = inviteeEmail;
+
+            var invitation = new Invitation() {
+                InvitationID = GenerateInvitationID(),
+                InvitingUser = sender,
+                DateCreated = DateTime.UtcNow,
+                InviteeName = inviteeName,
+                InviteeEmail = inviteeEmail
+            };
+
+            this.Session.Save(invitation);
+            sender.Invitations--;
             return invitation;
         }
 
