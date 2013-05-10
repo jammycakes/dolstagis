@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
 
-namespace Dolstagis.Accounts.Mappings
+namespace Dolstagis.Contrib.Auth.Mappings
 {
     public class InvitationMap : ClassMap<Invitation>
     {

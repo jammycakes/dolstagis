@@ -1,14 +1,14 @@
-﻿using Dolstagis.Accounts.Passwords;
-using Dolstagis.Accounts.Passwords.BCrypt;
-using Dolstagis.Accounts.Passwords.PlainText;
-using Dolstagis.Accounts.Passwords.Sha512;
+﻿using Dolstagis.Contrib.Auth.Passwords;
+using Dolstagis.Contrib.Auth.Passwords.BCrypt;
+using Dolstagis.Contrib.Auth.Passwords.PlainText;
+using Dolstagis.Contrib.Auth.Passwords.Sha512;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     public class AccountsNinjectModule : NinjectModule
     {

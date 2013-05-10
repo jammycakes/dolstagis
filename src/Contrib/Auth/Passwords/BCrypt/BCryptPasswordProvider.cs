@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords.BCrypt
+namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {
     /// <summary>
     ///  Hashes and verifies passwords using the Bcrypt algorithm.

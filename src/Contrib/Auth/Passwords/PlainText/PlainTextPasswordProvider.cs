@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords.PlainText
+namespace Dolstagis.Contrib.Auth.Passwords.PlainText
 {
     /// <summary>
     ///  Stores a password in plain text.

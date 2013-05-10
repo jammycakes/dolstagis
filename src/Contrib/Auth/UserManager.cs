@@ -1,4 +1,4 @@
-﻿using Dolstagis.Accounts.Passwords;
+﻿using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Web;
 using NHibernate.Type;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     public class UserManager : ManagerBase
     {

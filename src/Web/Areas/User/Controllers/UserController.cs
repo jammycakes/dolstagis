@@ -1,4 +1,4 @@
-﻿using Dolstagis.Accounts;
+﻿using Dolstagis.Contrib.Auth;
 using Dolstagis.Core;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
@@ -21,11 +21,11 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.users = userManager;
         }
 
-        private Dolstagis.Accounts.User AuthenticatedUser
+        private Dolstagis.Contrib.Auth.User AuthenticatedUser
         {
             get
             {
-                return this.User as Dolstagis.Accounts.User;
+                return this.User as Dolstagis.Contrib.Auth.User;
             }
         }
 
@@ -94,7 +94,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpPost]
         public new ActionResult Profile(string displayName, string emailAddress)
         {
-            var user = this.User.Identity as Accounts.User;
+            var user = this.User.Identity as Dolstagis.Contrib.Auth.User;
             user.DisplayName = displayName;
             user.EmailAddress = emailAddress;
             this.Flash("Your details have been saved.");
@@ -117,7 +117,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
             }
             else {
                 try {
-                    this.users.ChangePassword((Accounts.User)this.User.Identity, oldPassword, newPassword);
+                    this.users.ChangePassword((Dolstagis.Contrib.Auth.User)this.User.Identity, oldPassword, newPassword);
                 }
                 catch (UserException ex) {
                     this.Flash(ex.Message, Level.Error);
@@ -130,7 +130,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpGet]
         public ActionResult Sessions()
         {
-            return View(this.users.GetSessionsForUser(this.User.Identity as Accounts.User).ToList());
+            return View(this.users.GetSessionsForUser(this.User.Identity as Dolstagis.Contrib.Auth.User).ToList());
         }
 
         [HttpGet]

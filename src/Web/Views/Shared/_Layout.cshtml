@@ -16,7 +16,7 @@
         <h1>
           <a href="@this.Href("~/")">Dolstagis</a>
         </h1>
-        @if (User.Identity.IsAuthenticated && User is Dolstagis.Accounts.UserSession) {
+        @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.UserSession) {
           Html.RenderPartial("LoggedIn", User.Identity);
         }
         else {

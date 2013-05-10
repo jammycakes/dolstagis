@@ -60,28 +60,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\AccountSettings.cs" />
-    <Compile Include="Accounts\AccountsNinjectModule.cs" />
-    <Compile Include="Accounts\IAccountSettings.cs" />
-    <Compile Include="Accounts\Invitation.cs" />
-    <Compile Include="Accounts\InvitationManager.cs" />
-    <Compile Include="Accounts\InvitationState.cs" />
-    <Compile Include="Accounts\Mappings\InvitationMap.cs" />
-    <Compile Include="Accounts\Mappings\UserMap.cs" />
-    <Compile Include="Accounts\Mappings\UserSessionMap.cs" />
-    <Compile Include="Accounts\Mappings\UserTokenMap.cs" />
-    <Compile Include="Accounts\Passwords\AggregatePasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\BCryptSettings.cs" />
-    <Compile Include="Accounts\Passwords\BCrypt\IBCryptSettings.cs" />
-    <Compile Include="Accounts\Passwords\IPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\PasswordResult.cs" />
-    <Compile Include="Accounts\Passwords\PlainText\PlainTextPasswordProvider.cs" />
-    <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProvider.cs" />
-    <Compile Include="Accounts\User.cs" />
-    <Compile Include="Accounts\UserManager.cs" />
-    <Compile Include="Accounts\UserSession.cs" />
-    <Compile Include="Accounts\UserToken.cs" />
+    <Compile Include="Auth\AccountSettings.cs" />
+    <Compile Include="Auth\AccountsNinjectModule.cs" />
+    <Compile Include="Auth\IAccountSettings.cs" />
+    <Compile Include="Auth\Invitation.cs" />
+    <Compile Include="Auth\InvitationManager.cs" />
+    <Compile Include="Auth\InvitationState.cs" />
+    <Compile Include="Auth\Mappings\InvitationMap.cs" />
+    <Compile Include="Auth\Mappings\UserMap.cs" />
+    <Compile Include="Auth\Mappings\UserSessionMap.cs" />
+    <Compile Include="Auth\Mappings\UserTokenMap.cs" />
+    <Compile Include="Auth\Passwords\AggregatePasswordProvider.cs" />
+    <Compile Include="Auth\Passwords\BCrypt\BCryptPasswordProvider.cs" />
+    <Compile Include="Auth\Passwords\BCrypt\BCryptSettings.cs" />
+    <Compile Include="Auth\Passwords\BCrypt\IBCryptSettings.cs" />
+    <Compile Include="Auth\Passwords\IPasswordProvider.cs" />
+    <Compile Include="Auth\Passwords\PasswordResult.cs" />
+    <Compile Include="Auth\Passwords\PlainText\PlainTextPasswordProvider.cs" />
+    <Compile Include="Auth\Passwords\Sha512\Sha512PasswordProvider.cs" />
+    <Compile Include="Auth\User.cs" />
+    <Compile Include="Auth\UserManager.cs" />
+    <Compile Include="Auth\UserSession.cs" />
+    <Compile Include="Auth\UserToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords
+namespace Dolstagis.Contrib.Auth.Passwords
 {
     public interface IPasswordProvider
     {

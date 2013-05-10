@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Dolstagis.Accounts;
+using Dolstagis.Contrib.Auth;
 
 namespace Dolstagis.Web.Areas.Admin.Controllers
 {

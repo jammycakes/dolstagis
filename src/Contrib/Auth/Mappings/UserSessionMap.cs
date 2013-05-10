@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Mappings
+namespace Dolstagis.Contrib.Auth.Mappings
 {
     public class UserSessionMap : ClassMap<UserSession>
     {

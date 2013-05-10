@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords.Sha512
+namespace Dolstagis.Contrib.Auth.Passwords.Sha512
 {
     public class Sha512PasswordProvider : IPasswordProvider
     {

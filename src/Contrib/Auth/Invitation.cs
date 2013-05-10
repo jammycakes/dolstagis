@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Dolstagis.Core.Mail;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     public class Invitation : IMailable
     {

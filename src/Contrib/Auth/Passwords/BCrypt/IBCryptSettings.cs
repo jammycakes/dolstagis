@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Accounts.Passwords.BCrypt
+namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {
     public interface IBCryptSettings
     {

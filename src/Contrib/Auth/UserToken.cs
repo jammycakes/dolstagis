@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     /// <summary>
     ///  Represents a token that is e-mailed to the user to perform a specific action.

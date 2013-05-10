@@ -1,4 +1,4 @@
-﻿using Dolstagis.Accounts;
+﻿using Dolstagis.Contrib.Auth;
 using Dolstagis.Web.Infrastructure;
 using Dolstagis.Web.Infrastructure.Config;
 using Ninject;

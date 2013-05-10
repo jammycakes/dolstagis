@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Dolstagis.Accounts;
+using Dolstagis.Contrib.Auth;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
 

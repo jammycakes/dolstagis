@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     public interface IAccountSettings
     {

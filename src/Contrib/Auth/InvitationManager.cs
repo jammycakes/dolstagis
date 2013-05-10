@@ -10,7 +10,7 @@ using NHibernate;
 using NHibernate.Linq;
 using Ninject;
 
-namespace Dolstagis.Accounts
+namespace Dolstagis.Contrib.Auth
 {
     public class InvitationManager : ManagerBase
     {

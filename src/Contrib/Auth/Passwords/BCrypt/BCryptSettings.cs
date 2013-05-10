@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dolstagis.Accounts.Passwords.BCrypt
+namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {
-    public class BCryptSettings : AppConfigSettingsBase, Dolstagis.Accounts.Passwords.BCrypt.IBCryptSettings
+    public class BCryptSettings : AppConfigSettingsBase, Dolstagis.Contrib.Auth.Passwords.BCrypt.IBCryptSettings
     {
         public BCryptSettings()
         {

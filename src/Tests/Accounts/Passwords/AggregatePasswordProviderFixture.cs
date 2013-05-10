@@ -1,4 +1,4 @@
-﻿using Dolstagis.Accounts.Passwords;
+﻿using Dolstagis.Contrib.Auth.Passwords;
 using Moq;
 using NUnit.Framework;
 using System;

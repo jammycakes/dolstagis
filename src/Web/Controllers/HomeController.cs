@@ -1,4 +1,4 @@
-﻿using Dolstagis.Accounts;
+﻿using Dolstagis.Contrib.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;

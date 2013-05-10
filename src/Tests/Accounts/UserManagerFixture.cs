@@ -1,6 +1,6 @@
-﻿using Dolstagis.Accounts;
-using Dolstagis.Accounts.Passwords;
-using Dolstagis.Accounts.Passwords.BCrypt;
+﻿using Dolstagis.Contrib.Auth;
+using Dolstagis.Contrib.Auth.Passwords;
+using Dolstagis.Contrib.Auth.Passwords.BCrypt;
 using Dolstagis.Core.IO;
 using Dolstagis.Core.Time;
 using Moq;

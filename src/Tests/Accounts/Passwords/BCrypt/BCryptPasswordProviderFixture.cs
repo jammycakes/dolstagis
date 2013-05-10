@@ -1,6 +1,6 @@
-﻿using Dolstagis.Accounts.Passwords;
-using Dolstagis.Accounts.Passwords.BCrypt;
-using Dolstagis.Accounts.Passwords.Sha512;
+﻿using Dolstagis.Contrib.Auth.Passwords;
+using Dolstagis.Contrib.Auth.Passwords.BCrypt;
+using Dolstagis.Contrib.Auth.Passwords.Sha512;
 using Moq;
 using NUnit.Framework;
 using System;
