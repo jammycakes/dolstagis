@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="0001\CreateInvitationsTable.cs" />
-    <Compile Include="0001\CreateUserAgentsTable.cs" />
-    <Compile Include="0001\CreateUserSessionsTable.cs" />
-    <Compile Include="0001\CreateUsersTable.cs" />
-    <Compile Include="0001\CreateUserTokensTable.cs" />
+    <Compile Include="0001\005.CreateInvitationsTable.cs" />
+    <Compile Include="0001\003.CreateUserAgentsTable.cs" />
+    <Compile Include="0001\004.CreateUserSessionsTable.cs" />
+    <Compile Include="0001\001.CreateUsersTable.cs" />
+    <Compile Include="0001\002.CreateUserTokensTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
