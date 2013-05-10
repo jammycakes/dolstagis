@@ -77,6 +77,10 @@
     <Compile Include="Accounts\UserSessionFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.cs" />
     <Compile Include="Core\Configuration\AppConfigSettingsFixture.TestData.cs" />
+    <Compile Include="Core\ModuleFixture.cs" />
+    <Compile Include="Core\Module\Mappings\Dummy.cs" />
+    <Compile Include="Core\Module\Mappings\DummyMap.cs" />
+    <Compile Include="Core\Module\TestModule.cs" />
     <Compile Include="Core\Templates\SimpleTemplateEngineFixture.cs" />
     <Compile Include="NHibernateFixtureBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
