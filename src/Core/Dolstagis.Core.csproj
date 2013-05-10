@@ -7,7 +7,7 @@
     <ProjectGuid>{8F41C89A-E39B-4593-8E71-99AA69290097}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dolstagis</RootNamespace>
+    <RootNamespace>Dolstagis.Core</RootNamespace>
     <AssemblyName>Dolstagis.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -60,33 +60,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Caching\CacheExtensions.cs" />
-    <Compile Include="Core\Caching\ICache.cs" />
-    <Compile Include="Core\Caching\NullCache.cs" />
-    <Compile Include="Core\Configuration\AppConfigSettingsBase.cs" />
-    <Compile Include="Core\CoreNinjectModule.cs" />
-    <Compile Include="Core\Data\NHibernateNinjectModule.cs" />
-    <Compile Include="Core\IO\IFilespace.cs" />
-    <Compile Include="Core\IO\LocalFilespace.cs" />
-    <Compile Include="Core\LazyDisposable.cs" />
-    <Compile Include="Core\Mail\IMailable.cs" />
-    <Compile Include="Core\Mail\IMailer.cs" />
-    <Compile Include="Core\Mail\IMailSettings.cs" />
-    <Compile Include="Core\Mail\MailLogger.cs" />
-    <Compile Include="Core\Mail\MailSettings.cs" />
-    <Compile Include="Core\Mail\Message.cs" />
-    <Compile Include="Core\Mail\SystemNetMailMailer.cs" />
-    <Compile Include="Core\ManagerBase.cs" />
-    <Compile Include="Core\Configuration\RequiredAttribute.cs" />
-    <Compile Include="Core\Manager.cs" />
-    <Compile Include="Core\Templates\ITemplateEngine.cs" />
-    <Compile Include="Core\Templates\SimpleTemplateEngine.cs" />
-    <Compile Include="Core\Time\IClock.cs" />
-    <Compile Include="Core\Time\SystemClock.cs" />
-    <Compile Include="Core\UserException.cs" />
-    <Compile Include="Core\WebInfo\Mappings\UserAgentMap.cs" />
-    <Compile Include="Core\WebInfo\UserAgent.cs" />
-    <Compile Include="Core\WebInfo\WebInfoManager.cs" />
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\NullCache.cs" />
+    <Compile Include="Configuration\AppConfigSettingsBase.cs" />
+    <Compile Include="CoreNinjectModule.cs" />
+    <Compile Include="Data\NHibernateNinjectModule.cs" />
+    <Compile Include="IO\IFilespace.cs" />
+    <Compile Include="IO\LocalFilespace.cs" />
+    <Compile Include="LazyDisposable.cs" />
+    <Compile Include="Mail\IMailable.cs" />
+    <Compile Include="Mail\IMailer.cs" />
+    <Compile Include="Mail\IMailSettings.cs" />
+    <Compile Include="Mail\MailLogger.cs" />
+    <Compile Include="Mail\MailSettings.cs" />
+    <Compile Include="Mail\Message.cs" />
+    <Compile Include="Mail\SystemNetMailMailer.cs" />
+    <Compile Include="ManagerBase.cs" />
+    <Compile Include="Configuration\RequiredAttribute.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="Templates\ITemplateEngine.cs" />
+    <Compile Include="Templates\SimpleTemplateEngine.cs" />
+    <Compile Include="Time\IClock.cs" />
+    <Compile Include="Time\SystemClock.cs" />
+    <Compile Include="UserException.cs" />
+    <Compile Include="WebInfo\Mappings\UserAgentMap.cs" />
+    <Compile Include="WebInfo\UserAgent.cs" />
+    <Compile Include="WebInfo\WebInfoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
