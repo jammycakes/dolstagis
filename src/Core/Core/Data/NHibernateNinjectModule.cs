@@ -72,7 +72,10 @@ namespace Dolstagis.Core.Data
         private NHibernate.Cfg.Configuration BuildConfiguration()
         {
             return Fluently.Configure().Database(this.configurationProvider())
-                .Mappings(x => x.FluentMappings.AddFromAssembly(this.GetType().Assembly))
+                .Mappings(x => x.FluentMappings
+                    .AddFromAssembly(this.GetType().Assembly)
+                    .AddFromAssembly(System.Reflection.Assembly.Load("Dolstagis.Contrib"))
+                )
                 .BuildConfiguration();
         }
 
