@@ -30,5 +30,14 @@ namespace Dolstagis.Core
         {
             return this.EnumerateSubclasses(typeof(IMappingProvider));
         }
+
+        public override void Load()
+        {
+            /*
+             * This allows us to get all the loaded modules with a simple IOC resolution.
+             */
+
+            Bind<Module>().ToConstant(this).InSingletonScope();
+        }
     }
 }

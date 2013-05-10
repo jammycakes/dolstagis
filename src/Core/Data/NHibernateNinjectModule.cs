@@ -69,20 +69,24 @@ namespace Dolstagis.Core.Data
             return db;
         }
 
-        private NHibernate.Cfg.Configuration BuildConfiguration()
+        private NHibernate.Cfg.Configuration BuildConfiguration(IKernel kernel)
         {
+            var mappings =
+                from module in kernel.GetAll<Module>()
+                from t in module.GetNHibernateMappings()
+                select t;
+
             return Fluently.Configure().Database(this.configurationProvider())
-                .Mappings(x => x.FluentMappings
-                    .AddFromAssembly(this.GetType().Assembly)
-                    .AddFromAssembly(System.Reflection.Assembly.Load("Dolstagis.Contrib"))
-                )
+                .Mappings(x => {
+                    x.FluentMappings.AddFromAssembly(this.GetType().Assembly);
+                    foreach (var t in mappings) x.FluentMappings.Add(t);
+                })
                 .BuildConfiguration();
         }
 
-
         public override void Load()
         {
-            Bind<NHibernate.Cfg.Configuration>().ToMethod(x => BuildConfiguration()).InSingletonScope();
+            Bind<NHibernate.Cfg.Configuration>().ToMethod(x => BuildConfiguration(x.Kernel)).InSingletonScope();
             Bind<ISessionFactory>().ToMethod
                 (x => x.Kernel.Get<NHibernate.Cfg.Configuration>().BuildSessionFactory())
                 .InSingletonScope();

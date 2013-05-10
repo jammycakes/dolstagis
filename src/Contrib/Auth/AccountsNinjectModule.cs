@@ -2,14 +2,17 @@
 using Dolstagis.Contrib.Auth.Passwords.BCrypt;
 using Dolstagis.Contrib.Auth.Passwords.PlainText;
 using Dolstagis.Contrib.Auth.Passwords.Sha512;
+using Dolstagis.Core;
 using Ninject.Modules;
 
 namespace Dolstagis.Contrib.Auth
 {
-    public class AccountsNinjectModule : NinjectModule
+    public class AccountsNinjectModule : Module
     {
         public override void Load()
         {
+            base.Load();
+
             /* ====== Settings ====== */
 
             Bind<IAccountSettings>().To<AccountSettings>();
