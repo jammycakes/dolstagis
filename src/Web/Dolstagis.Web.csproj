@@ -211,6 +211,8 @@
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\user\sessions.js" />
+    <Content Include="Views\Accounts\Invitation.html" />
+    <Content Include="Views\Accounts\Invitation.txt" />
     <Content Include="Views\Accounts\ResetPassword.html" />
     <Content Include="Views\Accounts\ResetPassword.txt" />
     <Content Include="Web.config" />
