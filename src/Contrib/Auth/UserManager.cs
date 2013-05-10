@@ -14,6 +14,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Web;
 using NHibernate.Type;
+using Dolstagis.Contrib.Auth.Models;
 
 namespace Dolstagis.Contrib.Auth
 {

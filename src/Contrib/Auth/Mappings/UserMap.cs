@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dolstagis.Contrib.Auth.Models;
 using FluentNHibernate.Mapping;
 
 namespace Dolstagis.Contrib.Auth.Mappings

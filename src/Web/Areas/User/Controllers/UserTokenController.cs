@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Dolstagis.Contrib.Auth;
+using Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
 

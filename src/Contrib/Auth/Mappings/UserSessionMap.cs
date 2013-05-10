@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dolstagis.Contrib.Auth.Models;
 
 namespace Dolstagis.Contrib.Auth.Mappings
 {

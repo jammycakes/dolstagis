@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 
-namespace Dolstagis.Contrib.Auth
+namespace Dolstagis.Contrib.Auth.Models
 {
     public class UserSession : IPrincipal
     {

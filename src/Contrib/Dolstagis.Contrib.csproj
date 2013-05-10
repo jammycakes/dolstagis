@@ -63,9 +63,9 @@
     <Compile Include="Auth\AccountSettings.cs" />
     <Compile Include="Auth\AccountsNinjectModule.cs" />
     <Compile Include="Auth\IAccountSettings.cs" />
-    <Compile Include="Auth\Invitation.cs" />
+    <Compile Include="Auth\Models\Invitation.cs" />
     <Compile Include="Auth\InvitationManager.cs" />
-    <Compile Include="Auth\InvitationState.cs" />
+    <Compile Include="Auth\Models\InvitationState.cs" />
     <Compile Include="Auth\Mappings\InvitationMap.cs" />
     <Compile Include="Auth\Mappings\UserMap.cs" />
     <Compile Include="Auth\Mappings\UserSessionMap.cs" />
@@ -78,10 +78,10 @@
     <Compile Include="Auth\Passwords\PasswordResult.cs" />
     <Compile Include="Auth\Passwords\PlainText\PlainTextPasswordProvider.cs" />
     <Compile Include="Auth\Passwords\Sha512\Sha512PasswordProvider.cs" />
-    <Compile Include="Auth\User.cs" />
+    <Compile Include="Auth\Models\User.cs" />
     <Compile Include="Auth\UserManager.cs" />
-    <Compile Include="Auth\UserSession.cs" />
-    <Compile Include="Auth\UserToken.cs" />
+    <Compile Include="Auth\Models\UserSession.cs" />
+    <Compile Include="Auth\Models\UserToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

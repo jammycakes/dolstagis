@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 
-namespace Dolstagis.Contrib.Auth
+namespace Dolstagis.Contrib.Auth.Models
 {
     public class User : IMailable, IIdentity
     {

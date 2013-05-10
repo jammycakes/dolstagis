@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;

@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Invite";
     Layout = "~/Views/Shared/_simple.cshtml";
-    var invitations = (((Dolstagis.Contrib.Auth.User)User).Invitations);
+    var invitations = (((Dolstagis.Contrib.Auth.Models.User)User).Invitations);
 }
 
 <h2>Invite a friend</h2>

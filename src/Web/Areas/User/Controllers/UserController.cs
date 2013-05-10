@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Dolstagis.Contrib.Auth.Models;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {
@@ -21,11 +22,11 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.users = userManager;
         }
 
-        private Dolstagis.Contrib.Auth.User AuthenticatedUser
+        private Dolstagis.Contrib.Auth.Models.User AuthenticatedUser
         {
             get
             {
-                return this.User as Dolstagis.Contrib.Auth.User;
+                return this.User as Dolstagis.Contrib.Auth.Models.User;
             }
         }
 
@@ -94,7 +95,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpPost]
         public new ActionResult Profile(string displayName, string emailAddress)
         {
-            var user = this.User.Identity as Dolstagis.Contrib.Auth.User;
+            var user = this.User.Identity as Dolstagis.Contrib.Auth.Models.User;
             user.DisplayName = displayName;
             user.EmailAddress = emailAddress;
             this.Flash("Your details have been saved.");
@@ -117,7 +118,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
             }
             else {
                 try {
-                    this.users.ChangePassword((Dolstagis.Contrib.Auth.User)this.User.Identity, oldPassword, newPassword);
+                    this.users.ChangePassword((Dolstagis.Contrib.Auth.Models.User)this.User.Identity, oldPassword, newPassword);
                 }
                 catch (UserException ex) {
                     this.Flash(ex.Message, Level.Error);
@@ -130,7 +131,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpGet]
         public ActionResult Sessions()
         {
-            return View(this.users.GetSessionsForUser(this.User.Identity as Dolstagis.Contrib.Auth.User).ToList());
+            return View(this.users.GetSessionsForUser(this.User.Identity as Dolstagis.Contrib.Auth.Models.User).ToList());
         }
 
         [HttpGet]
