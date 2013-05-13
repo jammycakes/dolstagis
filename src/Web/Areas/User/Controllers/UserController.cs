@@ -24,7 +24,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         {
             get
             {
-                return this.User as Dolstagis.Contrib.Auth.Models.User;
+                return this.User.Identity as Dolstagis.Contrib.Auth.Models.User;
             }
         }
 
