@@ -179,6 +179,7 @@
     <Compile Include="Infrastructure\Config\FilterConfig.cs" />
     <Compile Include="Infrastructure\Config\RouteConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
+    <None Include="Content\css\layout\colorbox.less" />
     <Content Include="Content\css\layout\body.less" />
     <Content Include="Content\css\2col.less" />
     <Content Include="Areas\User\Views\User\Profile.cshtml" />
@@ -194,6 +195,11 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\User\Views\User\Invite.cshtml" />
     <None Include="Content\css\readme.txt" />
+    <Content Include="Content\images\colorbox\border.png" />
+    <Content Include="Content\images\colorbox\controls.png" />
+    <Content Include="Content\images\colorbox\loading.gif" />
+    <Content Include="Content\images\colorbox\loading_background.png" />
+    <Content Include="Content\images\colorbox\overlay.png" />
     <Content Include="Content\images\icons\accept.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\layout.less" />
@@ -208,6 +214,7 @@
     <None Include="Scripts\.readme.txt" />
     <Content Include="Scripts\admin\users.js" />
     <Content Include="Scripts\core.js" />
+    <Content Include="Scripts\jquery.colorbox.js" />
     <Content Include="Scripts\ui.js" />
     <Content Include="Scripts\flash.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />

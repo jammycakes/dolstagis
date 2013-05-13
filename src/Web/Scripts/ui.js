@@ -27,5 +27,8 @@
         this.checked = checked;
       });
     });
+
+    $('.colorbox').colorbox();
+
   });
 })(jQuery);
