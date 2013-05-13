@@ -155,6 +155,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\User\Controllers\UserControllerHelper.cs" />
+    <Compile Include="Areas\User\ViewModels\Invitation.cs" />
     <Compile Include="Infrastructure\Config\CassetteConfiguration.cs" />
     <Compile Include="Infrastructure\Config\LoggingConfig.cs" />
     <Compile Include="Infrastructure\Config\NinjectWebCommon.cs" />

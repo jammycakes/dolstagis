@@ -3,10 +3,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Dolstagis.Contrib.Auth;
-using Dolstagis.Contrib.Auth.Models;
+using Models = Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Core;
 using Dolstagis.Web.Helpers;
 using Dolstagis.Web.Helpers.Flash;
+using ViewModels = Dolstagis.Web.Areas.User.ViewModels;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {
@@ -20,11 +21,11 @@ namespace Dolstagis.Web.Areas.User.Controllers
             this.users = userManager;
         }
 
-        private Dolstagis.Contrib.Auth.Models.User AuthenticatedUser
+        private Models.User AuthenticatedUser
         {
             get
             {
-                return this.User.Identity as Dolstagis.Contrib.Auth.Models.User;
+                return this.User.Identity as Models.User;
             }
         }
 
@@ -78,7 +79,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            this.users.DeleteSession(this.User as UserSession);
+            this.users.DeleteSession(this.User as Models.UserSession);
             this.Flash("You are now logged out.");
             FormsAuthentication.SignOut();
             return Redirect(FormsAuthentication.DefaultUrl);
@@ -116,7 +117,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
             }
             else {
                 try {
-                    this.users.ChangePassword((Dolstagis.Contrib.Auth.Models.User)this.User.Identity, oldPassword, newPassword);
+                    this.users.ChangePassword((Models.User)this.User.Identity, oldPassword, newPassword);
                 }
                 catch (UserException ex) {
                     this.Flash(ex.Message, Level.Error);
@@ -129,7 +130,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
         [HttpGet]
         public ActionResult Sessions()
         {
-            return View(this.users.GetSessionsForUser(this.User.Identity as Dolstagis.Contrib.Auth.Models.User).ToList());
+            return View(this.users.GetSessionsForUser(this.User.Identity as Models.User).ToList());
         }
 
         [HttpGet]
@@ -138,7 +139,7 @@ namespace Dolstagis.Web.Areas.User.Controllers
             if (AuthenticatedUser == null || !AuthenticatedUser.CanInvite) {
                 return HttpNotFound();
             }
-            return View(AuthenticatedUser);
+            return View(new ViewModels.Invitation { User = AuthenticatedUser });
         }
     }
 }

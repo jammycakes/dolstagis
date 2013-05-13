@@ -1,30 +1,33 @@
-﻿@{
+﻿@model Dolstagis.Web.Areas.User.ViewModels.Invitation
+@{
     ViewBag.Title = "Invite";
     Layout = "~/Views/Shared/_simple.cshtml";
-    var invitations = (((Dolstagis.Contrib.Auth.Models.User)User.Identity).Invitations);
 }
 
 <h2>Invite a friend</h2>
 
 <form method="post">
-  @if (invitations > 0){
-    <p>You have @invitations @(invitations > 0 ? "invitations" : "invitation") remaining.</p>
+  @if (Model.User.Invitations > 0) {
+    <p>
+      You have @Model.User.Invitations
+      @(Model.User.Invitations > 0 ? "invitations" : "invitation") remaining.
+    </p>
   }
   <dl>
     <dt>
-      <label for="ctlName">Your friend's name:</label>
+      @Html.LabelFor(x => x.Name, "Your friend's name:")
     </dt>
     <dd>
-      <input type="text" id="ctlName" name="name" />
+      @Html.TextBoxFor(x => x.Name)
     </dd>
     <dt>
-      <label for="ctlEmail">E-mail address:</label>
+      @Html.LabelFor(x => x.Email, "Your friend's e-mail address:")
     </dt>
     <dd>
-      <input type="text" id="ctlEmail" name="email" />
+      @Html.TextBoxFor(x => x.Email)
     </dd>
     <dt>
-      <label for="ctlMessage">Message:</label>
+      @Html.LabelFor(x => x.Message, "Type a message to include with your invitation:")
     </dt>
     <dd>
       <textarea id="ctlMessage" name="message"></textarea>
