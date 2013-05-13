@@ -28,7 +28,7 @@
       });
     });
 
-    $('.colorbox').colorbox();
+    $('.colorbox').colorbox({ iframe: true, width: "640px", height: "480px", initialWidth: "400px", initialHeight: "300px" });
 
   });
 })(jQuery);
