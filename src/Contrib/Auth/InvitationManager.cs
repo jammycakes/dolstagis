@@ -71,6 +71,12 @@ namespace Dolstagis.Contrib.Auth
 
         public Invitation GetInvitation(User sender, string inviteeName, string inviteeEmail)
         {
+            /*
+             * TODO: There is a race condition here, which could allow a user to send multiple
+             * invitations for the price of one with careful timing.
+             * However, impact is likely to be low.
+             */
+
             if (!sender.CanInvite) {
                 throw new UserException("Sorry, you do not have any invitations to send.");
             }
@@ -84,7 +90,7 @@ namespace Dolstagis.Contrib.Auth
             };
 
             this.Session.Save(invitation);
-            sender.Invitations--;
+            if (sender.Invitations > 0) sender.Invitations--;
             return invitation;
         }
 

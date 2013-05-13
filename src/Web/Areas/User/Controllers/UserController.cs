@@ -14,11 +14,13 @@ namespace Dolstagis.Web.Areas.User.Controllers
     [Authorize]
     public class UserController : Controller
     {
+        private InvitationManager invitationManager;
         private UserManager users;
 
-        public UserController(UserManager userManager)
+        public UserController(UserManager userManager, InvitationManager invitationManager)
         {
             this.users = userManager;
+            this.invitationManager = invitationManager;
         }
 
         private Models.User AuthenticatedUser
@@ -140,6 +142,21 @@ namespace Dolstagis.Web.Areas.User.Controllers
                 return HttpNotFound();
             }
             return View(new ViewModels.Invitation { User = AuthenticatedUser });
+        }
+
+        [HttpPost]
+        public ActionResult Invite(ViewModels.Invitation invitation)
+        {
+            invitation.User = AuthenticatedUser;
+            if (!this.ModelState.IsValid) {
+                this.Flash("Please correct the errors in the form and try again.", Level.Error);
+                return View(invitation);
+            }
+            else {
+                // TODO: include the user's message
+                invitationManager.Invite(AuthenticatedUser, invitation.Name, invitation.Email);
+                return View("InvitationSent");
+            }
         }
     }
 }
