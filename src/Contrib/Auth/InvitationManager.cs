@@ -30,7 +30,8 @@ namespace Dolstagis.Contrib.Auth
         {
             var bytes = new byte[24];
             random.GetBytes(bytes);
-            return Convert.ToBase64String(bytes, Base64FormattingOptions.None).Substring(0, 32);
+            var result = Convert.ToBase64String(bytes, Base64FormattingOptions.None).Substring(0, 32);
+            return result.Replace('/', '-').Replace('+', '$');
         }
 
         /// <summary>
