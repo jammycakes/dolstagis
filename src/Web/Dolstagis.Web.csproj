@@ -179,6 +179,8 @@
     <Compile Include="Infrastructure\Config\FilterConfig.cs" />
     <Compile Include="Infrastructure\Config\RouteConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\css\layout-colorbox.less" />
+    <Content Include="Areas\User\Views\User\InvitationSent.cshtml" />
     <None Include="Content\css\layout\colorbox.less" />
     <Content Include="Content\css\layout\body.less" />
     <Content Include="Content\css\2col.less" />
@@ -240,6 +242,7 @@
     <Content Include="Views\Shared\NotLoggedIn.cshtml" />
     <Content Include="Views\Shared\_2col.cshtml" />
     <Content Include="Views\Shared\_simple.cshtml" />
+    <Content Include="Views\Shared\_Colorbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
