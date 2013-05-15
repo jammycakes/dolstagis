@@ -66,6 +66,7 @@
     <Compile Include="Configuration\AppConfigSettingsBase.cs" />
     <Compile Include="CoreNinjectModule.cs" />
     <Compile Include="Data\NHibernateNinjectModule.cs" />
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="IO\IFilespace.cs" />
     <Compile Include="IO\LocalFilespace.cs" />
     <Compile Include="LazyDisposable.cs" />
