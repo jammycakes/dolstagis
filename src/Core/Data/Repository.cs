@@ -97,5 +97,10 @@ namespace Dolstagis.Core.Data
         {
             Session.Flush();
         }
+
+        public void Save(TModel obj)
+        {
+            Session.SaveOrUpdate(obj);
+        }
     }
 }

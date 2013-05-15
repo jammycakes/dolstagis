@@ -16,5 +16,7 @@ namespace Dolstagis.Core.Data
         void Persist(TModel obj);
 
         IQueryable<TModel> Query();
+
+        void Save(TModel obj);
     }
 }
