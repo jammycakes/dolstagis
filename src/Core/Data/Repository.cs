@@ -7,6 +7,24 @@ using NHibernate.Linq;
 
 namespace Dolstagis.Core.Data
 {
+    /* ====== Repository class ====== */
+
+    /// <summary>
+    ///  This is the base class for our data access queries. It serves three purposes:
+    ///  (a) to make Linq to NHibernate mockable
+    ///  (b) to provide a common lifecycle management mechanism for ISession, whether
+    ///      instantiated within an HTTP request or not.
+    ///  (c) to allow us to isolate and mock fine tuned database queries and commands
+    ///      for which Linq to NHibernate is not sufficient. Anything to do with
+    ///      HQL or ICriteria should go in Repository subclasses, as should anything
+    ///      involving stored procedures, for instance.
+    ///  It is NOT intended to let you swap out NHibernate for Entity Framework.
+    ///  That is a terrible idea: we're not going there.
+    /// </summary>
+    /// <typeparam name="TModel">
+    ///  The entity class on which the repository is based.
+    /// </typeparam>
+
     public class Repository<TModel> : IRepository<TModel>, IDisposable
         where TModel: new()
     {
