@@ -7,7 +7,8 @@ using NHibernate.Linq;
 
 namespace Dolstagis.Core.Data
 {
-    public class Repository<TModel> : IDisposable where TModel: new()
+    public class Repository<TModel> : IRepository<TModel>, IDisposable
+        where TModel: new()
     {
         private bool _ownsSession = false;
 

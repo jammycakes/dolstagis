@@ -65,6 +65,7 @@
     <Compile Include="Caching\NullCache.cs" />
     <Compile Include="Configuration\AppConfigSettingsBase.cs" />
     <Compile Include="CoreNinjectModule.cs" />
+    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\NHibernateNinjectModule.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="IO\IFilespace.cs" />
