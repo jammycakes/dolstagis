@@ -1,46 +1,32 @@
 ﻿using System.Linq;
+using Dolstagis.Core.Data;
 using NHibernate;
 using NHibernate.Linq;
 
 namespace Dolstagis.Core
 {
-    public class Manager<T>: ManagerBase where T: new()
+    public class Manager<TModel> where TModel: new()
     {
-        public Manager(ISessionFactory sessionFactory)
-            : base(sessionFactory)
+        public IRepository<TModel> Repository { get; private set; }
+
+        public Manager(IRepository<TModel> repository)
+        {
+            this.Repository = repository;
+        }
+    }
+
+
+    public class Manager<TModel, TRepository> : Manager<TModel>
+        where TModel : new()
+        where TRepository : IRepository<TModel>
+    {
+        public new TRepository Repository
+        {
+            get { return (TRepository)base.Repository; }
+        }
+
+        public Manager(TRepository repository)
+            : base(repository)
         { }
-
-        public Manager(ISessionFactory sessionFactory, ISession session)
-            : base(sessionFactory, session)
-        { }
-
-        public T Get(object id)
-        {
-            return this.Session.Get<T>(id);
-        }
-
-        public T Create()
-        {
-            var result = new T();
-            this.Session.Persist(result);
-            return result;
-        }
-
-        public void SaveNow(T obj)
-        {
-            this.Session.SaveOrUpdate(obj);
-            this.Session.Flush();
-        }
-
-        public void DeleteNow(T obj)
-        {
-            this.Session.Delete(obj);
-            this.Session.Flush();
-        }
-
-        public IQueryable<T> Query()
-        {
-            return this.Session.Query<T>();
-        }
     }
 }
