@@ -30,7 +30,7 @@ namespace Dolstagis.Contrib.Auth
         public IPasswordProvider PasswordProvider { get; set; }
 
         [Inject]
-        public WebInfoManager WebInfo { get; set; }
+        public UserAgentManager WebInfo { get; set; }
 
         public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
 

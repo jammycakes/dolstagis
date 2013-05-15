@@ -1,18 +1,14 @@
 ﻿using System.Linq;
-using NHibernate;
-using NHibernate.Linq;
+using Dolstagis.Core.Data;
 
 namespace Dolstagis.Core.WebInfo
 {
-    public class WebInfoManager : ManagerBase
+    public class UserAgentManager : Manager<UserAgent>
     {
-        public WebInfoManager(ISessionFactory factory)
-            : base(factory)
+        public UserAgentManager(IRepository<UserAgent> repository)
+            : base(repository)
         { }
 
-        public WebInfoManager(ISessionFactory factory, ISession session)
-            : base(factory, session)
-        { }
 
         /// <summary>
         ///  Gets a <see cref="UserAgent"/> instance from the database, by user agent string.
@@ -39,7 +35,7 @@ namespace Dolstagis.Core.WebInfo
              * For this reason, you should NOT put a unique constraint on the user agent string.
              */
 
-            var result = this.Session.Query<UserAgent>().Where(x => x.String == uaString).OrderBy(x => x.UserAgentID);
+            var result = this.Repository.Query().Where(x => x.String == uaString).OrderBy(x => x.UserAgentID);
             if (result.Any()) {
                 return result.First();
             }
@@ -47,7 +43,7 @@ namespace Dolstagis.Core.WebInfo
                 var ua = new UserAgent() {
                     String = uaString
                 };
-                this.Session.Save(ua);
+                this.Repository.Save(ua);
                 return ua;
             }
         }

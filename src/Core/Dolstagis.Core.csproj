@@ -89,7 +89,7 @@
     <Compile Include="UserException.cs" />
     <Compile Include="WebInfo\Mappings\UserAgentMap.cs" />
     <Compile Include="WebInfo\UserAgent.cs" />
-    <Compile Include="WebInfo\WebInfoManager.cs" />
+    <Compile Include="WebInfo\UserAgentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
