@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Core;
+using Dolstagis.Core.Data;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using NHibernate;
@@ -10,13 +11,9 @@ using Ninject;
 
 namespace Dolstagis.Contrib.Auth
 {
-    public class InvitationManager : ManagerBase
+    public class InvitationManager : Manager<Invitation>
     {
-        public InvitationManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
-
-        public InvitationManager(ISessionFactory sessionFactory, ISession session)
-            : base(sessionFactory, session)
-        { }
+        public InvitationManager(IRepository<Invitation> repository) : base(repository) { }
 
         [Inject]
         public IMailer Mailer { get; set; }
@@ -90,7 +87,7 @@ namespace Dolstagis.Contrib.Auth
                 InviteeEmail = inviteeEmail
             };
 
-            this.Session.Save(invitation);
+            this.Repository.Save(invitation);
             if (sender.Invitations > 0) sender.Invitations--;
             return invitation;
         }
