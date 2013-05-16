@@ -90,6 +90,7 @@ namespace Dolstagis.Core.Data
             Bind<ISessionFactory>().ToMethod
                 (x => x.Kernel.Get<NHibernate.Cfg.Configuration>().BuildSessionFactory())
                 .InSingletonScope();
+            Bind<IRepository>().To<Repository>();
             Bind(typeof(IRepository<>)).To(typeof(Repository<>));
         }
     }
