@@ -79,7 +79,6 @@
     <Compile Include="Mail\MailSettings.cs" />
     <Compile Include="Mail\Message.cs" />
     <Compile Include="Mail\SystemNetMailMailer.cs" />
-    <Compile Include="ManagerBase.cs" />
     <Compile Include="Configuration\RequiredAttribute.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="ModuleBase.cs" />
