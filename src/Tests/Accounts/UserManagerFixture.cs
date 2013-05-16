@@ -48,10 +48,14 @@ namespace Dolstagis.Tests.Accounts
             IsSuperUser = false
         };
 
+        protected override void LoadModules()
+        {
+            base.LoadModules();
+            this.Kernel.Load(new AuthModule());
+        }
+
         protected override void BeforeFixture()
         {
-            this.Kernel.Load(new AuthModule());
-
             var mClock = new Mock<IClock>();
             mClock.Setup(x => x.Now()).Returns(time.ToLocalTime());
             mClock.Setup(x => x.UtcNow()).Returns(time);

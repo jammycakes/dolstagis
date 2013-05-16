@@ -28,6 +28,15 @@ namespace Dolstagis.Tests
         protected IDbConnection Connection { get; private set; }
 
         /// <summary>
+        ///  Called before the NHibernate session factory has been bound to load the module(s)
+        ///  under test.
+        /// </summary>
+
+        protected virtual void LoadModules()
+        {
+        }
+
+        /// <summary>
         ///  Called before the tests in the fixture are run.
         /// </summary>
         /// <remarks>
@@ -90,6 +99,7 @@ namespace Dolstagis.Tests
         {
             Kernel = new StandardKernel();
             Kernel.Load(new NHibernateNinjectModule("tests", true));
+            LoadModules();
             Kernel.Bind<ISession>().ToMethod(c => c.Kernel.Get<ISessionFactory>().OpenSession())
                 .InSingletonScope();
 
