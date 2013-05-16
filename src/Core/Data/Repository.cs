@@ -21,12 +21,8 @@ namespace Dolstagis.Core.Data
     ///  It is NOT intended to let you swap out NHibernate for Entity Framework.
     ///  That is a terrible idea: we're not going there.
     /// </summary>
-    /// <typeparam name="TModel">
-    ///  The entity class on which the repository is based.
-    /// </typeparam>
 
-    public class Repository<TModel> : IRepository<TModel>, IDisposable
-        where TModel: new()
+    public class Repository : IRepository, IDisposable
     {
         private bool _ownsSession = false;
 
@@ -66,41 +62,96 @@ namespace Dolstagis.Core.Data
             }
         }
 
-        public TModel Get(object id)
-        {
-            return Session.Get<TModel>(id);
-        }
-
-        public IQueryable<TModel> Query()
-        {
-            return Session.Query<TModel>();
-        }
-
-        public virtual TModel CreateTransient()
-        {
-            return new TModel();
-        }
-
-        public TModel CreatePersistent()
-        {
-            var result = CreateTransient();
-            Session.Persist(result);
-            return result;
-        }
-
-        public void Persist(TModel obj)
-        {
-            Session.Persist(obj);
-        }
-
         public void Flush()
         {
             Session.Flush();
         }
 
-        public void Save(TModel obj)
+        public TModel Get<TModel>(object id)
+        {
+            return Session.Get<TModel>(id);
+        }
+
+        public IQueryable<TModel> Query<TModel>()
+        {
+            return Session.Query<TModel>();
+        }
+
+        public virtual TModel CreateTransient<TModel>() where TModel: new()
+        {
+            return new TModel();
+        }
+
+        public TModel CreatePersistent<TModel>() where TModel: new()
+        {
+            var result = CreateTransient<TModel>();
+            Session.Persist(result);
+            return result;
+        }
+
+        public void Persist(object obj)
+        {
+            Session.Persist(obj);
+        }
+
+        public void Save(object obj)
         {
             Session.SaveOrUpdate(obj);
+        }
+    }
+
+    /* ====== Typed repository ====== */
+
+    /// <summary>
+    ///  This is a Repository designed primarily for use with a single entity type.
+    ///  This will be the case for most Repository instances; only more complex use
+    ///  cases will use the untyped version above.
+    /// </summary>
+    /// <typeparam name="TModel">
+    ///  The entity class on which the repository is based.
+    /// </typeparam>
+
+    public class Repository<TModel> : Repository, IRepository<TModel>
+        where TModel: new()
+    {
+        public Repository(ISessionFactory sessionFactory)
+            : base(sessionFactory)
+        {
+        }
+
+        public Repository(ISessionFactory sessionFactory, ISession session)
+            : base(sessionFactory, session)
+        {
+        }
+
+        public TModel Get(object id)
+        {
+            return base.Get<TModel>(id);
+        }
+
+        public IQueryable<TModel> Query()
+        {
+            return base.Query<TModel>();
+        }
+
+        public virtual TModel CreateTransient()
+        {
+            return base.CreateTransient<TModel>();
+        }
+
+        public TModel CreatePersistent()
+        {
+            return base.CreatePersistent<TModel>();
+        }
+
+        public void Persist(TModel obj)
+        {
+            base.Persist(obj);
+        }
+
+        public void Save(TModel obj)
+        {
+            base.Save(obj);
         }
     }
 }
