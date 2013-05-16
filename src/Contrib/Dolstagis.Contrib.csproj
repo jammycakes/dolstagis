@@ -63,6 +63,7 @@
     <Compile Include="Auth\AuthSettings.cs" />
     <Compile Include="Auth\AuthModule.cs" />
     <Compile Include="Auth\IAuthSettings.cs" />
+    <Compile Include="Auth\IUserRepository.cs" />
     <Compile Include="Auth\Models\Invitation.cs" />
     <Compile Include="Auth\InvitationManager.cs" />
     <Compile Include="Auth\Models\InvitationState.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Auth\UserManager.cs" />
     <Compile Include="Auth\Models\UserSession.cs" />
     <Compile Include="Auth\Models\UserToken.cs" />
+    <Compile Include="Auth\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

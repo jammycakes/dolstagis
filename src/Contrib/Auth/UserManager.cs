@@ -7,6 +7,7 @@ using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Core;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
+using Dolstagis.Core.Time;
 using Dolstagis.Core.WebInfo;
 using NHibernate;
 using NHibernate.Linq;
@@ -15,13 +16,16 @@ using Ninject;
 
 namespace Dolstagis.Contrib.Auth
 {
-    public class UserManager : ManagerBase
+    public class UserManager : Manager<IUserRepository>
     {
         [Inject, Optional]
         public IMailer mailer { get; set; }
 
         [Inject, Optional]
         public ITemplateEngine templateEngine { get; set; }
+
+        [Inject]
+        public IClock Clock { get; set; }
 
         [Inject]
         public IAuthSettings Settings { get; set; }
@@ -32,15 +36,12 @@ namespace Dolstagis.Contrib.Auth
         [Inject]
         public UserAgentManager WebInfo { get; set; }
 
-        public UserManager(ISessionFactory sessionFactory) : base(sessionFactory) { }
+        public UserManager(IUserRepository repository) : base(repository) { }
 
-        public UserManager(ISessionFactory sessionFactory, ISession session)
-            : base(sessionFactory, session)
-        { }
 
         public IEnumerable<User> GetAllUsers()
         {
-            return this.Session.Query<User>();
+            return this.Repository.Query<User>();
         }
 
         /// <summary>
@@ -55,7 +56,7 @@ namespace Dolstagis.Contrib.Auth
         public User GetUserByUserName(string username)
         {
             username = username.ToLower();
-            return this.Session.Query<User>()
+            return this.Repository.Query<User>()
                 .Where(x => x.UserName.ToLower() == username)
                 .SingleOrDefault();
         }
@@ -71,7 +72,7 @@ namespace Dolstagis.Contrib.Auth
         public IEnumerable<User> GetUsersByUserNameOrEmail(string value)
         {
             value = value.ToLower();
-            return this.Session.Query<User>()
+            return this.Repository.Query<User>()
                 .Where(x => x.UserName.ToLower() == value || x.EmailAddress.ToLower() == value);
         }
 
@@ -129,8 +130,8 @@ namespace Dolstagis.Contrib.Auth
             var userAgent = WebInfo.GetUserAgent(sUserAgent);
             var result = new UserSession(user, userAgent, Clock.UtcNow());
             result.IPAddress = ipAddress;
-            this.Session.Save(result);
-            this.Session.Flush();
+            this.Repository.Save(result);
+            this.Repository.Flush();
             return result;
         }
 
@@ -147,10 +148,10 @@ namespace Dolstagis.Contrib.Auth
 
         public UserSession AccessSession(string sessionID)
         {
-            var session = this.Session.Get<UserSession>(sessionID);
+            var session = this.Repository.Get<UserSession>(sessionID);
             if (session != null) {
                 session.DateLastAccessed = this.Clock.UtcNow();
-                this.Session.Flush();
+                this.Repository.Flush();
             }
             return session;
         }
@@ -165,8 +166,8 @@ namespace Dolstagis.Contrib.Auth
         public void DeleteSession(UserSession userSession)
         {
             if (userSession != null) {
-                this.Session.Delete(userSession);
-                this.Session.Flush();
+                this.Repository.Delete(userSession);
+                this.Repository.Flush();
             }
         }
 
@@ -182,7 +183,7 @@ namespace Dolstagis.Contrib.Auth
 
         public UserSession DeleteSession(string sessionID)
         {
-            var userSession = this.Session.Get<UserSession>(sessionID);
+            var userSession = this.Repository.Get<UserSession>(sessionID);
             DeleteSession(userSession);
             return userSession;
         }
@@ -197,11 +198,7 @@ namespace Dolstagis.Contrib.Auth
         public void DeleteOtherSessions(UserSession currentSession)
         {
             if (currentSession == null) return;
-            this.Session.Delete(
-                "from UserSession where SessionID != ? and User = ?",
-                new object[] { currentSession.SessionID, currentSession.User },
-                new IType[] { NHibernateUtil.String, NHibernateUtil.Entity(typeof(User)) }
-            );
+            this.Repository.DeleteOtherSessionsForUser(currentSession.SessionID, currentSession.User);
         }
 
         /// <summary>
@@ -220,7 +217,7 @@ namespace Dolstagis.Contrib.Auth
 
         public IEnumerable<UserSession> GetSessionsForUser(User user)
         {
-            return this.Session.Query<UserSession>().Fetch(x => x.UserAgent)
+            return this.Repository.Query<UserSession>().Fetch(x => x.UserAgent)
                 .Where(s => s.User == user)
                 .OrderByDescending(s => s.DateLastAccessed);
         }
@@ -246,8 +243,8 @@ namespace Dolstagis.Contrib.Auth
             var tokens = users.Select(x => new UserToken(x, action, expires))
                 .ToList();  // We need this to freeze the UserToken instances.
             foreach (var token in tokens)
-                this.Session.Persist(token);
-            this.Session.Flush();
+                this.Repository.Persist(token);
+            this.Repository.Flush();
             return tokens;
         }
 
@@ -263,7 +260,7 @@ namespace Dolstagis.Contrib.Auth
 
         public UserToken GetToken(Guid tokenID)
         {
-            var token = this.Session.Get<UserToken>(tokenID);
+            var token = this.Repository.Get<UserToken>(tokenID);
             if (token == null) {
                 return null;
             }
@@ -285,7 +282,7 @@ namespace Dolstagis.Contrib.Auth
 
         public void DeleteToken(UserToken token)
         {
-            this.Session.Delete(token);
+            this.Repository.Delete(token);
         }
 
         /// <summary>

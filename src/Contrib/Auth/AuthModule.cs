@@ -13,6 +13,10 @@ namespace Dolstagis.Contrib.Auth
         {
             base.Load();
 
+            /* ====== Components ====== */
+
+            Bind<IUserRepository>().To<UserRepository>();
+
             /* ====== Settings ====== */
 
             Bind<IAuthSettings>().To<AuthSettings>();
