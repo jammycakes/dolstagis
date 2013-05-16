@@ -19,6 +19,7 @@ namespace Dolstagis.Core.Data
 
         void Save(object obj);
 
+        void Delete(object obj);
     }
 
     public interface IRepository<TModel>: IRepository where TModel : new()
@@ -34,5 +35,7 @@ namespace Dolstagis.Core.Data
         IQueryable<TModel> Query();
 
         void Save(TModel obj);
+
+        void Delete(TModel obj);
     }
 }

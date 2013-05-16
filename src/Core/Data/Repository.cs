@@ -98,6 +98,11 @@ namespace Dolstagis.Core.Data
         {
             Session.SaveOrUpdate(obj);
         }
+
+        public void Delete(object obj)
+        {
+            Session.Delete(obj);
+        }
     }
 
     /* ====== Typed repository ====== */
@@ -152,6 +157,11 @@ namespace Dolstagis.Core.Data
         public void Save(TModel obj)
         {
             base.Save(obj);
+        }
+
+        public void Delete(TModel obj)
+        {
+            base.Delete(obj);
         }
     }
 }
