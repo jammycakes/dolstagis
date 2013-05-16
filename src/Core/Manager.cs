@@ -6,11 +6,11 @@ using NHibernate.Linq;
 
 namespace Dolstagis.Core
 {
-    public class Manager<TModel> : IDisposable where TModel: new()
+    public class Manager : IDisposable
     {
-        public IRepository<TModel> Repository { get; private set; }
+        public IRepository Repository { get; private set; }
 
-        public Manager(IRepository<TModel> repository)
+        public Manager(IRepository repository)
         {
             this.Repository = repository;
         }
@@ -30,6 +30,19 @@ namespace Dolstagis.Core
         {
             Dispose(false);
         }
+
+    }
+
+    public class Manager<TModel> : Manager where TModel: new()
+    {
+        public new IRepository<TModel> Repository
+        {
+            get { return ((IRepository<TModel>)base.Repository); }
+        }
+
+        public Manager(IRepository<TModel> repository)
+            : base(repository)
+        { }
     }
 
 
