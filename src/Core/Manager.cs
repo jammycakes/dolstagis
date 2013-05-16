@@ -31,4 +31,17 @@ namespace Dolstagis.Core
             Dispose(false);
         }
     }
+
+    public class Manager<TRepository> : Manager
+        where TRepository : IRepository
+    {
+        public new TRepository Repository
+        {
+            get { return (TRepository)base.Repository; }
+        }
+
+        public Manager(TRepository repository)
+            : base(repository)
+        { }
+    }
 }
