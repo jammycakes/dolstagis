@@ -11,7 +11,7 @@ using Ninject;
 
 namespace Dolstagis.Contrib.Auth
 {
-    public class InvitationManager : Manager<Invitation>
+    public class InvitationManager : TypedManager<Invitation>
     {
         public InvitationManager(IRepository<Invitation> repository) : base(repository) { }
 

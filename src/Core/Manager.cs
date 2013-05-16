@@ -30,33 +30,5 @@ namespace Dolstagis.Core
         {
             Dispose(false);
         }
-
-    }
-
-    public class Manager<TModel> : Manager where TModel: new()
-    {
-        public new IRepository<TModel> Repository
-        {
-            get { return ((IRepository<TModel>)base.Repository); }
-        }
-
-        public Manager(IRepository<TModel> repository)
-            : base(repository)
-        { }
-    }
-
-
-    public class Manager<TModel, TRepository> : Manager<TModel>
-        where TModel : new()
-        where TRepository : IRepository<TModel>
-    {
-        public new TRepository Repository
-        {
-            get { return (TRepository)base.Repository; }
-        }
-
-        public Manager(TRepository repository)
-            : base(repository)
-        { }
     }
 }

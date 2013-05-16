@@ -3,7 +3,7 @@ using Dolstagis.Core.Data;
 
 namespace Dolstagis.Core.WebInfo
 {
-    public class UserAgentManager : Manager<UserAgent>
+    public class UserAgentManager : TypedManager<UserAgent>
     {
         public UserAgentManager(IRepository<UserAgent> repository)
             : base(repository)
