@@ -30,6 +30,13 @@ namespace Dolstagis.Core
         {
             Dispose(false);
         }
+
+        /* ====== Common CRUD operations ====== */
+
+        public void Save(object obj)
+        {
+            this.Repository.Save(obj);
+        }
     }
 
     public class Manager<TRepository> : Manager

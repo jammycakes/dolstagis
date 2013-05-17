@@ -16,6 +16,34 @@ namespace Dolstagis.Core
         public TypedManager(IRepository<TModel> repository)
             : base(repository)
         { }
+
+
+        /* ====== Common CRUD operations ====== */
+
+        public TModel Get(object id)
+        {
+            return this.Repository.Get(id);
+        }
+
+        public TModel CreateTransient()
+        {
+            return this.Repository.CreateTransient();
+        }
+
+        public TModel CreatePersistent()
+        {
+            return this.Repository.CreatePersistent();
+        }
+
+        public void Save(TModel obj)
+        {
+            this.Repository.Save(obj);
+        }
+
+        public void Delete(TModel obj)
+        {
+            this.Repository.Delete(obj);
+        }
     }
 
 
