@@ -226,6 +226,7 @@
     <Content Include="Scripts\ui.js" />
     <Content Include="Scripts\flash.js" />
     <Content Include="Scripts\user\sessions.js" />
+    <Content Include="Scripts\vendor\namespace.js" />
     <Content Include="Views\Accounts\Invitation.html" />
     <Content Include="Views\Accounts\Invitation.txt" />
     <Content Include="Views\Accounts\ResetPassword.html" />

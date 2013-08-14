@@ -1,20 +1,7 @@
 ﻿// @reference vendor/jquery-2.0.3.js
 // @reference vendor/jquery.colorbox.js
+// @reference vendor/namespace.js
 
-(function () {
-  "use strict";
-
-  var console = window.console = window.console || {};
-  console.log = console.log || function () { };
-
-  var dolstagis = window.dolstagis = {
-    define: function define(ns, target) {
-      var parts = ns.split('.');
-      var obj = dolstagis;
-      while (parts.length > 0) {
-        var part = parts.shift();
-        obj = obj[part] = obj[part] || parts.length ? {} : target;
-      }
-    }
-  };
-}).call(this);
+namespace("console", function () {
+    this.log = this.log || function () { };
+});
