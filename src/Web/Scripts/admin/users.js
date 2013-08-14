@@ -1,4 +1,4 @@
-﻿// @reference ../jquery-2.0.3.js
+﻿// @reference ../vendor/jquery-2.0.3.js
 // @reference ../core.js
 // @reference ../ui.js
 

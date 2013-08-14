@@ -1,5 +1,5 @@
 ﻿// @reference ../ui.js
-// @reference ../jquery-2.0.3.js
+// @reference ../vendor/jquery-2.0.3.js
 
 (function ($, undefined) {
   "use strict";

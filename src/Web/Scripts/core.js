@@ -1,5 +1,5 @@
-﻿// @reference jquery-2.0.3.js
-// @reference jquery.colorbox.js
+﻿// @reference vendor/jquery-2.0.3.js
+// @reference vendor/jquery.colorbox.js
 
 (function () {
   "use strict";

@@ -219,10 +219,10 @@
     <None Include="Scripts\.readme.txt" />
     <Content Include="Scripts\admin\users.js" />
     <Content Include="Scripts\core.js" />
-    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.0.3.js" />
-    <Content Include="Scripts\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\jquery.colorbox.js" />
+    <None Include="Scripts\vendor\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\vendor\jquery-2.0.3.js" />
+    <Content Include="Scripts\vendor\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\vendor\jquery.colorbox.js" />
     <Content Include="Scripts\ui.js" />
     <Content Include="Scripts\flash.js" />
     <Content Include="Scripts\user\sessions.js" />
@@ -247,7 +247,7 @@
     <Content Include="Views\Shared\_2col.cshtml" />
     <Content Include="Views\Shared\_simple.cshtml" />
     <Content Include="Views\Shared\_Colorbox.cshtml" />
-    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Scripts\vendor\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
