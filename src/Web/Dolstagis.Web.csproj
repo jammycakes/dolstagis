@@ -229,6 +229,7 @@
     <Content Include="Scripts\admin\users.js" />
     <Content Include="Scripts\core.js" />
     <None Include="Scripts\vendor\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\head\modernizr-2.6.2.js" />
     <Content Include="Scripts\vendor\jquery-2.0.3.js" />
     <Content Include="Scripts\vendor\jquery-2.0.3.min.js" />
     <Content Include="Scripts\vendor\jquery.colorbox.js" />
