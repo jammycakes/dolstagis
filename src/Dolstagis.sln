@@ -18,6 +18,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.DataMigrations", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Contrib", "Contrib\Dolstagis.Contrib.csproj", "{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".version", ".version", "{DC62E4AD-8CDB-4F5F-AE0C-50E7C689449C}"
+	ProjectSection(SolutionItems) = preProject
+		.version\DefaultVersionInfo.cs = .version\DefaultVersionInfo.cs
+		.version\ProductInfo.cs = .version\ProductInfo.cs
+		.version\VersionInfo.cs = .version\VersionInfo.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

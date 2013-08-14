@@ -6,3 +6,4 @@ src/*/*.user
 src/*.suo
 logs
 src/packages
+src/.version/VersionInfo.cs

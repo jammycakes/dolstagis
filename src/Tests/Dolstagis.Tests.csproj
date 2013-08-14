@@ -76,6 +76,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.version\DefaultVersionInfo.cs" Condition="!Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\DefaultVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\VersionInfo.cs" Condition="Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Accounts\Passwords\AggregatePasswordProviderFixture.cs" />
     <Compile Include="Accounts\Passwords\BCrypt\BCryptPasswordProviderFixture.cs" />
     <Compile Include="Accounts\Passwords\Sha512\Sha512PasswordProviderFixture.cs" />

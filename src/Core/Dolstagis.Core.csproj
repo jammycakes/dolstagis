@@ -64,6 +64,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.version\DefaultVersionInfo.cs" Condition="!Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\DefaultVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\VersionInfo.cs" Condition="Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Caching\CacheExtensions.cs" />
     <Compile Include="Caching\ICache.cs" />
     <Compile Include="Caching\NullCache.cs" />

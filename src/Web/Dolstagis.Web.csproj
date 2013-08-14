@@ -151,6 +151,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\.version\DefaultVersionInfo.cs" Condition="!Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\DefaultVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\.version\VersionInfo.cs" Condition="Exists('..\.version\VersionInfo.cs')">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAjaxController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
