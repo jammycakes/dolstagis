@@ -9,7 +9,7 @@
     <title>@ViewBag.Title</title>
     @* Stylesheets must be rendered before scripts or colorbox will misbehave! *@
     @Bundles.RenderStylesheets()
-    @Bundles.RenderScripts()
+    @Bundles.RenderScripts("head")
   </head>
   <body>
     <div id="all">
@@ -27,5 +27,6 @@
       @Html.FlashedMessages()
       @RenderBody()
     </div>
+    @Bundles.RenderScripts()
   </body>
 </html>
