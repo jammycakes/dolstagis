@@ -1,4 +1,4 @@
-﻿// @reference jquery-1.8.3.js
+﻿// @reference jquery-2.0.3.js
 // @reference core.js
 // @reference flash.js
 

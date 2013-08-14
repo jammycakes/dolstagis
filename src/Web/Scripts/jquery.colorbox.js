@@ -1,4 +1,4 @@
-// @reference jquery-1.8.3.js
+// @reference jquery-2.0.3.js
 /*
 	jQuery Colorbox v1.4.15 - 2013-04-22
 	(c) 2013 Jack Moore - jacklmoore.com/colorbox
