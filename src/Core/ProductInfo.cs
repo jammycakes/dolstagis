@@ -12,7 +12,7 @@ namespace Dolstagis.Core
 
         public static string Product { get; private set; }
 
-        public static string Copyrignt { get; private set; }
+        public static string Copyright { get; private set; }
 
         public static string Trademark { get; private set; }
 
@@ -36,7 +36,7 @@ namespace Dolstagis.Core
         {
             Company = GetAttribute<AssemblyCompanyAttribute>(x => x.Company);
             Product = GetAttribute<AssemblyProductAttribute>(x => x.Product);
-            Copyrignt = GetAttribute<AssemblyCopyrightAttribute>(x => x.Copyright);
+            Copyright = GetAttribute<AssemblyCopyrightAttribute>(x => x.Copyright);
             Trademark = GetAttribute<AssemblyTrademarkAttribute>(x => x.Trademark);
             Culture = GetAttribute<AssemblyCultureAttribute>(x => x.Culture);
             Version = typeof(ProductInfo).Assembly.GetName().Version;
