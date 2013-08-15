@@ -9,8 +9,8 @@ namespace("dolstagis.ui", [jQuery], function ($, undefined) {
         if (!container) {
             container = document.createElement('ul');
             container.id = 'flash';
-            var anchor = document.getElementById('topbanner');
-            anchor.parentNode.insertBefore(container, anchor.nextSibling)
+            var anchor = document.getElementsByTagName('header')[0];
+            anchor.appendChild(container);
         }
 
         var $anchor = $(container).children('.' + level).last();

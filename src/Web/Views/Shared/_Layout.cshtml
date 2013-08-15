@@ -14,20 +14,22 @@
 </head>
 <body>
     <header>
-        <h1>
-            <a href="@this.Href("~/")">@Dolstagis.Core.ProductInfo.Product</a>
-        </h1>
-        <div id="topbanner">
-            @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
-                Html.RenderPartial("LoggedIn", User.Identity);
-            }
-            else {
-                Html.RenderPartial("NotLoggedIn");
-            }
-        </div>
+        <section id="branding">
+            <h1>
+                <a href="@this.Href("~/")">@Dolstagis.Core.ProductInfo.Product</a>
+            </h1>
+            <div id="topbanner">
+                @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
+                    Html.RenderPartial("LoggedIn", User.Identity);
+                }
+                else {
+                    Html.RenderPartial("NotLoggedIn");
+                }
+            </div>
+        </section>
+        @Html.FlashedMessages()
     </header>
     <div id="all">
-        @Html.FlashedMessages()
         @RenderBody()
     </div>
     <footer>

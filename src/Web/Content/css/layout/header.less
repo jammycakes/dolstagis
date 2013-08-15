@@ -2,49 +2,52 @@
 @import "../core/branding";
 
 header {
-    .clearfix();
-    background-color: @topbanner-background;
-    color: @topbanner-text;
     position: fixed;
     width: 100%;
     left: 0px;
     right: 0px;
     top: 0px;
 
-    h1 {
-        float: left;
-        margin: 0px;
-        padding: @widget-padding 1em 0px;
-        font: @title-font;
-    }
+    #branding {
+        .clearfix();
+        background-color: @topbanner-background;
+        color: @topbanner-text;
 
-    a {
-        text-decoration: none;
-        color: @title-text;
-    }
-
-    ul {
-        float: right;
-        width: auto;
-        margin: @widget-padding 1em 0px 1em;
-        padding: 0px;
-        list-style-type: none;
-
-        li {
-            display: inline-block;
-            width: auto;
+        h1 {
+            float: left;
             margin: 0px;
+            padding: @widget-padding 1em 0px;
+            font: @title-font;
+        }
+
+        a {
+            text-decoration: none;
+            color: @title-text;
+        }
+
+        ul {
+            float: right;
+            width: auto;
+            margin: @widget-padding 1em 0px 1em;
             padding: 0px;
             list-style-type: none;
 
-            a {
-                .rounded-corners-top(@widget-border-radius);
-                color: @topbanner-text;
-                display: block;
-                padding: @widget-padding;
+            li {
+                display: inline-block;
+                width: auto;
+                margin: 0px;
+                padding: 0px;
+                list-style-type: none;
 
-                &:hover {
-                    background-color: lighten(@topbanner-background, 25%);
+                a {
+                    .rounded-corners-top(@widget-border-radius);
+                    color: @topbanner-text;
+                    display: block;
+                    padding: @widget-padding;
+
+                    &:hover {
+                        background-color: lighten(@topbanner-background, 25%);
+                    }
                 }
             }
         }
