@@ -1,8 +1,8 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyCompany("Dolstagis Solutions")]
-[assembly: AssemblyProduct("Contrib")]
-[assembly: AssemblyCopyright("Copyright © Dolstagis Solutions 2013")]
+[assembly: AssemblyCompany("Dolstagis Software")]
+[assembly: AssemblyProduct("Dolstagis")]
+[assembly: AssemblyCopyright("Copyright © Dolstagis Software 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
