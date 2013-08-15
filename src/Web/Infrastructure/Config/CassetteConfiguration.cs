@@ -12,7 +12,7 @@ namespace Dolstagis.Web.Infrastructure.Config
     {
         public void Configure(BundleCollection bundles)
         {
-            bundles.AddPerSubDirectory<ScriptBundle>("Scripts", new FileSearch {
+            bundles.AddPerSubDirectory<ScriptBundle>("assets/js", new FileSearch {
                 Pattern = "*.js",
                 Exclude = new Regex(@"\.(?:intellisense|min)\.js$")
             });
