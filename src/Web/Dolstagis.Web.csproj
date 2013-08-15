@@ -209,6 +209,7 @@
     <Content Include="Areas\User\Views\Shared\ChoosePassword.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\User\Views\User\Invite.cshtml" />
+    <Content Include="assets\css\layout\footer.less" />
     <None Include="assets\css\readme.txt" />
     <Content Include="assets\images\colorbox\border.png" />
     <Content Include="assets\images\colorbox\controls.png" />
