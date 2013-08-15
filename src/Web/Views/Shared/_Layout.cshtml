@@ -1,33 +1,33 @@
 ﻿@{
-  Bundles.Reference("Scripts");
-  Bundles.Reference("Scripts/head", "head");
-  Bundles.Reference("Content/css/layout.less");
+    Bundles.Reference("Scripts");
+    Bundles.Reference("Scripts/head", "head");
+    Bundles.Reference("Content/css/layout.less");
 }
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @* Stylesheets must be rendered before scripts or colorbox will misbehave! *@
     @Bundles.RenderStylesheets()
     @Bundles.RenderScripts("head")
-  </head>
-  <body>
+</head>
+<body>
     <div id="all">
-      <div id="topbanner">
-        <h1>
-          <a href="@this.Href("~/")">Dolstagis</a>
-        </h1>
-        @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
-          Html.RenderPartial("LoggedIn", User.Identity);
-        }
-        else {
-          Html.RenderPartial("NotLoggedIn");
-        }
-      </div>
-      @Html.FlashedMessages()
-      @RenderBody()
+        <div id="topbanner">
+            <h1>
+                <a href="@this.Href("~/")">Dolstagis</a>
+            </h1>
+            @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
+                Html.RenderPartial("LoggedIn", User.Identity);
+            }
+            else {
+                Html.RenderPartial("NotLoggedIn");
+            }
+        </div>
+        @Html.FlashedMessages()
+        @RenderBody()
     </div>
     @Bundles.RenderScripts()
-  </body>
+</body>
 </html>

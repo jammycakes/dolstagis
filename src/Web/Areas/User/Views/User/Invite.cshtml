@@ -7,34 +7,34 @@
 <h2>Invite a friend</h2>
 
 <form method="post">
-  @if (Model.User.Invitations > 0) {
-    <p>
-      You have @Model.User.Invitations
-      @(Model.User.Invitations > 0 ? "invitations" : "invitation") remaining.
-    </p>
-  }
-  <dl>
-    <dt>
-      @Html.LabelFor(x => x.Name, "Your friend's name:")
-    </dt>
-    <dd>
-      @Html.TextBoxFor(x => x.Name)
-    </dd>
-    <dt>
-      @Html.LabelFor(x => x.Email, "Your friend's e-mail address:")
-    </dt>
-    <dd>
-      @Html.TextBoxFor(x => x.Email)
-    </dd>
-    <dt>
-      @Html.LabelFor(x => x.Message, "Type a message to include with your invitation:")
-    </dt>
-    <dd>
-      <textarea id="ctlMessage" name="message"></textarea>
-    </dd>
-    <dt>&nbsp;</dt>
-    <dd>
-      <input type="submit" value="Send invitation" />
-    </dd>
-  </dl>
+    @if (Model.User.Invitations > 0) {
+        <p>
+            You have @Model.User.Invitations
+            @(Model.User.Invitations > 0 ? "invitations" : "invitation") remaining.
+        </p>
+    }
+    <dl>
+        <dt>
+            @Html.LabelFor(x => x.Name, "Your friend's name:")
+        </dt>
+        <dd>
+            @Html.TextBoxFor(x => x.Name)
+        </dd>
+        <dt>
+            @Html.LabelFor(x => x.Email, "Your friend's e-mail address:")
+        </dt>
+        <dd>
+            @Html.TextBoxFor(x => x.Email)
+        </dd>
+        <dt>
+            @Html.LabelFor(x => x.Message, "Type a message to include with your invitation:")
+        </dt>
+        <dd>
+            <textarea id="ctlMessage" name="message"></textarea>
+        </dd>
+        <dt>&nbsp;</dt>
+        <dd>
+            <input type="submit" value="Send invitation" />
+        </dd>
+    </dl>
 </form>

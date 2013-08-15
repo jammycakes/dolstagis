@@ -1,20 +1,20 @@
 ﻿@{
-  Bundles.Reference("Scripts");
-  Bundles.Reference("Content/css/layout-colorbox.less");
+    Bundles.Reference("Scripts");
+    Bundles.Reference("Content/css/layout-colorbox.less");
 }
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @* Stylesheets must be rendered before scripts or colorbox will misbehave! *@
     @Bundles.RenderStylesheets()
     @Bundles.RenderScripts()
-  </head>
-  <body>
+</head>
+<body>
     <div id="all">
-      @Html.FlashedMessages()
-      @RenderBody()
+        @Html.FlashedMessages()
+        @RenderBody()
     </div>
-  </body>
+</body>
 </html>

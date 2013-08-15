@@ -1,22 +1,22 @@
 ﻿@{
-  this.Layout = "~/Views/Shared/_2col.cshtml";
-  Bundles.Reference("Content/css/2col.less");
+    this.Layout = "~/Views/Shared/_2col.cshtml";
+    Bundles.Reference("Content/css/2col.less");
 }
 @section left {
-  <ul>
-    <li>
-      <a href="/user/profile">Profile</a>
-    </li>
-    <li>
-      <a href="/user/changepassword">Change your password</a>
-    </li>
-    <li>
-      <a href="/user/sessions">Active sessions</a>
-    </li>
-    <li>
-      <a href="/user/logout">Logout</a>
-    </li>
-  </ul>
+    <ul>
+        <li>
+            <a href="/user/profile">Profile</a>
+        </li>
+        <li>
+            <a href="/user/changepassword">Change your password</a>
+        </li>
+        <li>
+            <a href="/user/sessions">Active sessions</a>
+        </li>
+        <li>
+            <a href="/user/logout">Logout</a>
+        </li>
+    </ul>
 }
 
 @RenderBody()

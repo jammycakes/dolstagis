@@ -1,19 +1,20 @@
 ﻿@model Dolstagis.Contrib.Auth.Models.User
 <ul>
-  <li>
-    <a href="/user/profile">@Model.DisplayName</a>
-  </li>
-  @if (Model.CanInvite) {
     <li>
-      <a href="/user/invite" class="colorbox" title="Invite a friend">Invite a friend</a>
+        <a href="/user/profile">@Model.DisplayName</a>
     </li>
-  }
-  @if (Model.IsSuperUser) {
+    @if (Model.CanInvite) {
+        <li>
+            <a href="/user/invite" class="colorbox" title="Invite a friend">Invite a friend</a>
+        </li>
+    }
+    @if (Model.IsSuperUser) {
+        <li>
+            <a href="/admin">Site admin</a>
+        </li>
+    }
     <li>
-      <a href="/admin">Site admin</a>
+        <a href="/user/logout">Logout</a>
     </li>
-  }
-  <li>
-    <a href="/user/logout">Logout</a>
-  </li>
 </ul>
+a

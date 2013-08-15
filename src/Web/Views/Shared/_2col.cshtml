@@ -1,13 +1,13 @@
 ﻿@{
-  this.Layout = "~/Views/Shared/_Layout.cshtml";
-  Bundles.Reference("Content/css/2col.less");
+    this.Layout = "~/Views/Shared/_Layout.cshtml";
+    Bundles.Reference("Content/css/2col.less");
 }
 
 <div class="two-col">
-  <div class="left">
-    @RenderSection("left", false)
-  </div>
-  <div class="body">
-    @RenderBody()
-  </div>
+    <div class="left">
+        @RenderSection("left", false)
+    </div>
+    <div class="body">
+        @RenderBody()
+    </div>
 </div>

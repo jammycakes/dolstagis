@@ -1,22 +1,20 @@
 ﻿@model Dolstagis.Contrib.Auth.Models.UserSession
 <tr>
-  <td class="nowrap">
-    Logged on: @Model.DateCreated.ToString("dd/MM/yyyy")
-    <br />
-    Last accessed: @Model.DateLastAccessed.ToString("dd/MM/yyyy")
-  </td>
-  <td>
-    IP: @Model.IPAddress<br />
-    User agent: @Model.UserAgent.String
-  </td>
-  <td class="nowrap">
-    @if (Model != User) {
-      <a href="#" class="delete" data-sessionid="@Model.SessionID">
-        End session
-      </a>
-    } else {
-      <a href="#" class="delete-others">End all other sessions</a>
-    }
-  </td>
+    <td class="nowrap">Logged on: @Model.DateCreated.ToString("dd/MM/yyyy")
+        <br />
+        Last accessed: @Model.DateLastAccessed.ToString("dd/MM/yyyy")
+    </td>
+    <td>IP: @Model.IPAddress<br />
+        User agent: @Model.UserAgent.String
+    </td>
+    <td class="nowrap">
+        @if (Model != User) {
+            <a href="#" class="delete" data-sessionid="@Model.SessionID">End session
+            </a>
+        }
+        else {
+            <a href="#" class="delete-others">End all other sessions</a>
+        }
+    </td>
 </tr>
 
