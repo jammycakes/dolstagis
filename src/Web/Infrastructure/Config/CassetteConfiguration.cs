@@ -27,7 +27,7 @@ namespace Dolstagis.Web.Infrastructure.Config
              * dependencies.
              */
 
-            bundles.AddPerIndividualFile<StylesheetBundle>("Content/css");
+            bundles.AddPerIndividualFile<StylesheetBundle>("assets/css");
         }
     }
 }
