@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Web;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using Ninject;
 using Ninject.Modules;
+using Ninject.Web.Common;
 
 namespace Dolstagis.Core.Data
 {
@@ -90,6 +92,10 @@ namespace Dolstagis.Core.Data
             Bind<ISessionFactory>().ToMethod
                 (x => x.Kernel.Get<NHibernate.Cfg.Configuration>().BuildSessionFactory())
                 .InSingletonScope();
+            Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
+                .When(x => HttpContext.Current != null)
+                .InRequestScope()
+                .OnDeactivation(x => x.Flush());
             Bind<IRepository>().To<Repository>();
             Bind(typeof(IRepository<>)).To(typeof(Repository<>));
         }

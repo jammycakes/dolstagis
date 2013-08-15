@@ -64,10 +64,6 @@ namespace Dolstagis.Web.Infrastructure.Config
                 new Dolstagis.Contrib.Auth.AuthModule(),
                 new Dolstagis.Web.Helpers.HelperNinjectModule()
             );
-            kernel.Bind<ISession>().ToMethod(x => x.Kernel.Get<ISessionFactory>().OpenSession())
-                .When(x => HttpContext.Current != null)
-                .InRequestScope()
-                .OnDeactivation(x => x.Flush());
             kernel.Bind<IFilespace>()
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
                 .WhenInjectedInto<ITemplateEngine>();
