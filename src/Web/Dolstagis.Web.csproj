@@ -220,7 +220,7 @@
     <Content Include="Content\css\layout.less" />
     <Content Include="Content\css\core\branding.less" />
     <Content Include="Content\css\core\core.less" />
-    <Content Include="Content\css\layout\topbanner.less" />
+    <Content Include="Content\css\layout\header.less" />
     <Content Include="Content\css\layout\flash.less" />
     <Content Include="Areas\User\Views\Web.config" />
     <Content Include="Areas\User\Views\_ViewStart.cshtml" />

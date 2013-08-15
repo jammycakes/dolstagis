@@ -13,11 +13,11 @@
     @Bundles.RenderScripts("head")
 </head>
 <body>
-    <div id="all">
+    <header>
+        <h1>
+            <a href="@this.Href("~/")">@Dolstagis.Core.ProductInfo.Product</a>
+        </h1>
         <div id="topbanner">
-            <h1>
-                <a href="@this.Href("~/")">Dolstagis</a>
-            </h1>
             @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
                 Html.RenderPartial("LoggedIn", User.Identity);
             }
@@ -25,9 +25,14 @@
                 Html.RenderPartial("NotLoggedIn");
             }
         </div>
+    </header>
+    <div id="all">
         @Html.FlashedMessages()
         @RenderBody()
     </div>
+    <footer>
+        @Dolstagis.Core.ProductInfo.Copyright
+    </footer>
     @Bundles.RenderScripts()
 </body>
 </html>
