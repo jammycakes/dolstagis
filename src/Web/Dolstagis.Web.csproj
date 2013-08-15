@@ -225,18 +225,18 @@
     <Content Include="Areas\User\Views\Web.config" />
     <Content Include="Areas\User\Views\_ViewStart.cshtml" />
     <Content Include="assets\css\simple.less" />
-    <None Include="Scripts\.readme.txt" />
-    <Content Include="Scripts\admin\users.js" />
-    <Content Include="Scripts\core.js" />
-    <None Include="Scripts\vendor\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\head\modernizr-2.6.2.js" />
-    <Content Include="Scripts\vendor\jquery-2.0.3.js" />
-    <Content Include="Scripts\vendor\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\vendor\jquery.colorbox.js" />
-    <Content Include="Scripts\ui.js" />
-    <Content Include="Scripts\flash.js" />
-    <Content Include="Scripts\user\sessions.js" />
-    <Content Include="Scripts\vendor\namespace.js" />
+    <None Include="assets\js\.readme.txt" />
+    <Content Include="assets\js\admin\users.js" />
+    <Content Include="assets\js\core.js" />
+    <None Include="assets\js\vendor\jquery-2.0.3.intellisense.js" />
+    <Content Include="assets\js\head\modernizr-2.6.2.js" />
+    <Content Include="assets\js\vendor\jquery-2.0.3.js" />
+    <Content Include="assets\js\vendor\jquery-2.0.3.min.js" />
+    <Content Include="assets\js\vendor\jquery.colorbox.js" />
+    <Content Include="assets\js\ui.js" />
+    <Content Include="assets\js\flash.js" />
+    <Content Include="assets\js\user\sessions.js" />
+    <Content Include="assets\js\vendor\namespace.js" />
     <Content Include="Views\Accounts\Invitation.html" />
     <Content Include="Views\Accounts\Invitation.txt" />
     <Content Include="Views\Accounts\ResetPassword.html" />
@@ -258,7 +258,7 @@
     <Content Include="Views\Shared\_2col.cshtml" />
     <Content Include="Views\Shared\_simple.cshtml" />
     <Content Include="Views\Shared\_Colorbox.cshtml" />
-    <Content Include="Scripts\vendor\jquery-2.0.3.min.map" />
+    <Content Include="assets\js\vendor\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
