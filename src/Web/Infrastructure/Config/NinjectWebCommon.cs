@@ -1,13 +1,6 @@
 using System;
 using System.Web;
-using System.Web.Hosting;
-using Dolstagis.Core.Caching;
-using Dolstagis.Core.IO;
-using Dolstagis.Core.Mail;
-using Dolstagis.Core.Templates;
-using Dolstagis.Web.Helpers.Caching;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using NHibernate;
 using Ninject;
 using Ninject.Web.Common;
 
@@ -62,15 +55,8 @@ namespace Dolstagis.Web.Infrastructure.Config
                 new Dolstagis.Core.Data.NHibernateNinjectModule("Dolstagis"),
                 new Dolstagis.Core.CoreNinjectModule(),
                 new Dolstagis.Contrib.Auth.AuthModule(),
-                new Dolstagis.Web.Helpers.HelperNinjectModule()
+                new WebNinjectModule()
             );
-            kernel.Bind<IFilespace>()
-                .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
-                .WhenInjectedInto<ITemplateEngine>();
-            kernel.Bind<ICache>().ToMethod(x => new HttpRuntimeCache(HttpRuntime.Cache));
-#if DEBUG
-            kernel.Rebind<IMailer>().To<MailLogger>().InSingletonScope();
-#endif
         }
     }
 }

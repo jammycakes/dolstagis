@@ -185,7 +185,7 @@
     <Compile Include="Helpers\Flash\FlashMessageStore.cs" />
     <Compile Include="Helpers\Flash\IFlashMessageStore.cs" />
     <Compile Include="Helpers\Flash\Level.cs" />
-    <Compile Include="Helpers\HelperNinjectModule.cs" />
+    <Compile Include="Infrastructure\Config\WebNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
