@@ -26,10 +26,28 @@ namespace Dolstagis.Core
                     (t.Namespace == rootNamespace || t.Namespace.StartsWith(rootNamespace2)));
         }
 
+        /// <summary>
+        ///  Gets the mapping classes to register with NHibernate.
+        /// </summary>
+        /// <returns>A list of <see cref="Type"/> instances.</returns>
+        /// <remarks>
+        ///  The default behaviour here is to use all mapping classes in the
+        ///  same assembly and namespace (including child namespaces) as the
+        ///  module itself.
+        /// </remarks>
+
         public virtual IEnumerable<Type> GetNHibernateMappings()
         {
             return this.EnumerateSubclasses(typeof(IMappingProvider));
         }
+
+        /// <summary>
+        ///  Registers bindings with the IOC container.
+        /// </summary>
+        /// <remarks>
+        ///  Classes that override this method MUST call this implementation
+        ///  using base.Load() otherwise the sky will fall on your head!
+        /// </remarks>
 
         public override void Load()
         {
