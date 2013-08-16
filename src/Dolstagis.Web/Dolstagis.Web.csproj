@@ -264,11 +264,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contrib\Dolstagis.Contrib.csproj">
+    <ProjectReference Include="..\Dolstagis.Contrib\Dolstagis.Contrib.csproj">
       <Project>{d9ce563c-49ea-4385-ae3c-37898c1e3f0b}</Project>
       <Name>Dolstagis.Contrib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core\Dolstagis.Core.csproj">
+    <ProjectReference Include="..\Dolstagis.Core\Dolstagis.Core.csproj">
       <Project>{8f41c89a-e39b-4593-8e71-99aa69290097}</Project>
       <Name>Dolstagis.Core</Name>
     </ProjectReference>

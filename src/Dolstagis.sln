@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Web", "Web\Dolstagis.Web.csproj", "{E9332736-FB0F-40A7-AB02-EE5AEDAB4FA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Web", "Dolstagis.Web\Dolstagis.Web.csproj", "{E9332736-FB0F-40A7-AB02-EE5AEDAB4FA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Core", "Core\Dolstagis.Core.csproj", "{8F41C89A-E39B-4593-8E71-99AA69290097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Core", "Dolstagis.Core\Dolstagis.Core.csproj", "{8F41C89A-E39B-4593-8E71-99AA69290097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Tests", "Tests\Dolstagis.Tests.csproj", "{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Tests", "Dolstagis.Tests\Dolstagis.Tests.csproj", "{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{801B0B4F-BFA0-4BB5-AA6A-C72E47979DE1}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{801B0B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.DataMigrations", "DataMigrations\Dolstagis.DataMigrations.csproj", "{6782BE67-F7DE-4619-AA04-873D2F354D94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.DataMigrations", "Dolstagis.DataMigrations\Dolstagis.DataMigrations.csproj", "{6782BE67-F7DE-4619-AA04-873D2F354D94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Contrib", "Contrib\Dolstagis.Contrib.csproj", "{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Contrib", "Dolstagis.Contrib\Dolstagis.Contrib.csproj", "{D9CE563C-49EA-4385-AE3C-37898C1E3F0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".version", ".version", "{DC62E4AD-8CDB-4F5F-AE0C-50E7C689449C}"
 	ProjectSection(SolutionItems) = preProject
