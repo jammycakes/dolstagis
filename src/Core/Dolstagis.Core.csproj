@@ -139,6 +139,12 @@
     <Compile Include="WebInfo\UserAgent.cs" />
     <Compile Include="WebInfo\UserAgentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Caching\HttpRuntimeCache.cs" />
+    <Compile Include="Web\FlashHelpers.cs" />
+    <Compile Include="Web\Flash\FlashMessage.cs" />
+    <Compile Include="Web\Flash\FlashMessageStore.cs" />
+    <Compile Include="Web\Flash\IFlashMessageStore.cs" />
+    <Compile Include="Web\Flash\Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

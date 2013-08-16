@@ -1,7 +1,12 @@
-﻿using Dolstagis.Core.Mail;
+﻿using System.Web;
+using Dolstagis.Core.Caching;
+using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
 using Dolstagis.Core.Time;
+using Dolstagis.Core.Web.Caching;
+using Dolstagis.Core.Web.Flash;
 using Ninject.Modules;
+using Ninject.Web.Common;
 
 namespace Dolstagis.Core
 {
@@ -13,6 +18,9 @@ namespace Dolstagis.Core
             Bind<IClock>().To<SystemClock>().InSingletonScope();
             Bind<ITemplateEngine>().To<SimpleTemplateEngine>().InSingletonScope();
             Bind<IMailSettings>().To<MailSettings>().InSingletonScope();
+            Bind<ICache>().ToMethod(x => new HttpRuntimeCache(HttpRuntime.Cache)).InSingletonScope();
+
+            Bind<IFlashMessageStore>().To<FlashMessageStore>().InRequestScope();
         }
     }
 }

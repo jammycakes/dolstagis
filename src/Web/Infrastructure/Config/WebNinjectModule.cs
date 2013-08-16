@@ -4,10 +4,10 @@ using Dolstagis.Core.Caching;
 using Dolstagis.Core.IO;
 using Dolstagis.Core.Mail;
 using Dolstagis.Core.Templates;
-using Dolstagis.Web.Helpers.Caching;
+using Dolstagis.Core.Web.Caching;
 using Ninject.Modules;
 using Ninject.Web.Common;
-using Dolstagis.Web.Helpers.Flash;
+using Dolstagis.Core.Web.Flash;
 
 namespace Dolstagis.Web.Infrastructure.Config
 {
@@ -15,11 +15,9 @@ namespace Dolstagis.Web.Infrastructure.Config
     {
         public override void Load()
         {
-            Bind<IFlashMessageStore>().To<FlashMessageStore>().InRequestScope();
             Bind<IFilespace>()
                 .ToMethod(x => new LocalFilespace(HostingEnvironment.MapPath("~/Views")))
                 .WhenInjectedInto<ITemplateEngine>();
-            Bind<ICache>().ToMethod(x => new HttpRuntimeCache(HttpRuntime.Cache));
 #if DEBUG
             Rebind<IMailer>().To<MailLogger>().InSingletonScope();
 #endif

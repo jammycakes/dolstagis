@@ -3,8 +3,8 @@ using System.Web;
 using System.Web.Mvc;
 using Dolstagis.Contrib.Auth;
 using Dolstagis.Contrib.Auth.Models;
-using Dolstagis.Web.Helpers;
-using Dolstagis.Web.Helpers.Flash;
+using Dolstagis.Core.Web;
+using Dolstagis.Core.Web.Flash;
 
 namespace Dolstagis.Web.Areas.User.Controllers
 {

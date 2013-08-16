@@ -2,7 +2,7 @@
 using System.Web.Caching;
 using Dolstagis.Core.Caching;
 
-namespace Dolstagis.Web.Helpers.Caching
+namespace Dolstagis.Core.Web.Caching
 {
     public class HttpRuntimeCache : ICache
     {

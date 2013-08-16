@@ -179,12 +179,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Caching\HttpRuntimeCache.cs" />
-    <Compile Include="Helpers\FlashHelpers.cs" />
-    <Compile Include="Helpers\Flash\FlashMessage.cs" />
-    <Compile Include="Helpers\Flash\FlashMessageStore.cs" />
-    <Compile Include="Helpers\Flash\IFlashMessageStore.cs" />
-    <Compile Include="Helpers\Flash\Level.cs" />
     <Compile Include="Infrastructure\Config\WebNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

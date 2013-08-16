@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace Dolstagis.Web.Helpers.Flash
+namespace Dolstagis.Core.Web.Flash
 {
     [Serializable]
     public class FlashMessage

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Dolstagis.Web.Helpers.Flash
+namespace Dolstagis.Core.Web.Flash
 {
-    public class FlashMessageStore : Dolstagis.Web.Helpers.Flash.IFlashMessageStore
+    public class FlashMessageStore : IFlashMessageStore
     {
         private const string tempDataKey = "{A6AEDAD9-FDA0-42ED-96BE-B90CAA8BC954}";
 

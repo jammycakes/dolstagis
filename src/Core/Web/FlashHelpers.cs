@@ -5,9 +5,9 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using Dolstagis.Web.Helpers.Flash;
+using Dolstagis.Core.Web.Flash;
 
-namespace Dolstagis.Web.Helpers
+namespace Dolstagis.Core.Web
 {
     public static class FlashHelpers
     {

@@ -5,8 +5,8 @@ using System.Web.Security;
 using Dolstagis.Contrib.Auth;
 using Models = Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Core;
-using Dolstagis.Web.Helpers;
-using Dolstagis.Web.Helpers.Flash;
+using Dolstagis.Core.Web;
+using Dolstagis.Core.Web.Flash;
 using ViewModels = Dolstagis.Web.Areas.User.ViewModels;
 
 namespace Dolstagis.Web.Areas.User.Controllers
