@@ -3,6 +3,7 @@ using Dolstagis.Contrib.Auth.Passwords.BCrypt;
 using Dolstagis.Contrib.Auth.Passwords.PlainText;
 using Dolstagis.Contrib.Auth.Passwords.Sha512;
 using Dolstagis.Core;
+using cfg = Dolstagis.Core.Configuration;
 using Ninject.Modules;
 
 namespace Dolstagis.Contrib.Auth
@@ -19,8 +20,8 @@ namespace Dolstagis.Contrib.Auth
 
             /* ====== Settings ====== */
 
-            Bind<IAuthSettings>().To<AuthSettings>();
-            Bind<IBCryptSettings>().To<BCryptSettings>();
+            Bind<IAuthSettings>().ToMethod(x => cfg.Settings.Get<AuthSettings>());
+            Bind<IBCryptSettings>().ToMethod(x => cfg.Settings.Get<BCryptSettings>());
 
             /* ====== Password providers ====== */
 
