@@ -54,7 +54,7 @@ namespace Dolstagis.Core.Configuration
                 try {
                     var connectionString = ToString(objKey.GetValue(null));
                     var providerName = ToString(objKey.GetValue("Provider"));
-                    return new ConnectionStringSettings(connectionString, providerName);
+                    return new ConnectionStringSettings(connectionStringName, connectionString, providerName);
                 }
                 finally {
                     objKey.Close();

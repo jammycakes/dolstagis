@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using Dolstagis.Core.Configuration;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -27,7 +28,7 @@ namespace Dolstagis.Core.Data
                 connectionString + "." + Environment.MachineName
             };
 
-            var cs = keys.Select(x => ConfigurationManager.ConnectionStrings[x])
+            var cs = keys.Select(x => Settings.GetConnectionString(x))
                 .Where(x => x != null)
                 .FirstOrDefault(x => x.ConnectionString != null);
 
