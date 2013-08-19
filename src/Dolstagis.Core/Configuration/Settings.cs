@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Win32;
 
 namespace Dolstagis.Core.Configuration
 {
@@ -27,12 +28,22 @@ namespace Dolstagis.Core.Configuration
         private static IDictionary<Type, Settings> cachedSettings
             = new Dictionary<Type, Settings>();
 
+        /// <summary>
+        ///  Gets the list of settings providers.
+        /// </summary>
+        /// <remarks>
+        ///  Settings will be configured from the first settings provider
+        ///  in the list which contains the value being requested.
+        /// </remarks>
+
         public static IList<ISettingsProvider> Providers { get; private set; }
 
         static Settings()
         {
             Providers = new List<ISettingsProvider>(new ISettingsProvider[] {
-                new AppConfigSettingsProvider()
+                new AppConfigSettingsProvider(),
+                new RegistrySettingsProvider(Registry.CurrentUser),
+                new RegistrySettingsProvider(Registry.LocalMachine)
             });
         }
 

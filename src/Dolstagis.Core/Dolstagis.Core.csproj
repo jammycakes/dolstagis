@@ -115,6 +115,7 @@
     <Compile Include="Caching\NullCache.cs" />
     <Compile Include="Configuration\AppConfigSettingsProvider.cs" />
     <Compile Include="Configuration\ISettingsProvider.cs" />
+    <Compile Include="Configuration\RegistrySettingsProvider.cs" />
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="TypedManager.cs" />
