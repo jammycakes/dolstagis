@@ -5,7 +5,7 @@ namespace Dolstagis.Tests.Core.Configuration
 {
     public partial class AppConfigSettingsFixture
     {
-        private class GoodTestData : AppConfigSettingsBase
+        private class GoodTestData : Settings
         {
             public int IntValue { get; private set; }
 
@@ -20,43 +20,43 @@ namespace Dolstagis.Tests.Core.Configuration
             public TimeSpan TimeSpanValue { get; private set; }
         }
 
-        private class BadDate : AppConfigSettingsBase
+        private class BadDate : Settings
         {
             public DateTime BadDateValue { get; private set; }
         }
 
-        private class BadInt : AppConfigSettingsBase
+        private class BadInt : Settings
         {
             public int BadIntValue { get; private set; }
         }
 
-        private class BadEnum : AppConfigSettingsBase
+        private class BadEnum : Settings
         {
             public DateTimeKind BadEnumValue { get; private set; }
         }
 
-        private class BadBool : AppConfigSettingsBase
+        private class BadBool : Settings
         {
             public bool BadBoolValue { get; private set; }
         }
 
-        private class BadTimeSpan : AppConfigSettingsBase
+        private class BadTimeSpan : Settings
         {
             public TimeSpan BadTimeSpanValue { get; private set; }
         }
 
-        private class OutOfRangeTimeSpan : AppConfigSettingsBase
+        private class OutOfRangeTimeSpan : Settings
         {
             public TimeSpan OutOfRangeTimeSpanValue { get; private set; }
         }
 
-        private class RequiredField : AppConfigSettingsBase
+        private class RequiredField : Settings
         {
             [Required]
             public string RequiredValue { get; private set; }
         }
 
-        private class OptionalField : AppConfigSettingsBase
+        private class OptionalField : Settings
         {
             public OptionalField()
             {

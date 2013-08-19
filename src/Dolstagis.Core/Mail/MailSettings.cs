@@ -3,7 +3,7 @@ using Dolstagis.Core.Configuration;
 
 namespace Dolstagis.Core.Mail
 {
-    public class MailSettings : AppConfigSettingsBase, IMailSettings
+    public class MailSettings : Settings, IMailSettings
     {
         public string SenderName { get; private set; }
 

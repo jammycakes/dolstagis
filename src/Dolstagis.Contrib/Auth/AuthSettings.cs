@@ -7,7 +7,7 @@ namespace Dolstagis.Contrib.Auth
     ///  Encapsulates the configuration settings for the user account manager.
     /// </summary>
 
-    public class AuthSettings : AppConfigSettingsBase, IAuthSettings
+    public class AuthSettings : Settings, IAuthSettings
     {
         public AuthSettings()
         {

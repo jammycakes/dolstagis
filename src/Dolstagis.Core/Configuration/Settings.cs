@@ -21,14 +21,14 @@ namespace Dolstagis.Core.Configuration
     ///  </para>
     /// </remarks>
 
-    public class AppConfigSettingsBase
+    public class Settings
     {
         private string GetBaseName()
         {
             return this.GetType().Namespace + ".";
         }
 
-        public AppConfigSettingsBase()
+        public Settings()
         {
             string baseName = GetBaseName();
 

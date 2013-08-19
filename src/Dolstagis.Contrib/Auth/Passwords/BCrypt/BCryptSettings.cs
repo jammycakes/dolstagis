@@ -2,7 +2,7 @@
 
 namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {
-    public class BCryptSettings : AppConfigSettingsBase, Dolstagis.Contrib.Auth.Passwords.BCrypt.IBCryptSettings
+    public class BCryptSettings : Settings, Dolstagis.Contrib.Auth.Passwords.BCrypt.IBCryptSettings
     {
         public BCryptSettings()
         {
