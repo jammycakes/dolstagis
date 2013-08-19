@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using Microsoft.Win32;
 
 namespace Dolstagis.Core.Configuration
@@ -27,6 +29,8 @@ namespace Dolstagis.Core.Configuration
     {
         private static IDictionary<Type, Settings> cachedSettings
             = new Dictionary<Type, Settings>();
+        private static IDictionary<string, ConnectionStringSettings> cachedConnectionStrings
+            = new Dictionary<string, ConnectionStringSettings>();
 
         /// <summary>
         ///  Gets the list of settings providers.
@@ -47,6 +51,18 @@ namespace Dolstagis.Core.Configuration
             });
         }
 
+        /* ====== Methods to get settings ====== */
+
+        /// <summary>
+        ///  Gets the settings of a given type.
+        /// </summary>
+        /// <typeparam name="T">
+        ///  The type of the settings to get.
+        /// </typeparam>
+        /// <returns>
+        ///  The settings instance of type T.
+        /// </returns>
+
         public static T Get<T>() where T : Settings, new()
         {
             Settings cached;
@@ -55,13 +71,49 @@ namespace Dolstagis.Core.Configuration
             }
 
             var result = new T();
+            result.Configure();
             cachedSettings[typeof(T)] = result;
             return result;
         }
 
+        /// <summary>
+        ///  Gets a connection string.
+        /// </summary>
+        /// <param name="connectionStringName">
+        ///  The name of the connection string to get.
+        /// </param>
+        /// <returns>
+        ///  The connection string with the specified name.
+        /// </returns>
+
+        public static ConnectionStringSettings GetConnectionString(string connectionStringName)
+        {
+            ConnectionStringSettings cached;
+            if (cachedConnectionStrings.TryGetValue(connectionStringName, out cached)) {
+                return cached;
+            }
+            foreach (var provider in Providers) {
+                cached = provider.GetConnectionString(connectionStringName);
+                if (cached != null) {
+                    cachedConnectionStrings[connectionStringName] = cached;
+                    return cached;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        ///  Creates a new instance of this settings class.
+        /// </summary>
+
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         public Settings()
         {
-            Configure();
+            var trace = new StackTrace(1, true);
+            foreach (var frame in trace.GetFrames()) {
+                if (frame.GetMethod().DeclaringType == typeof(Settings)) return;
+            }
+            throw new InvalidOperationException("Settings classes should not be instantiated directly. Use Settings.Get<T> instead.");
         }
 
         private bool TryGetSetting(string ns, string key, out object value)

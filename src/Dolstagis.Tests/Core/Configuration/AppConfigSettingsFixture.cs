@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Dolstagis.Core.Configuration;
 using NUnit.Framework;
 
 namespace Dolstagis.Tests.Core.Configuration
@@ -12,7 +13,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [TestFixtureSetUp]
         public void CreateTestData()
         {
-            this.testData = new GoodTestData();
+            this.testData = Settings.Get<GoodTestData>();
         }
 
         [Test]
@@ -55,7 +56,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadDateThrowsCorrectException()
         {
-            var badDate = new BadDate();
+            var badDate = Settings.Get<BadDate>();
             Assert.IsNull(badDate);
         }
 
@@ -63,7 +64,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadIntThrowsCorrectException()
         {
-            var badInt = new BadInt();
+            var badInt = Settings.Get<BadInt>();
             Assert.IsNull(badInt);
         }
 
@@ -71,7 +72,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadEnumThrowsCorrectException()
         {
-            var badEnum = new BadEnum();
+            var badEnum = Settings.Get<BadEnum>();
             Assert.IsNull(badEnum);
         }
 
@@ -79,7 +80,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadBoolThrowsCorrectException()
         {
-            var badBool = new BadBool();
+            var badBool = Settings.Get<BadBool>();
             Assert.IsNull(badBool);
         }
 
@@ -87,7 +88,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void BadTimeSpanThrowsCorrectException()
         {
-            var badTimeSpan = new BadTimeSpan();
+            var badTimeSpan = Settings.Get<BadTimeSpan>();
             Assert.IsNull(badTimeSpan);
         }
 
@@ -95,7 +96,7 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void OutOfRangeTimeSpanThrowsCorrectException()
         {
-            var badTimeSpan = new OutOfRangeTimeSpan();
+            var badTimeSpan = Settings.Get<OutOfRangeTimeSpan>();
             Assert.IsNull(badTimeSpan);
         }
 
@@ -103,14 +104,14 @@ namespace Dolstagis.Tests.Core.Configuration
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void MissingRequiredValueThrowsException()
         {
-            var missingRequired = new RequiredField();
+            var missingRequired = Settings.Get<RequiredField>();
             Assert.IsNull(missingRequired);
         }
 
         [Test]
         public void MissingOptionalValueDoesNotThrowException()
         {
-            var missingOptional = new OptionalField();
+            var missingOptional = Settings.Get<OptionalField>();
             Assert.IsNull(missingOptional.OptionalString);
             Assert.AreEqual(42, missingOptional.OptionalIntWithDefault);
             Assert.AreEqual(default(int), missingOptional.OptionalIntWithNoDefault);
