@@ -113,6 +113,8 @@
     <Compile Include="Caching\CacheExtensions.cs" />
     <Compile Include="Caching\ICache.cs" />
     <Compile Include="Caching\NullCache.cs" />
+    <Compile Include="Configuration\AppConfigSettingsProvider.cs" />
+    <Compile Include="Configuration\ISettingsProvider.cs" />
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="TypedManager.cs" />
