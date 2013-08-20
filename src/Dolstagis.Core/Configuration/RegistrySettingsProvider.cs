@@ -10,30 +10,35 @@ namespace Dolstagis.Core.Configuration
 {
     public class RegistrySettingsProvider : ISettingsProvider
     {
-        private RegistryKey root;
+        private RegistryHive hKey;
+        private RegistryView view;
         private string baseKey;
 
-        public RegistrySettingsProvider(RegistryKey root, string baseKey = null)
+        public RegistrySettingsProvider
+            (RegistryHive hKey, RegistryView view = RegistryView.Default, string baseKey = null)
         {
-            this.root = root;
+            this.hKey = hKey;
+            this.view = view;
             this.baseKey = baseKey ?? ProductInfo.Company + "\\" + ProductInfo.Product;
         }
 
         public bool TryGetSetting(string ns, string key, out object value)
         {
-            var objKey = root.OpenSubKey(this.baseKey + "\\" + ns);
-            if (objKey == null) {
-                value = null;
-                return false;
-            }
-            else {
-                try {
-                    value = objKey.GetValue(key);
-                    return true;
+            using (var root = RegistryKey.OpenBaseKey(hKey, view)) {
+                var objKey = root.OpenSubKey(this.baseKey + "\\" + ns);
+                if (objKey == null) {
+                    value = null;
+                    return false;
                 }
-                finally {
-                    objKey.Close();
-                    objKey.Dispose();
+                else {
+                    try {
+                        value = objKey.GetValue(key);
+                        return true;
+                    }
+                    finally {
+                        objKey.Close();
+                        objKey.Dispose();
+                    }
                 }
             }
         }
@@ -46,19 +51,21 @@ namespace Dolstagis.Core.Configuration
 
         public ConnectionStringSettings GetConnectionString(string connectionStringName)
         {
-            var objKey = root.OpenSubKey("SOFTWARE\\" + this.baseKey + "\\ConnectionStrings\\" + connectionStringName);
-            if (objKey == null) {
-                return null;
-            }
-            else {
-                try {
-                    var connectionString = ToString(objKey.GetValue(null));
-                    var providerName = ToString(objKey.GetValue("Provider"));
-                    return new ConnectionStringSettings(connectionStringName, connectionString, providerName);
+            using (var root = RegistryKey.OpenBaseKey(hKey, view)) {
+                var objKey = root.OpenSubKey("SOFTWARE\\" + this.baseKey + "\\ConnectionStrings\\" + connectionStringName);
+                if (objKey == null) {
+                    return null;
                 }
-                finally {
-                    objKey.Close();
-                    objKey.Dispose();
+                else {
+                    try {
+                        var connectionString = ToString(objKey.GetValue(null));
+                        var providerName = ToString(objKey.GetValue("Provider"));
+                        return new ConnectionStringSettings(connectionStringName, connectionString, providerName);
+                    }
+                    finally {
+                        objKey.Close();
+                        objKey.Dispose();
+                    }
                 }
             }
         }

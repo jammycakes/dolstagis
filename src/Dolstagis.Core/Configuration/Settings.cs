@@ -46,8 +46,10 @@ namespace Dolstagis.Core.Configuration
         {
             Providers = new List<ISettingsProvider>(new ISettingsProvider[] {
                 new AppConfigSettingsProvider(),
-                new RegistrySettingsProvider(Registry.CurrentUser),
-                new RegistrySettingsProvider(Registry.LocalMachine)
+                new RegistrySettingsProvider(RegistryHive.CurrentUser, RegistryView.Registry64),
+                new RegistrySettingsProvider(RegistryHive.CurrentUser, RegistryView.Registry32),
+                new RegistrySettingsProvider(RegistryHive.LocalMachine, RegistryView.Registry64),
+                new RegistrySettingsProvider(RegistryHive.LocalMachine, RegistryView.Registry32)
             });
         }
 
