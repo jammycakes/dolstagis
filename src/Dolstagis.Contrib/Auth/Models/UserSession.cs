@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Security.Principal;
-using Dolstagis.Core.WebInfo;
+using Dolstagis.Framework.WebInfo;
 
 namespace Dolstagis.Contrib.Auth.Models
 {

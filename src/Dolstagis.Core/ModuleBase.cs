@@ -6,7 +6,7 @@ using FluentNHibernate;
 using FluentNHibernate.Mapping;
 using Ninject.Modules;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     /// <summary>
     ///  Defines a module for our application. As well as registering Ninject

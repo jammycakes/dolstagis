@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Dolstagis.Core.IO
+namespace Dolstagis.Framework.IO
 {
     /// <summary>
     ///  Provides a mockable, injectable interface around a filespace.

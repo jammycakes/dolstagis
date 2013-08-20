@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dolstagis.Core.Web.Flash
+namespace Dolstagis.Framework.Web.Flash
 {
     public interface IFlashMessageStore
     {

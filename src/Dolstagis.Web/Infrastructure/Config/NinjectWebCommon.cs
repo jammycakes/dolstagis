@@ -52,8 +52,8 @@ namespace Dolstagis.Web.Infrastructure.Config
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(
-                new Dolstagis.Core.Data.NHibernateNinjectModule("Dolstagis"),
-                new Dolstagis.Core.CoreNinjectModule(),
+                new Dolstagis.Framework.Data.NHibernateNinjectModule("Dolstagis"),
+                new Dolstagis.Framework.CoreNinjectModule(),
                 new Dolstagis.Contrib.Auth.AuthModule(),
                 new WebNinjectModule()
             );

@@ -1,5 +1,5 @@
 ﻿
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     /// <summary>
     ///  An object with an address to which email can be sent.

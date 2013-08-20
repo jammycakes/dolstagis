@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Core.Time
+namespace Dolstagis.Framework.Time
 {
     /// <summary>
     ///  Provides a mockable abstraction layer around DateTime.Now and DateTime.UtcNow

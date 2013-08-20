@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Core.Configuration
+namespace Dolstagis.Framework.Configuration
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class RequiredAttribute : Attribute

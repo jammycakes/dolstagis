@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Core.Web.Flash
+namespace Dolstagis.Framework.Web.Flash
 {
     [Serializable]
     public enum Level

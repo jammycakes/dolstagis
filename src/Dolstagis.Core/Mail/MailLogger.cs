@@ -1,6 +1,6 @@
 ﻿using NLog;
 
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     public class MailLogger : IMailer
     {

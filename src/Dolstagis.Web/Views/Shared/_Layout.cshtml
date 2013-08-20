@@ -16,7 +16,7 @@
     <header>
         <section id="branding">
             <h1>
-                <a href="@this.Href("~/")">@Dolstagis.Core.ProductInfo.Product</a>
+                <a href="@this.Href("~/")">@Dolstagis.Framework.ProductInfo.Product</a>
             </h1>
             <div id="topbanner">
                 @if (User.Identity.IsAuthenticated && User is Dolstagis.Contrib.Auth.Models.UserSession) {
@@ -33,7 +33,7 @@
         @RenderBody()
     </section>
     <footer>
-        @Dolstagis.Core.ProductInfo.Copyright
+        @Dolstagis.Framework.ProductInfo.Copyright
     </footer>
     @Bundles.RenderScripts()
 </body>

@@ -1,6 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 
-namespace Dolstagis.Core.WebInfo.Mappings
+namespace Dolstagis.Framework.WebInfo.Mappings
 {
     public class UserAgentMap : ClassMap<UserAgent>
     {

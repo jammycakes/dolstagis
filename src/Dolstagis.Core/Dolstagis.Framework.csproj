@@ -7,8 +7,8 @@
     <ProjectGuid>{8F41C89A-E39B-4593-8E71-99AA69290097}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dolstagis.Core</RootNamespace>
-    <AssemblyName>Dolstagis.Core</AssemblyName>
+    <RootNamespace>Dolstagis.Framework</RootNamespace>
+    <AssemblyName>Dolstagis.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

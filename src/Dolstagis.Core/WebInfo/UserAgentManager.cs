@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Dolstagis.Core.Data;
+using Dolstagis.Framework.Data;
 
-namespace Dolstagis.Core.WebInfo
+namespace Dolstagis.Framework.WebInfo
 {
     public class UserAgentManager : TypedManager<UserAgent>
     {

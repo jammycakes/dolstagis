@@ -1,5 +1,5 @@
-﻿using Dolstagis.Core.IO;
-using Dolstagis.Core.Templates;
+﻿using Dolstagis.Framework.IO;
+using Dolstagis.Framework.Templates;
 using Moq;
 using NUnit.Framework;
 

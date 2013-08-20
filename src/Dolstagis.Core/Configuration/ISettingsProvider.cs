@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dolstagis.Core.Configuration
+namespace Dolstagis.Framework.Configuration
 {
     public interface ISettingsProvider
     {

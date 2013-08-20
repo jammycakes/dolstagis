@@ -1,7 +1,7 @@
 ﻿using System.Net.Mail;
-using Dolstagis.Core.Configuration;
+using Dolstagis.Framework.Configuration;
 
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     public class MailSettings : Settings, IMailSettings
     {

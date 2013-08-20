@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Dolstagis.Core.Data;
+using Dolstagis.Framework.Data;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using Ninject;

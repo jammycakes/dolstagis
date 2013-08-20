@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Dolstagis.Contrib.Auth.Models;
-using Dolstagis.Core;
-using Dolstagis.Core.Data;
-using Dolstagis.Core.Mail;
-using Dolstagis.Core.Templates;
+using Dolstagis.Framework;
+using Dolstagis.Framework.Data;
+using Dolstagis.Framework.Mail;
+using Dolstagis.Framework.Templates;
 using NHibernate;
 using Ninject;
 

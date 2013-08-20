@@ -1,4 +1,4 @@
-﻿using Dolstagis.Core.Configuration;
+﻿using Dolstagis.Framework.Configuration;
 
 namespace Dolstagis.Contrib.Auth.Passwords.BCrypt
 {

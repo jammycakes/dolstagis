@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Dolstagis.Contrib.Auth;
 using Models = Dolstagis.Contrib.Auth.Models;
-using Dolstagis.Core;
-using Dolstagis.Core.Web;
-using Dolstagis.Core.Web.Flash;
+using Dolstagis.Framework;
+using Dolstagis.Framework.Web;
+using Dolstagis.Framework.Web.Flash;
 using ViewModels = Dolstagis.Web.Areas.User.ViewModels;
 
 namespace Dolstagis.Web.Areas.User.Controllers

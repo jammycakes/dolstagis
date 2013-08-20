@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using Microsoft.Win32;
 
-namespace Dolstagis.Core.Configuration
+namespace Dolstagis.Framework.Configuration
 {
     /// <summary>
     ///  Provides a base class for reading settings from the appSettings section

@@ -1,7 +1,7 @@
 ﻿using System.Net.Mail;
 using System.Net.Mime;
 
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     public class SystemNetMailMailer : IMailer
     {

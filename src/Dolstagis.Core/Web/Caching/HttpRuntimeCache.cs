@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Caching;
-using Dolstagis.Core.Caching;
+using Dolstagis.Framework.Caching;
 
-namespace Dolstagis.Core.Web.Caching
+namespace Dolstagis.Framework.Web.Caching
 {
     public class HttpRuntimeCache : ICache
     {

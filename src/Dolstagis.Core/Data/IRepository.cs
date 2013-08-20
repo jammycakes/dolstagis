@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Dolstagis.Core.Data
+namespace Dolstagis.Framework.Data
 {
     public interface IRepository
     {

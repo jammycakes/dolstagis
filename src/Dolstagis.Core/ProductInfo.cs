@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     public static class ProductInfo
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Core.Caching
+namespace Dolstagis.Framework.Caching
 {
     public static class CacheExtensions
     {

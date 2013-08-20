@@ -1,5 +1,5 @@
 ﻿
-namespace Dolstagis.Core.WebInfo
+namespace Dolstagis.Framework.WebInfo
 {
     public class UserAgent
     {

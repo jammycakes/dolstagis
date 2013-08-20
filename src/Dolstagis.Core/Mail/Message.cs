@@ -1,5 +1,5 @@
 ﻿
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     public class Message
     {

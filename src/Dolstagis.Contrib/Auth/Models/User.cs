@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Principal;
-using Dolstagis.Core.Mail;
+using Dolstagis.Framework.Mail;
 
 namespace Dolstagis.Contrib.Auth.Models
 {

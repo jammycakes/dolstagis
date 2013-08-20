@@ -1,15 +1,15 @@
 ﻿using System.Web;
-using Dolstagis.Core.Caching;
-using cfg = Dolstagis.Core.Configuration;
-using Dolstagis.Core.Mail;
-using Dolstagis.Core.Templates;
-using Dolstagis.Core.Time;
-using Dolstagis.Core.Web.Caching;
-using Dolstagis.Core.Web.Flash;
+using Dolstagis.Framework.Caching;
+using cfg = Dolstagis.Framework.Configuration;
+using Dolstagis.Framework.Mail;
+using Dolstagis.Framework.Templates;
+using Dolstagis.Framework.Time;
+using Dolstagis.Framework.Web.Caching;
+using Dolstagis.Framework.Web.Flash;
 using Ninject.Modules;
 using Ninject.Web.Common;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     public class CoreNinjectModule : NinjectModule
     {

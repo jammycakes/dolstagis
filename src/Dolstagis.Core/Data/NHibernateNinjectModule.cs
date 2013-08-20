@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
-using Dolstagis.Core.Configuration;
+using Dolstagis.Framework.Configuration;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -11,7 +11,7 @@ using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
 
-namespace Dolstagis.Core.Data
+namespace Dolstagis.Framework.Data
 {
     public class NHibernateNinjectModule : NinjectModule
     {

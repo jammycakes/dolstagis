@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     /// <summary>
     ///  Indicates an error condition that can conclusively be identified as

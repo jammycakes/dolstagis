@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using Dolstagis.Core.Configuration;
+using Dolstagis.Framework.Configuration;
 using NUnit.Framework;
 
 namespace Dolstagis.Tests.Core.Configuration

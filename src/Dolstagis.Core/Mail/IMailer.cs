@@ -1,5 +1,5 @@
 ﻿
-namespace Dolstagis.Core.Mail
+namespace Dolstagis.Framework.Mail
 {
     /// <summary>
     ///  Represents an e-mail sending class.

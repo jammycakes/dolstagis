@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 
-namespace Dolstagis.Core.Configuration
+namespace Dolstagis.Framework.Configuration
 {
     public class RegistrySettingsProvider : ISettingsProvider
     {

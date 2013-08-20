@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Dolstagis.Core.IO;
+using Dolstagis.Framework.IO;
 
-namespace Dolstagis.Core.Templates
+namespace Dolstagis.Framework.Templates
 {
     public class SimpleTemplateEngine : ITemplateEngine
     {

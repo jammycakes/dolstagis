@@ -1,5 +1,5 @@
 ﻿
-namespace Dolstagis.Core.Templates
+namespace Dolstagis.Framework.Templates
 {
     /// <summary>
     ///  Provides an interface to whichever template engine we need to use.

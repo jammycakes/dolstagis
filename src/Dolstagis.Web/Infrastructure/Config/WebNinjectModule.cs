@@ -1,13 +1,13 @@
 ﻿using System.Web;
 using System.Web.Hosting;
-using Dolstagis.Core.Caching;
-using Dolstagis.Core.IO;
-using Dolstagis.Core.Mail;
-using Dolstagis.Core.Templates;
-using Dolstagis.Core.Web.Caching;
+using Dolstagis.Framework.Caching;
+using Dolstagis.Framework.IO;
+using Dolstagis.Framework.Mail;
+using Dolstagis.Framework.Templates;
+using Dolstagis.Framework.Web.Caching;
 using Ninject.Modules;
 using Ninject.Web.Common;
-using Dolstagis.Core.Web.Flash;
+using Dolstagis.Framework.Web.Flash;
 
 namespace Dolstagis.Web.Infrastructure.Config
 {

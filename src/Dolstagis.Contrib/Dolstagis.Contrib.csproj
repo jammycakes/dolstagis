@@ -103,9 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dolstagis.Core\Dolstagis.Core.csproj">
+    <ProjectReference Include="..\Dolstagis.Core\Dolstagis.Framework.csproj">
       <Project>{8f41c89a-e39b-4593-8e71-99aa69290097}</Project>
-      <Name>Dolstagis.Core</Name>
+      <Name>Dolstagis.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

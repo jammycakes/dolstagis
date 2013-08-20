@@ -5,7 +5,7 @@ using System.Text;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace Dolstagis.Core.Data
+namespace Dolstagis.Framework.Data
 {
     /* ====== Repository class ====== */
 

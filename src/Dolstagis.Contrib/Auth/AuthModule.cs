@@ -2,8 +2,8 @@
 using Dolstagis.Contrib.Auth.Passwords.BCrypt;
 using Dolstagis.Contrib.Auth.Passwords.PlainText;
 using Dolstagis.Contrib.Auth.Passwords.Sha512;
-using Dolstagis.Core;
-using cfg = Dolstagis.Core.Configuration;
+using Dolstagis.Framework;
+using cfg = Dolstagis.Framework.Configuration;
 using Ninject.Modules;
 
 namespace Dolstagis.Contrib.Auth

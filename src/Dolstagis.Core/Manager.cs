@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Dolstagis.Core.Data;
+using Dolstagis.Framework.Data;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     public class Manager : IDisposable
     {

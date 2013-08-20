@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dolstagis.Tests.Core.Module
 {
-    public class TestModule : Dolstagis.Core.ModuleBase
+    public class TestModule : Dolstagis.Framework.ModuleBase
     {
         public override void Load()
         {

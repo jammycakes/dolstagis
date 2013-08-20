@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dolstagis.Core.Time
+namespace Dolstagis.Framework.Time
 {
     public class SystemClock : IClock
     {

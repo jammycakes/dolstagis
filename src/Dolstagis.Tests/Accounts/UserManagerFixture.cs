@@ -5,7 +5,7 @@ using Dolstagis.Contrib.Auth;
 using Dolstagis.Contrib.Auth.Models;
 using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Contrib.Auth.Passwords.BCrypt;
-using Dolstagis.Core.Time;
+using Dolstagis.Framework.Time;
 using Moq;
 using Ninject;
 using NUnit.Framework;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Dolstagis.Core
+namespace Dolstagis.Framework
 {
     /// <summary>
     ///  A <see cref="Lazy"/> object that implements <see cref="IDisposable"/>.

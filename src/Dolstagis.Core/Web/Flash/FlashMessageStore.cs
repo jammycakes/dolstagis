@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Dolstagis.Core.Web.Flash
+namespace Dolstagis.Framework.Web.Flash
 {
     public class FlashMessageStore : IFlashMessageStore
     {

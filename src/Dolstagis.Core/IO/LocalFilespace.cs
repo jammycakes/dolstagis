@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Dolstagis.Core.IO
+namespace Dolstagis.Framework.IO
 {
     /// <summary>
     ///  Represents a filespace in the local filesystem.
