@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Web", "Dolstagis.Web\Dolstagis.Web.csproj", "{E9332736-FB0F-40A7-AB02-EE5AEDAB4FA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Framework", "Dolstagis.Core\Dolstagis.Framework.csproj", "{8F41C89A-E39B-4593-8E71-99AA69290097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Framework", "Dolstagis.Framework\Dolstagis.Framework.csproj", "{8F41C89A-E39B-4593-8E71-99AA69290097}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dolstagis.Tests", "Dolstagis.Tests\Dolstagis.Tests.csproj", "{A80A09DE-29AD-4403-A1CF-91ADD62AAEF5}"
 EndProject
