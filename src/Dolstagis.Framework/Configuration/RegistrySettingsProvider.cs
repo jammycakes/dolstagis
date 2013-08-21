@@ -24,21 +24,15 @@ namespace Dolstagis.Framework.Configuration
 
         public bool TryGetSetting(string ns, string key, out object value)
         {
-            using (var root = RegistryKey.OpenBaseKey(hKey, view)) {
-                var objKey = root.OpenSubKey(this.baseKey + "\\" + ns);
+            using (var root = RegistryKey.OpenBaseKey(hKey, view))
+            using (var objKey = root.OpenSubKey(this.baseKey + "\\" + ns)) {
                 if (objKey == null) {
                     value = null;
                     return false;
                 }
                 else {
-                    try {
-                        value = objKey.GetValue(key);
-                        return true;
-                    }
-                    finally {
-                        objKey.Close();
-                        objKey.Dispose();
-                    }
+                    value = objKey.GetValue(key);
+                    return true;
                 }
             }
         }
@@ -51,21 +45,15 @@ namespace Dolstagis.Framework.Configuration
 
         public ConnectionStringSettings GetConnectionString(string connectionStringName)
         {
-            using (var root = RegistryKey.OpenBaseKey(hKey, view)) {
-                var objKey = root.OpenSubKey("SOFTWARE\\" + this.baseKey + "\\ConnectionStrings\\" + connectionStringName);
+            using (var root = RegistryKey.OpenBaseKey(hKey, view))
+            using (var objKey = root.OpenSubKey("SOFTWARE\\" + this.baseKey + "\\ConnectionStrings\\" + connectionStringName)) {
                 if (objKey == null) {
                     return null;
                 }
                 else {
-                    try {
-                        var connectionString = ToString(objKey.GetValue(null));
-                        var providerName = ToString(objKey.GetValue("Provider"));
-                        return new ConnectionStringSettings(connectionStringName, connectionString, providerName);
-                    }
-                    finally {
-                        objKey.Close();
-                        objKey.Dispose();
-                    }
+                    var connectionString = ToString(objKey.GetValue(null));
+                    var providerName = ToString(objKey.GetValue("Provider"));
+                    return new ConnectionStringSettings(connectionStringName, connectionString, providerName);
                 }
             }
         }
