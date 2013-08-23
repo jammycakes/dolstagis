@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace Dolstagis.DataMigrations._0001
+namespace Dolstagis.DataMigrations.M1301
 {
     [Migration(1)]
     public class CreateUsersTable : Migration

@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentMigrator;
 
-namespace Dolstagis.DataMigrations._0001
+namespace Dolstagis.DataMigrations.M1301
 {
     [Migration(3)]
     public class CreateUserAgentsTable : AutoReversingMigration

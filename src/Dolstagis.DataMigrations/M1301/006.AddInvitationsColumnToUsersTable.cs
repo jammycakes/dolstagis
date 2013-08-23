@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace Dolstagis.DataMigrations._0001
+namespace Dolstagis.DataMigrations.M1301
 {
     [Migration(6)]
     public class AddInvitationsColumnToUsersTable : AutoReversingMigration

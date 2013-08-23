@@ -62,12 +62,12 @@
     <Compile Include="..\.version\VersionInfo.cs" Condition="Exists('..\.version\VersionInfo.cs')">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
-    <Compile Include="0001\005.CreateInvitationsTable.cs" />
-    <Compile Include="0001\003.CreateUserAgentsTable.cs" />
-    <Compile Include="0001\004.CreateUserSessionsTable.cs" />
-    <Compile Include="0001\001.CreateUsersTable.cs" />
-    <Compile Include="0001\002.CreateUserTokensTable.cs" />
-    <Compile Include="0001\006.AddInvitationsColumnToUsersTable.cs" />
+    <Compile Include="M1301\005.CreateInvitationsTable.cs" />
+    <Compile Include="M1301\003.CreateUserAgentsTable.cs" />
+    <Compile Include="M1301\004.CreateUserSessionsTable.cs" />
+    <Compile Include="M1301\001.CreateUsersTable.cs" />
+    <Compile Include="M1301\002.CreateUserTokensTable.cs" />
+    <Compile Include="M1301\006.AddInvitationsColumnToUsersTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
