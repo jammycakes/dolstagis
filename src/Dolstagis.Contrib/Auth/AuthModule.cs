@@ -1,6 +1,8 @@
 ﻿using Dolstagis.Contrib.Auth.Passwords;
 using Dolstagis.Contrib.Auth.Passwords.BCrypt;
+#if DEBUG
 using Dolstagis.Contrib.Auth.Passwords.PlainText;
+#endif
 using Dolstagis.Contrib.Auth.Passwords.Sha512;
 using Dolstagis.Framework;
 using cfg = Dolstagis.Framework.Configuration;
