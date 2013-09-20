@@ -112,9 +112,21 @@
       <Project>{8f41c89a-e39b-4593-8e71-99aa69290097}</Project>
       <Name>Dolstagis.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dolstagis.Web.Aspnet\Dolstagis.Web.Aspnet.csproj">
+      <Project>{25892703-ecbf-410c-b47a-7ee2aa2ee259}</Project>
+      <Name>Dolstagis.Web.Aspnet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dolstagis.Web.Owin\Dolstagis.Web.Owin.csproj">
+      <Project>{6cb9e818-d80f-4df9-a6a3-c0e4dfeb42de}</Project>
+      <Name>Dolstagis.Web.Owin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dolstagis.WebApp\Dolstagis.WebApp.csproj">
       <Project>{e9332736-fb0f-40a7-ab02-ee5aedab4fa5}</Project>
       <Name>Dolstagis.WebApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dolstagis.Web\Dolstagis.Web.csproj">
+      <Project>{e0e930ff-37b5-4495-8a73-3f69073e4629}</Project>
+      <Name>Dolstagis.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
