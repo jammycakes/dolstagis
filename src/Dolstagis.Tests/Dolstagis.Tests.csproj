@@ -112,9 +112,9 @@
       <Project>{8f41c89a-e39b-4593-8e71-99aa69290097}</Project>
       <Name>Dolstagis.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dolstagis.Web\Dolstagis.Web.csproj">
+    <ProjectReference Include="..\Dolstagis.WebApp\Dolstagis.WebApp.csproj">
       <Project>{e9332736-fb0f-40a7-ab02-ee5aedab4fa5}</Project>
-      <Name>Dolstagis.Web</Name>
+      <Name>Dolstagis.WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
