@@ -10,23 +10,17 @@ namespace Dolstagis.Web.Aspnet
 {
     public class DolstagisHttpModule : IHttpModule
     {
-        public static Func<Application> ApplicationFactory { get; set; }
-
-        private static Lazy<Application> application
-            = new Lazy<Application>(CreateApplication, LazyThreadSafetyMode.ExecutionAndPublication);
+        private static Application application = new Application();
 
         private static int refCount = 0;
 
-        private static Application CreateApplication()
-        {
-            return ApplicationFactory != null ? ApplicationFactory() : new Application();
-        }
+        public static Application Application { get { return application; } }
 
         public void Dispose()
         {
             lock (application) {
-                if (--refCount == 0 && application.IsValueCreated) {
-                    application.Value.Dispose();
+                if (--refCount == 0) {
+                    application.Dispose();
                 }
             }
         }
@@ -34,7 +28,7 @@ namespace Dolstagis.Web.Aspnet
         public void Init(HttpApplication context)
         {
             refCount++;
-            context.BeginRequest += (s, e) => context.Context.RemapHandler(new DolstagisHttpHandler(application.Value));
+            context.BeginRequest += (s, e) => context.Context.RemapHandler(new DolstagisHttpHandler(application));
         }
     }
 }

@@ -16,26 +16,11 @@ namespace Dolstagis.Tests.Web
         public interface IDisposableRequestProcessor: IRequestProcessor, IDisposable
         {}
 
-        private class TestRegistry : Registry
+        private class TestModule : Module
         {
-            public TestRegistry(Func<IRequestProcessor> getter)
+            public TestModule(Func<IRequestProcessor> getter)
             {
                 For<IRequestProcessor>().Use(getter);
-            }
-        }
-
-        private class TestApplication : Application
-        {
-            private Registry registry;
-
-            public TestApplication(Registry registry)
-            {
-                this.registry = registry;
-            }
-
-            public override IEnumerable<Registry> GetRegistries()
-            {
-                yield return this.registry;
             }
         }
 
@@ -43,8 +28,8 @@ namespace Dolstagis.Tests.Web
         public void VerifyRequestProcessorIsDisposedAfterRequestHasFinished()
         {
             var mockProcessor = new Mock<IDisposableRequestProcessor>();
-            var registry = new TestRegistry(() => mockProcessor.Object);
-            var application = new TestApplication(registry);
+            var module = new TestModule(() => mockProcessor.Object);
+            var application = new Application().AddModules(module);
             var context = new Mock<IRequestContext>();
 
             application.ProcessRequest(context.Object);

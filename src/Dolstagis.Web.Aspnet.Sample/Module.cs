@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Dolstagis.Web.Aspnet.Sample
 {
-    public class Registry : StructureMap.Configuration.DSL.Registry
+    public class Module : Dolstagis.Web.Module
     {
-        public Registry()
+        public Module()
         {
             For<IRequestProcessor>().Use<SampleRequestProcessor>();
         }

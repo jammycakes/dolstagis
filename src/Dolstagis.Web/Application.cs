@@ -11,43 +11,45 @@ namespace Dolstagis.Web
 {
     public class Application : IDisposable
     {
-        private Lazy<Container> container;
+        private Container container = new Container();
 
         public Application()
         {
-            container = new Lazy<Container>(CreateContainer, LazyThreadSafetyMode.ExecutionAndPublication);
+            container.Configure(config => {
+                config.AddRegistry<DefaultRegistry>();
+            });
         }
 
-        private Container CreateContainer()
+
+        public Application AddModules(params Module[] modules)
         {
-            var result = new Container();
-            result.Configure(config => {
+            container.Configure(config => {
                 config.AddRegistry<DefaultRegistry>();
-                foreach (var registry in GetRegistries()) {
-                    config.AddRegistry(registry);
+                foreach (var module in modules) {
+                    config.AddRegistry(module);
+                    config.For<Module>().Add(module);
                 }
             });
-            return result;
+            return this;
         }
 
-        public virtual IEnumerable<Registry> GetRegistries()
-        {
-            yield break;
-        }
 
         public void ProcessRequest(IRequestContext context)
         {
-            using (var nested = container.Value.GetNestedContainer()) {
+            using (var nested = container.GetNestedContainer()) {
                 nested.Configure(x => x.For<IRequestContext>().Use(context));
-                nested.GetInstance<IRequestProcessor>().Process(context);
+                try {
+                    nested.GetInstance<IRequestProcessor>().Process(context);
+                }
+                catch (Exception ex) {
+                    nested.GetInstance<IExceptionHandler>().HandleException(context, ex);
+                }
             }
         }
 
         public void Dispose()
         {
-            if (container.IsValueCreated) {
-                container.Value.Dispose();
-            }
+            container.Dispose();
         }
     }
 }

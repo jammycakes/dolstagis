@@ -12,7 +12,7 @@ namespace Dolstagis.Web.Aspnet.Sample
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            DolstagisHttpModule.ApplicationFactory = () => new Application();
+            DolstagisHttpModule.Application.AddModules(new Module());
         }
 
         protected void Session_Start(object sender, EventArgs e)
