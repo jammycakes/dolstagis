@@ -20,7 +20,6 @@ namespace Dolstagis.Web
             });
         }
 
-
         public Application AddModules(params Module[] modules)
         {
             container.Configure(config => {
@@ -33,13 +32,14 @@ namespace Dolstagis.Web
             return this;
         }
 
-
         public void ProcessRequest(IRequestContext context)
         {
             using (var nested = container.GetNestedContainer()) {
                 nested.Configure(x => x.For<IRequestContext>().Use(context));
                 try {
-                    nested.GetInstance<IRequestProcessor>().Process(context);
+                    foreach (var instance in nested.GetAllInstances<IRequestProcessor>()) {
+                        instance.Process(context);
+                    }
                 }
                 catch (Exception ex) {
                     nested.GetInstance<IExceptionHandler>().HandleException(context, ex);
