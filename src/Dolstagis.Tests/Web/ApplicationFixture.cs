@@ -46,7 +46,6 @@ namespace Dolstagis.Tests.Web
             var registry = new TestRegistry(() => mockProcessor.Object);
             var application = new TestApplication(registry);
             var context = new Mock<IRequestContext>();
-            application.Init();
 
             application.ProcessRequest(context.Object);
 

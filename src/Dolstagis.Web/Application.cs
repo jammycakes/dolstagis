@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using StructureMap;
 using StructureMap.Configuration.DSL;
@@ -10,21 +11,23 @@ namespace Dolstagis.Web
 {
     public class Application : IDisposable
     {
-        private Container container;
+        private Lazy<Container> container;
 
         public Application()
         {
-            container = new Container();
+            container = new Lazy<Container>(CreateContainer, LazyThreadSafetyMode.ExecutionAndPublication);
         }
 
-        public void Init()
+        private Container CreateContainer()
         {
-            container.Configure(config => {
+            var result = new Container();
+            result.Configure(config => {
                 config.AddRegistry<DefaultRegistry>();
                 foreach (var registry in GetRegistries()) {
                     config.AddRegistry(registry);
                 }
             });
+            return result;
         }
 
         public virtual IEnumerable<Registry> GetRegistries()
@@ -34,14 +37,16 @@ namespace Dolstagis.Web
 
         public void ProcessRequest(IRequestContext context)
         {
-            using (var nested = container.GetNestedContainer()) {
+            using (var nested = container.Value.GetNestedContainer()) {
                 nested.GetInstance<IRequestProcessor>().Process(context);
             }
         }
 
         public void Dispose()
         {
-            container.Dispose();
+            if (container.IsValueCreated) {
+                container.Value.Dispose();
+            }
         }
     }
 }
