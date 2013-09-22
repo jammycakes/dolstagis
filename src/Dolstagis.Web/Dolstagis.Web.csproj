@@ -46,8 +46,10 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="DefaultRegistry.cs" />
+    <Compile Include="IRequest.cs" />
     <Compile Include="IRequestContext.cs" />
     <Compile Include="IRequestProcessor.cs" />
+    <Compile Include="IResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\.version\DefaultVersionInfo.cs" Condition="!Exists('..\.version\VersionInfo.cs')">
       <Link>Properties\DefaultVersionInfo.cs</Link>

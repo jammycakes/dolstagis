@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dolstagis.Web
 {
-    public interface IRequestContext
+    public interface IResponse
     {
-        IRequest Request { get; }
-
-        IResponse Response { get; }
     }
 }
