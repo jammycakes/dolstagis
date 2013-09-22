@@ -12,6 +12,7 @@ namespace Dolstagis.Web
         public DefaultRegistry()
         {
             For<IRequestProcessor>().Use<RequestProcessor>();
+            For<IActionInvoker>().Use<ActionInvoker>();
         }
     }
 }
