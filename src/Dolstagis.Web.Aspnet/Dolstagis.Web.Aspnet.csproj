@@ -53,6 +53,8 @@
     <Compile Include="DolstagisHttpHandler.cs" />
     <Compile Include="DolstagisHttpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Response.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dolstagis.Web\Dolstagis.Web.csproj">
