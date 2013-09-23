@@ -17,6 +17,7 @@ namespace Dolstagis.Web
         {
             container.Configure(config => {
                 config.AddRegistry<DefaultRegistry>();
+                config.For<Application>().Singleton().Use(this);
             });
         }
 
