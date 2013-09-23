@@ -9,11 +9,15 @@ namespace Dolstagis.Web.Routing
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public class RouteAttribute : Attribute
     {
-        public string Route { get; private set; }
+        public string Path { get; private set; }
 
-        public RouteAttribute(string route)
+        public IList<string> Components { get; private set; }
+
+        public RouteAttribute(string path)
         {
-            this.Route = route;
+            this.Path = path;
+            this.Components = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList().AsReadOnly();
         }
     }
 }
