@@ -15,9 +15,9 @@ namespace Dolstagis.Tests.Web
         public void CanAddController()
         {
             var module = new Module();
-            module.AddController<object>();
-            Assert.AreEqual(1, module.Controllers.Count);
-            Assert.AreEqual(typeof(object), module.Controllers[0].Type);
+            module.AddHandler<object>();
+            Assert.AreEqual(1, module.Handlers.Count);
+            Assert.AreEqual(typeof(object), module.Handlers[0].Type);
         }
     }
 }

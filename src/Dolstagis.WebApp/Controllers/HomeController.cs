@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Dolstagis.Contrib.Auth;
 
-namespace Dolstagis.Web.Controllers
+namespace Dolstagis.Web.Handlers
 {
     public class HomeController : Controller
     {

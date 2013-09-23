@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dolstagis.Web.Controllers;
+using Dolstagis.Web.Handlers;
 
 namespace Dolstagis.Web
 {
     public class Module : StructureMap.Configuration.DSL.Registry
     {
-        private List<Controller> controllers = new List<Controller>();
+        private List<Handler> handlers = new List<Handler>();
 
-        public IList<Controller> Controllers { get { return controllers; } }
+        public IList<Handler> Handlers { get { return handlers; } }
 
         /// <summary>
         ///  Adds a controller to the module definition.
         /// </summary>
-        /// <typeparam name="TController"></typeparam>
-        public void AddController<TController>()
+        /// <typeparam name="THandler"></typeparam>
+        public void AddHandler<THandler>()
         {
-            this.controllers.Add(new Controller(typeof(TController)));
+            this.handlers.Add(new Handler(typeof(THandler)));
         }
     }
 }

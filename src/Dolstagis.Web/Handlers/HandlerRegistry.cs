@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dolstagis.Web.Controllers
+namespace Dolstagis.Web.Handlers
 {
-    public class ControllerRegistry
+    public class HandlerRegistry
     {
         private Func<Module[]> modules;
 
-        public ControllerRegistry(Func<Module[]> modules)
+        public HandlerRegistry(Func<Module[]> modules)
         {
             this.modules = modules;
         }

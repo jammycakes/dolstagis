@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dolstagis.Web.Controllers
+namespace Dolstagis.Web.Handlers
 {
-    public class Controller
+    public class Handler
     {
         public Type Type { get; private set; }
 
-        public Controller(Type type)
+        public Handler(Type type)
         {
             this.Type = type;
         }
