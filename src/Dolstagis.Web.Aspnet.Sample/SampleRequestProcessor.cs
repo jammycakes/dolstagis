@@ -13,7 +13,10 @@ namespace Dolstagis.Web.Aspnet.Sample
             context.Response.AddHeader("Content-Type", "text/plain");
             context.Response.AddHeader("Content-Encoding", "utf-8");
             using (var writer = new StreamWriter(context.Response.ResponseStream, Encoding.UTF8)) {
-                writer.WriteLine("Hello world");
+                writer.WriteLine(context.Request.AppRoot);
+                writer.WriteLine(context.Request.AppRelativePath);
+                writer.WriteLine(context.Request.Method);
+                writer.WriteLine(context.Request.Url);
             }
         }
     }
