@@ -26,10 +26,15 @@ namespace Dolstagis.Web
                 config.AddRegistry<DefaultRegistry>();
                 foreach (var module in modules) {
                     config.AddRegistry(module);
-                    config.For<Module>().Add(module);
+                    config.For<Module>().Singleton().Add(module);
                 }
             });
             return this;
+        }
+
+        public IEnumerable<Module> GetModules()
+        {
+            return this.container.GetAllInstances<Module>();
         }
 
         public void ProcessRequest(IRequestContext context)

@@ -37,5 +37,16 @@ namespace Dolstagis.Tests.Web
             mockProcessor.Verify(x => x.Process(It.IsAny<IRequestContext>()));
             mockProcessor.Verify(x => x.Dispose());
         }
+
+        [Test]
+        public void CanGetModules()
+        {
+            var module = new Module();
+            var application = new Application().AddModules(module);
+
+            var modules = application.GetModules().ToList();
+
+            Assert.AreSame(module, modules.Single());
+        }
     }
 }
