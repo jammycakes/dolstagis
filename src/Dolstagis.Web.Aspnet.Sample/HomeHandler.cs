@@ -16,14 +16,26 @@ namespace Dolstagis.Web.Aspnet.Sample
     public class HomeHandler
     {
         /// <summary>
-        ///  When an action has no routing attribute, we match on HTTP method name.
-        ///  So this will handle GET requests.
+        ///  We always match method names on HTTP method, case insensitively.
+        ///  So this method will handle GET requests.
         /// </summary>
         /// <returns></returns>
 
         public string Get()
         {
             return "Hello world";
+        }
+
+        /// <summary>
+        ///  To include parameters in the URL, add a Parameters attribute.
+        /// </summary>
+        /// <param name="pageName"></param>
+        /// <returns></returns>
+
+        [Parameters("section/page")]
+        public string Get(string section, string page)
+        {
+            return String.Format("Section {0} Page {1}", section, page);
         }
 
         /// <summary>
