@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dolstagis.Web.Routing
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public class RouteAttribute : Attribute
     {
         public string Route { get; private set; }
 
-        public string Method { get; private set; }
-
-        public RouteAttribute(string route, string method = null)
+        public RouteAttribute(string route)
         {
             this.Route = route;
-            this.Method = method;
         }
     }
 }

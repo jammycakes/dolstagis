@@ -6,8 +6,14 @@ using Dolstagis.Web.Routing;
 
 namespace Dolstagis.Web.Aspnet.Sample
 {
+    /// <summary>
+    ///  This is a sample route handler to handle requests for the home page.
+    ///  By default, we will enforce the "one route, one handler" pattern, since
+    ///  anything else is a violation of the Single Responsibiltiy Principle.
+    /// </summary>
+
     [Route("/")]
-    public class HomeController
+    public class HomeHandler
     {
         /// <summary>
         ///  When an action has no routing attribute, we match on HTTP method name.
@@ -21,27 +27,16 @@ namespace Dolstagis.Web.Aspnet.Sample
         }
 
         /// <summary>
-        ///  Same is true when an action's routing attribute does not specify a method.
+        ///  This one handles POST requests.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">
+        ///  Comes from the form.
+        /// </param>
         /// <returns></returns>
 
-        [Route("{data}")]
-        public string Get(string data)
+        public string Post(string data)
         {
             return "Data: " + data;
-        }
-
-        /// <summary>
-        ///  To specify a custom route and method, use both.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-
-        [Route("subpage/{data}", "GET")]
-        public string SubPage(string data)
-        {
-            return "SubPage: " + data;
         }
     }
 }

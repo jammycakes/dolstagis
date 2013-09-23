@@ -68,7 +68,6 @@
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
     <Compile Include="RequestProcessor.cs" />
-    <Compile Include="Routing\RegexRouteAttribute.cs" />
     <Compile Include="Routing\RouteAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
