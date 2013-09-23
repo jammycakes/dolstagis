@@ -26,7 +26,7 @@ namespace Dolstagis.Web
             container.Configure(config => {
                 config.AddRegistry<DefaultRegistry>();
                 foreach (var module in modules) {
-                    config.AddRegistry(module);
+                    config.AddRegistry(module.Services);
                     config.For<Module>().Singleton().Add(module);
                 }
             });

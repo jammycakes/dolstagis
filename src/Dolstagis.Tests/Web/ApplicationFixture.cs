@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Dolstagis.Web;
 using Moq;
 using NUnit.Framework;
-using StructureMap.Configuration.DSL;
 
 namespace Dolstagis.Tests.Web
 {
@@ -20,7 +19,7 @@ namespace Dolstagis.Tests.Web
         {
             public TestModule(Func<IRequestProcessor> getter)
             {
-                For<IRequestProcessor>().Use(getter);
+                Services.For<IRequestProcessor>().Use(getter);
             }
         }
 
