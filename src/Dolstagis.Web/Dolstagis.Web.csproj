@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ActionInvoker.cs" />
     <Compile Include="Application.cs" />
+    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="ExceptionHandler.cs" />
     <Compile Include="IActionInvoker.cs" />
