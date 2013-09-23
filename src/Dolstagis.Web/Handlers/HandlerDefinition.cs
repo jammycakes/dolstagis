@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dolstagis.Web.Handlers
 {
-    public class Handler
+    public class HandlerDefinition
     {
         public Type Type { get; private set; }
 
-        public Handler(Type type)
+        public HandlerDefinition(Type type)
         {
             this.Type = type;
         }

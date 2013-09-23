@@ -10,9 +10,9 @@ namespace Dolstagis.Web
 {
     public class Module
     {
-        private List<Handler> handlers = new List<Handler>();
+        private List<HandlerDefinition> handlers = new List<HandlerDefinition>();
 
-        public IList<Handler> Handlers { get { return handlers; } }
+        public IList<HandlerDefinition> Handlers { get { return handlers; } }
 
         public Registry Services { get; private set; }
 
@@ -27,7 +27,7 @@ namespace Dolstagis.Web
         /// <typeparam name="THandler"></typeparam>
         public void AddHandler<THandler>()
         {
-            this.handlers.Add(new Handler(typeof(THandler)));
+            this.handlers.Add(new HandlerDefinition(typeof(THandler)));
         }
     }
 }
