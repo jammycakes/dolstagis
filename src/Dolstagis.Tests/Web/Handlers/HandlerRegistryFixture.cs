@@ -12,19 +12,5 @@ namespace Dolstagis.Tests.Web.Handlers
     [TestFixture]
     public class HandlerRegistryFixture
     {
-        [Test]
-        public void CanCreateHandlerRegistry()
-        {
-            using (var container = new StructureMap.Container()) {
-                container.Configure(x => {
-                    x.For<Module>().Add(new Module());
-                    x.For<Module>().Add(new Module());
-                });
-
-                var registry = container.GetInstance<HandlerRegistry>();
-
-                Assert.AreEqual(2, registry.Modules.Count());
-            }
-        }
     }
 }

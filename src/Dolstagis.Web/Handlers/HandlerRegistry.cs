@@ -9,23 +9,11 @@ namespace Dolstagis.Web.Handlers
 {
     public class HandlerRegistry
     {
-        public IList<Module> Modules { get; private set; }
-
-        public IList<HandlerDefinition> HandlerDefinitions { get; private set; }
+        private IList<Module> modules;
 
         public HandlerRegistry(IEnumerable<Module> modules)
         {
-            this.Modules = modules.ToList().AsReadOnly();
-        }
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        private void Load()
-        {
-            if (HandlerDefinitions == null) {
-                HandlerDefinitions =
-                    (from module in Modules from handler in module.Handlers select handler)
-                    .ToList().AsReadOnly();
-            }
+            this.modules = modules.ToList().AsReadOnly();
         }
     }
 }
