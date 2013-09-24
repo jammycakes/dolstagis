@@ -11,9 +11,21 @@ namespace Dolstagis.Web.Handlers
         private IDictionary<string, HandlerRegistration> children
             = new Dictionary<string, HandlerRegistration>(StringComparer.OrdinalIgnoreCase);
 
-        public HandlerDefinition Definition { get; private set; }
+        public HandlerDefinition Definition { get; internal set; }
 
         public HandlerRegistration Parent { get; private set; }
+
+        public HandlerRegistration()
+        {
+            this.Definition = null;
+            this.Parent = null;
+        }
+
+        private HandlerRegistration(HandlerRegistration parent)
+        {
+            this.Definition = null;
+            this.Parent = parent;
+        }
 
         public HandlerRegistration GetChild(string name)
         {
@@ -21,11 +33,14 @@ namespace Dolstagis.Web.Handlers
             return children.TryGetValue(name, out result) ? result : null;
         }
 
-        public HandlerRegistration(HandlerDefinition definition, HandlerRegistration parent, string name)
+        internal HandlerRegistration GetOrCreateChild(string name)
         {
-            this.Definition = definition;
-            this.Parent = parent;
-            this.Parent.children[name] = this;
+            var result = GetChild(name);
+            if (result == null) {
+                result = new HandlerRegistration(this);
+                this.children.Add(name, result);
+            }
+            return result;
         }
     }
 }

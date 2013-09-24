@@ -11,9 +11,43 @@ namespace Dolstagis.Web.Handlers
     {
         private IList<Module> modules;
 
+        public HandlerRegistration Root { get; private set; }
+
         public HandlerRegistry(IEnumerable<Module> modules)
         {
             this.modules = modules.ToList().AsReadOnly();
+        }
+
+        public void AddHandler<THandler>()
+        {
+            AddHandler(new HandlerDefinition(null, typeof(THandler)));
+        }
+
+        public void AddHandler<THandler>(string route)
+        {
+            AddHandler(new HandlerDefinition(null, typeof(THandler), route));
+        }
+
+        private void AddHandler(HandlerDefinition definition)
+        {
+            AddHandler(definition, definition.Path);
+        }
+
+        private void AddHandler(HandlerDefinition definition, string path)
+        {
+            if (Root == null) Root = new HandlerRegistration();
+            var parts = SplitPath(path);
+            var entry = Root;
+            foreach (var part in parts) {
+                entry = entry.GetOrCreateChild(part);
+            }
+            entry.Definition = definition;
+        }
+
+        private string[] SplitPath(string path)
+        {
+            if (path == null) return new string[0];
+            return path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
         }
     }
 }
