@@ -81,6 +81,10 @@ namespace Dolstagis.Tests.Web.Handlers
             Assert.AreEqual(typeof(Root), level2b.Definition.Type);
             Assert.AreEqual("/one/two", level2a.Definition.Path);
             Assert.AreEqual("/one/three", level2b.Definition.Path);
+            Assert.IsFalse(registry.Root.IsValid);
+            Assert.IsFalse(level1.IsValid);
+            Assert.IsTrue(level2a.IsValid);
+            Assert.IsTrue(level2b.IsValid);
         }
 
         [Test]

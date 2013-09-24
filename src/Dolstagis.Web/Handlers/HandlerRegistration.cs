@@ -46,5 +46,13 @@ namespace Dolstagis.Web.Handlers
             }
             return result;
         }
+
+        public bool IsValid
+        {
+            get
+            {
+                return this.Definition != null && this.Definition.Type != null;
+            }
+        }
     }
 }
