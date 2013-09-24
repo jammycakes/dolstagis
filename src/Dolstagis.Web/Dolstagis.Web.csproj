@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="ActionLocator.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Handlers\HandlerDefinition.cs" />
     <Compile Include="Handlers\HandlerRegistration.cs" />
