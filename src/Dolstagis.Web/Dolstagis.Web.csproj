@@ -71,6 +71,7 @@
     <Compile Include="RequestProcessor.cs" />
     <Compile Include="Routing\ParametersAttribute.cs" />
     <Compile Include="Routing\RouteAttribute.cs" />
+    <Compile Include="Static\MimeTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
