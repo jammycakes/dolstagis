@@ -9,6 +9,12 @@ namespace Dolstagis.Web
 {
     public interface IActionInvoker
     {
-        object Invoke(Type type, MethodInfo method, object[] parameters);
+        Type HandlerType { get; set; }
+
+        MethodInfo Method { get; set; }
+
+        object[] Parameters { get; set; }
+
+        object Invoke();
     }
 }

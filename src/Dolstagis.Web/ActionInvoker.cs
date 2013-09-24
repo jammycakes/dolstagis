@@ -17,10 +17,16 @@ namespace Dolstagis.Web
             this.container = container;
         }
 
-        public object Invoke(Type type, MethodInfo method, object[] parameters)
+        public Type HandlerType { get; set; }
+
+        public MethodInfo Method { get; set; }
+
+        public object[] Parameters { get; set; }
+
+        public object Invoke()
         {
-            object instance = this.container.GetInstance(type);
-            return method.Invoke(instance, parameters);
+            object instance = this.container.GetInstance(HandlerType);
+            return Method.Invoke(instance, Parameters.ToArray());
         }
     }
 }
