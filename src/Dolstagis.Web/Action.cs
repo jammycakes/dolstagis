@@ -8,11 +8,11 @@ using StructureMap;
 
 namespace Dolstagis.Web
 {
-    public class ActionInvoker : IActionInvoker
+    public class Action : IAction
     {
         private IContainer container;
 
-        public ActionInvoker(IContainer container)
+        public Action(IContainer container)
         {
             this.container = container;
         }

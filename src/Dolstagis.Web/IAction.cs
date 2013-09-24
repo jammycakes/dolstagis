@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dolstagis.Web
 {
-    public interface IActionInvoker
+    public interface IAction
     {
         Type HandlerType { get; set; }
 
