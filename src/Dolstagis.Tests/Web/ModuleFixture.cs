@@ -12,7 +12,7 @@ namespace Dolstagis.Tests.Web
     public class ModuleFixture
     {
         [Test]
-        public void CanAddController()
+        public void CanAddHandler()
         {
             var module = new Module();
             module.AddHandler<object>();
