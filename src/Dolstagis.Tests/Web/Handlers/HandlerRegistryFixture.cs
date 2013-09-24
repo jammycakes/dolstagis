@@ -93,15 +93,18 @@ namespace Dolstagis.Tests.Web.Handlers
             var module = new TestModule();
             var registry = new HandlerRegistry(new Module[] { module });
             var level1 = registry.Root.GetChild("one");
-            var level2 = level1.GetChild("two");
+            var level2a = level1.GetChild("two");
+            var level2b = level1.GetChild("three");
 
             Assert.AreEqual(typeof(Root), registry.Root.Definition.Type);
-            Assert.AreEqual(typeof(First), level1.Definition.Type);
-            Assert.AreEqual(typeof(Second), level2.Definition.Type);
+            Assert.IsNull(level1.Definition);
+            Assert.AreEqual(typeof(First), level2a.Definition.Type);
+            Assert.AreEqual(typeof(Second), level2b.Definition.Type);
             Assert.AreSame(module, registry.Root.Definition.Module);
-            Assert.AreSame(module, level1.Definition.Module);
-            Assert.AreSame(module, level2.Definition.Module);
+            Assert.AreSame(module, level2a.Definition.Module);
+            Assert.AreSame(module, level2b.Definition.Module);
         }
+
 
         [Route("/")]
         private class Root
@@ -123,8 +126,8 @@ namespace Dolstagis.Tests.Web.Handlers
             public TestModule()
             {
                 this.AddHandler<Root>();
-                this.AddHandler<First>("/one");
-                this.AddHandler<Second>("/one/two");
+                this.AddHandler<First>("/one/two");
+                this.AddHandler<Second>("/one/three");
             }
         }
     }
