@@ -60,10 +60,11 @@ namespace Dolstagis.Web.Handlers
             return path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public HandlerRegistration GetHandlerRegistration(string path, bool exact)
+        public Tuple<HandlerRegistration, string> GetHandlerRegistration(string path, bool exact)
         {
             var parts = SplitPath(path);
             var entry = Root;
+            int level = 0;
             foreach (var part in parts) {
                 var child = entry.GetChild(part);
                 if (child == null) {
@@ -73,17 +74,21 @@ namespace Dolstagis.Web.Handlers
                         break;
                 }
                 entry = child;
+                level++;
             }
 
             if (exact) {
-                return entry.IsValid ? entry : null;
+                return entry.IsValid ? new Tuple<HandlerRegistration, string>(entry, String.Empty) : null;
             }
 
             while (entry != null && !entry.IsValid) {
                 entry = entry.Parent;
+                level--;
             }
 
-            return entry;
+            string pathInfo = String.Join("/", parts.Skip(level).ToArray());
+
+            return new Tuple<HandlerRegistration, string>(entry, pathInfo);
         }
     }
 }

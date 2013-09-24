@@ -105,18 +105,18 @@ namespace Dolstagis.Tests.Web.Handlers
             Assert.AreSame(module, level2b.Definition.Module);
         }
 
-        [TestCase("/", typeof(Root), true)]
-        [TestCase("/one/two", typeof(First), true)]
-        [TestCase("/wibble", null, true)]
-        [TestCase("/one", null, true)]
-        [TestCase("/one/two/three", null, true)]
+        [TestCase("/", true, typeof(Root), "")]
+        [TestCase("/one/two", true, typeof(First), "")]
+        [TestCase("/wibble", true, null, null)]
+        [TestCase("/one", true, null, null)]
+        [TestCase("/one/two/three", true, null, null)]
 
-        [TestCase("/", typeof(Root), false)]
-        [TestCase("/one/two", typeof(First), false)]
-        [TestCase("/wibble", typeof(Root), false)]
-        [TestCase("/one", typeof(Root), false)]
-        [TestCase("/one/two/three", typeof(First), false)]
-        public void CanGetHandler(string path, Type expectedType, bool exact)
+        [TestCase("/", false, typeof(Root), "")]
+        [TestCase("/one/two", false, typeof(First), "")]
+        [TestCase("/wibble", false, typeof(Root), "wibble")]
+        [TestCase("/one", false, typeof(Root), "one")]
+        [TestCase("/one/two/three/four/five", false, typeof(First), "three/four/five")]
+        public void CanGetHandler(string path, bool exact, Type expectedType, string expectedPathInfo)
         {
             var module = new TestModule();
             var registry = new HandlerRegistry(new Module[] { module });
@@ -127,7 +127,8 @@ namespace Dolstagis.Tests.Web.Handlers
                 Assert.IsNull(registration);
             }
             else {
-                Assert.AreEqual(expectedType, registration.Definition.Type);
+                Assert.AreEqual(expectedType, registration.Item1.Definition.Type);
+                Assert.AreEqual(expectedPathInfo, registration.Item2);
             }
         }
 
