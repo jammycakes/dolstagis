@@ -47,6 +47,7 @@
     <Compile Include="ActionInvoker.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Handlers\HandlerDefinition.cs" />
+    <Compile Include="Handlers\HandlerRegistration.cs" />
     <Compile Include="Handlers\HandlerRegistry.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="ExceptionHandler.cs" />
