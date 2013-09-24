@@ -15,16 +15,20 @@ namespace Dolstagis.Web.Handlers
 
         public HandlerRegistration Parent { get; private set; }
 
+        public string Path { get; private set; }
+
         public HandlerRegistration()
         {
             this.Definition = null;
             this.Parent = null;
+            this.Path = "/";
         }
 
-        private HandlerRegistration(HandlerRegistration parent)
+        private HandlerRegistration(HandlerRegistration parent, string name)
         {
             this.Definition = null;
             this.Parent = parent;
+            this.Path = this.Parent.Path + name + "/";
         }
 
         public HandlerRegistration GetChild(string name)
@@ -37,7 +41,7 @@ namespace Dolstagis.Web.Handlers
         {
             var result = GetChild(name);
             if (result == null) {
-                result = new HandlerRegistration(this);
+                result = new HandlerRegistration(this, name);
                 this.children.Add(name, result);
             }
             return result;

@@ -20,6 +20,7 @@ namespace Dolstagis.Tests.Web.Handlers
             registry.AddHandler<Root>();
             Assert.IsNotNull(registry.Root);
             Assert.AreEqual(registry.Root.Definition.Type, typeof(Root));
+            Assert.AreEqual("/", registry.Root.Path);
         }
 
         [Test]
@@ -32,8 +33,10 @@ namespace Dolstagis.Tests.Web.Handlers
             var level2 = level1.GetChild("first");
             Assert.IsNotNull(level1);
             Assert.IsNull(level1.Definition);
+            Assert.AreEqual("/handlers/", level1.Path);
             Assert.IsNotNull(level2);
             Assert.AreEqual(typeof(First), level2.Definition.Type);
+            Assert.AreEqual("/handlers/first/", level2.Path);
         }
 
         [Test]
