@@ -15,7 +15,17 @@ namespace Dolstagis.Web.Handlers
 
         public HandlerRegistry(IEnumerable<Module> modules)
         {
-            this.modules = modules.ToList().AsReadOnly();
+            this.modules = modules.ToList();
+            foreach (var module in this.modules) {
+                AddModule(module);
+            }
+        }
+
+        public void AddModule(Module module)
+        {
+            foreach (var handler in module.Handlers) {
+                AddHandler(handler);
+            }
         }
 
         public void AddHandler<THandler>()

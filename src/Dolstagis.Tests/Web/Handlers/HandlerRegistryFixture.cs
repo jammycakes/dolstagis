@@ -80,6 +80,22 @@ namespace Dolstagis.Tests.Web.Handlers
             Assert.AreEqual("/one/three", level2b.Definition.Path);
         }
 
+        [Test]
+        public void CanRegisterHandlersFromModule()
+        {
+            var module = new TestModule();
+            var registry = new HandlerRegistry(new Module[] { module });
+            var level1 = registry.Root.GetChild("one");
+            var level2 = level1.GetChild("two");
+
+            Assert.AreEqual(typeof(Root), registry.Root.Definition.Type);
+            Assert.AreEqual(typeof(First), level1.Definition.Type);
+            Assert.AreEqual(typeof(Second), level2.Definition.Type);
+            Assert.AreSame(module, registry.Root.Definition.Module);
+            Assert.AreSame(module, level1.Definition.Module);
+            Assert.AreSame(module, level2.Definition.Module);
+        }
+
         [Route("/")]
         private class Root
         {
@@ -93,6 +109,16 @@ namespace Dolstagis.Tests.Web.Handlers
         [Route("/handlers/second")]
         private class Second
         {
+        }
+
+        private class TestModule : Dolstagis.Web.Module
+        {
+            public TestModule()
+            {
+                this.AddHandler<Root>();
+                this.AddHandler<First>("/one");
+                this.AddHandler<Second>("/one/two");
+            }
         }
     }
 }
