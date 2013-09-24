@@ -59,5 +59,31 @@ namespace Dolstagis.Web.Handlers
             if (path == null) return new string[0];
             return path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        public HandlerRegistration GetHandlerRegistration(string path, bool exact)
+        {
+            var parts = SplitPath(path);
+            var entry = Root;
+            foreach (var part in parts) {
+                var child = entry.GetChild(part);
+                if (child == null) {
+                    if (exact)
+                        return null;
+                    else
+                        break;
+                }
+                entry = child;
+            }
+
+            if (exact) {
+                return entry.IsValid ? entry : null;
+            }
+
+            while (entry != null && !entry.IsValid) {
+                entry = entry.Parent;
+            }
+
+            return entry;
+        }
     }
 }
