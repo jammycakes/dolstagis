@@ -53,6 +53,7 @@
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="ExceptionHandler.cs" />
     <Compile Include="IAction.cs" />
+    <Compile Include="IActionLocator.cs" />
     <Compile Include="IExceptionHandler.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="IRequestContext.cs" />
