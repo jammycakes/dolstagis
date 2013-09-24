@@ -22,12 +22,29 @@ namespace Dolstagis.Web
         }
 
         /// <summary>
-        ///  Adds a controller to the module definition.
+        ///  Adds a handler to the module definition.
         /// </summary>
-        /// <typeparam name="THandler"></typeparam>
+        /// <typeparam name="THandler">
+        ///  The type of the handler to add.
+        /// </typeparam>
         public void AddHandler<THandler>()
         {
-            this.handlers.Add(new HandlerDefinition(typeof(THandler)));
+            this.handlers.Add(new HandlerDefinition(this, typeof(THandler)));
+        }
+
+        /// <summary>
+        ///  Adds a handler to the module definition, with an explicitly specified route.
+        /// </summary>
+        /// <typeparam name="THandler">
+        ///  The type of the handler to add.
+        /// </typeparam>
+        /// <param name="route">
+        ///  The route to the handler.
+        /// </param>
+
+        public void AddHandler<THandler>(string route)
+        {
+            this.handlers.Add(new HandlerDefinition(this, typeof(THandler), route));
         }
     }
 }
