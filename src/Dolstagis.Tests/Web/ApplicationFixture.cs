@@ -43,6 +43,8 @@ namespace Dolstagis.Tests.Web
             var module = new TestModule(() => mockProcessor.Object);
             var application = new Application().AddModules(module);
             var context = new Mock<IRequestContext>();
+            context.SetupGet(x => x.Request).Returns(Mock.Of<IRequest>());
+            context.SetupGet(x => x.Response).Returns(Mock.Of<IResponse>());
 
             application.ProcessRequest(context.Object);
 
