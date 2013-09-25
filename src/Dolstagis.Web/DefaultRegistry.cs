@@ -15,6 +15,7 @@ namespace Dolstagis.Web
             For<IRequestProcessor>().Use<RequestProcessor>();
             For<IAction>().Use<Action>();
             For<IActionLocator>().Use<ActionLocator>();
+            For<IViewBuilder>().Use<ViewBuilder>();
             For<HandlerRegistry>().Singleton().Use<HandlerRegistry>();
         }
     }
