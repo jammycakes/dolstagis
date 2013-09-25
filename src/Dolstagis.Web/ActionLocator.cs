@@ -36,12 +36,13 @@ namespace Dolstagis.Web
             var attr = method.GetCustomAttribute<ParametersAttribute>();
             if (attr == null && !String.IsNullOrEmpty(pathInfo)) return null;
 
-            var keys = attr.Components;
-            var values = pathInfo.Split(new char[] { '/' }, keys.Count);
             var args = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-            for (var i = 0; i < values.Length; i++) {
-                args[keys[i]] = values[i];
+            if (attr != null) {
+                var keys = attr.Components;
+                var values = pathInfo.Split(new char[] { '/' }, keys.Count);
+                for (var i = 0; i < values.Length; i++) {
+                    args[keys[i]] = values[i];
+                }
             }
 
             var parameters = new List<object>();
