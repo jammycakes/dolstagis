@@ -9,7 +9,7 @@ namespace Dolstagis.Web.Aspnet.Sample
     {
         public Module()
         {
-            Services.For<IRequestProcessor>().Use<SampleRequestProcessor>();
+            AddHandler<HomeHandler>();
         }
     }
 }

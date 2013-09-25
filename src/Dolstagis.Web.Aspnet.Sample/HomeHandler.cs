@@ -27,18 +27,6 @@ namespace Dolstagis.Web.Aspnet.Sample
         }
 
         /// <summary>
-        ///  To include parameters in the URL, add a Parameters attribute.
-        /// </summary>
-        /// <param name="pageName"></param>
-        /// <returns></returns>
-
-        [Parameters("section/page")]
-        public string Get(string section, string page)
-        {
-            return String.Format("Section {0} Page {1}", section, page);
-        }
-
-        /// <summary>
         ///  This one handles POST requests.
         /// </summary>
         /// <param name="data">
