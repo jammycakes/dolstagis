@@ -77,6 +77,7 @@
     <Compile Include="Routing\RouteAttribute.cs" />
     <Compile Include="Static\MimeTypes.cs" />
     <Compile Include="ViewBuilder.cs" />
+    <Compile Include="Views\TextView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

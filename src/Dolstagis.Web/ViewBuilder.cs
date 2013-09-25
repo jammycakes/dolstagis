@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dolstagis.Web.Views;
 
 namespace Dolstagis.Web
 {
@@ -10,7 +11,7 @@ namespace Dolstagis.Web
     {
         public IView CreateView(object model)
         {
-            return null;
+            return new TextView(model.ToString());
         }
     }
 }
