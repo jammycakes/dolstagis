@@ -7,6 +7,7 @@ using Dolstagis.Web;
 using Dolstagis.Web.Http;
 using Moq;
 using NUnit.Framework;
+using StructureMap.Configuration.DSL;
 
 namespace Dolstagis.Tests.Web
 {
@@ -23,6 +24,17 @@ namespace Dolstagis.Tests.Web
                 Services.For<IRequestProcessor>().Use(getter);
             }
         }
+
+
+        private class IOCModule : Module
+        {
+            public void Configure(Action<Registry> configureAction)
+            {
+                configureAction(this.Services);
+            }
+        }
+
+
 
         [Test]
         public void VerifyRequestProcessorIsDisposedAfterRequestHasFinished()
@@ -47,6 +59,32 @@ namespace Dolstagis.Tests.Web
             var modules = application.GetModules().ToList();
 
             Assert.AreSame(module, modules.Single());
+        }
+
+        [Test]
+        public void VerifyRequestIsOnlyProcessedOnce()
+        {
+            var mockActionLocator = new Mock<IActionLocator>();
+            var mockContext = new Mock<IRequestContext>();
+            mockContext.SetupGet(x => x.Request).Returns(Mock.Of<IRequest>());
+            mockContext.SetupGet(x => x.Response).Returns(Mock.Of<IResponse>());
+
+            var module = new IOCModule();
+            module.Configure(x => {
+                x.For<IActionLocator>().Use(mockActionLocator.Object);
+            });
+
+            var application = new Application();
+            application.AddModules(module);
+            try {
+                application.ProcessRequest(mockContext.Object);
+            }
+            catch {
+                // This will eventually throw an HTTP exception because there's
+                // nothing to see. We're not interested in that.
+            }
+
+            mockActionLocator.Verify(x => x.GetAction(It.IsAny<IRequest>()), Times.Once());
         }
     }
 }

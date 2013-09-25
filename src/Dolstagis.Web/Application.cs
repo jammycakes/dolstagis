@@ -25,7 +25,6 @@ namespace Dolstagis.Web
         public Application AddModules(params Module[] modules)
         {
             container.Configure(config => {
-                config.AddRegistry<DefaultRegistry>();
                 foreach (var module in modules) {
                     config.AddRegistry(module.Services);
                     config.For<Module>().Singleton().Add(module);
