@@ -41,7 +41,12 @@ namespace Dolstagis.Web
         public void ProcessRequest(IRequestContext context)
         {
             using (var nested = container.GetNestedContainer()) {
-                nested.Configure(x => x.For<IRequestContext>().Use(context));
+                nested.Configure(x => {
+                    x.For<IRequestContext>().Use(context);
+                    x.For<IRequest>().Use(context.Request);
+                    x.For<IResponse>().Use(context.Response);
+                    x.For<IApplicationInfo>().Use(context.Application);
+                });
                 try {
                     foreach (var instance in nested.GetAllInstances<IRequestProcessor>()) {
                         instance.Process(context);
