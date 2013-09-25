@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dolstagis.Web.Http
 {
-    public interface IRequestContext
+    public interface IApplicationInfo
     {
-        IApplicationInfo Application { get; }
+        string Root { get; }
 
-        IRequest Request { get; }
-
-        IResponse Response { get; }
+        string PhysicalRoot { get; }
     }
 }

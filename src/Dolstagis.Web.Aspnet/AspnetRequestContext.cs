@@ -15,9 +15,12 @@ namespace Dolstagis.Web.Aspnet
         public AspnetRequestContext(HttpContextBase context)
         {
             this.context = context;
+            this.Application = new ApplicationInfo(context);
             this.Request = new Request(context.Request);
             this.Response = new Response(context.Response);
         }
+
+        public IApplicationInfo Application { get; private set; }
 
         public IRequest Request { get; private set; }
 

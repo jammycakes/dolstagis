@@ -49,6 +49,7 @@
     <Compile Include="..\.version\VersionInfo.cs" Condition="Exists('..\.version\VersionInfo.cs')">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="ApplicationInfo.cs" />
     <Compile Include="AspnetRequestContext.cs" />
     <Compile Include="DolstagisHttpHandler.cs" />
     <Compile Include="DolstagisHttpModule.cs" />

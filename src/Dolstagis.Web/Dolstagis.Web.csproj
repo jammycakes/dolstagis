@@ -52,6 +52,7 @@
     <Compile Include="Handlers\HandlerRegistry.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="Http\IApplicationInfo.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="IActionLocator.cs" />
     <Compile Include="IExceptionHandler.cs" />
