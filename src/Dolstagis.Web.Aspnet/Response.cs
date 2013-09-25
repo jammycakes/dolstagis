@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Dolstagis.Web.Http;
 
 namespace Dolstagis.Web.Aspnet
 {

@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Dolstagis.Web.Handlers;
+using Dolstagis.Web.Http;
 using Dolstagis.Web.Routing;
 
 namespace Dolstagis.Web

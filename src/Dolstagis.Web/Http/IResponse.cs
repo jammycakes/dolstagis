@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dolstagis.Web
+namespace Dolstagis.Web.Http
 {
     public interface IResponse
     {
