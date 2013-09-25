@@ -105,8 +105,12 @@
     <Compile Include="Core\Templates\SimpleTemplateEngineFixture.cs" />
     <Compile Include="NHibernateFixtureBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\ActionLocatorFixture.cs" />
     <Compile Include="Web\ApplicationFixture.cs" />
     <Compile Include="Web\Handlers\HandlerRegistryFixture.cs" />
+    <Compile Include="Web\Handlers\TestHandlers\FirstHandler.cs" />
+    <Compile Include="Web\Handlers\TestHandlers\RootHandler.cs" />
+    <Compile Include="Web\Handlers\TestHandlers\TestModule.cs" />
     <Compile Include="Web\ModuleFixture.cs" />
   </ItemGroup>
   <ItemGroup>
