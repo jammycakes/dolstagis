@@ -64,6 +64,10 @@
     <Compile Include="IRequestProcessor.cs" />
     <Compile Include="Http\IResponse.cs" />
     <Compile Include="Static\IMimeTypes.cs" />
+    <Compile Include="Static\IResource.cs" />
+    <Compile Include="Static\IResourceLocator.cs" />
+    <Compile Include="Static\ResourceView.cs" />
+    <Compile Include="Static\StaticFileHandler.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="IViewBuilder.cs" />
     <Compile Include="Module.cs" />
