@@ -21,7 +21,14 @@ namespace Dolstagis.Web.Static
         [Parameters("path")]
         public object Get(string path)
         {
-            return null;
+            var resource = _resources.Select(x => x.GetResource(path)).FirstOrDefault(x => x != null);
+            if (resource != null) {
+                var contentType = _mimeTypes.GetMimeType(path);
+                return new ResourceView(resource, contentType);
+            }
+            else {
+                return StatusCode.NotFound;
+            }
         }
     }
 }
