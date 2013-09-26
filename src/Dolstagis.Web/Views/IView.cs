@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dolstagis.Web.Http;
 
-namespace Dolstagis.Web
+namespace Dolstagis.Web.Views
 {
     public interface IView
     {
