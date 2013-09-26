@@ -63,6 +63,7 @@
     <Compile Include="Http\IRequestContext.cs" />
     <Compile Include="IRequestProcessor.cs" />
     <Compile Include="Http\IResponse.cs" />
+    <Compile Include="Static\IMimeTypes.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="IViewBuilder.cs" />
     <Compile Include="Module.cs" />
