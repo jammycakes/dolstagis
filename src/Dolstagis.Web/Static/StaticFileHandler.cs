@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dolstagis.Web.Http;
 using Dolstagis.Web.Routing;
 
 namespace Dolstagis.Web.Static
@@ -27,7 +28,7 @@ namespace Dolstagis.Web.Static
                 return new ResourceView(resource, contentType);
             }
             else {
-                return StatusCode.NotFound;
+                return Status.NotFound;
             }
         }
     }
