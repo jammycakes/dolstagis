@@ -68,6 +68,7 @@
     <Compile Include="Static\IResourceLocator.cs" />
     <Compile Include="Static\ResourceView.cs" />
     <Compile Include="Static\StaticFileHandler.cs" />
+    <Compile Include="StatusCode.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="IViewBuilder.cs" />
     <Compile Include="Module.cs" />
