@@ -22,6 +22,18 @@ namespace Dolstagis.Web.Static
 
         public void Render(Http.IResponse response)
         {
+            response.AddHeader("Content-Type", _contentType);
+            response.AddHeader("Content-Length", _resource.Length.ToString());
+            response.AddHeader("Last-Modified", _resource.DateModified.ToString("R"));
+            response.AddHeader("Etag", _resource.DateModified.Ticks.ToString("X16"));
+
+            var buffer = new byte[_bufSize];
+            using (var stream = _resource.Open()) {
+                int bytes;
+                while ((bytes = stream.Read(buffer, 0, _bufSize)) > 0) {
+                    response.ResponseStream.Write(buffer, 0, bytes);
+                }
+            }
         }
     }
 }
