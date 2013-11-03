@@ -1,11 +1,11 @@
 About Dolstagis
 ===============
 
-Dolstagis is a web application framework for ASP.NET MVC inspired at least in
-part by Python's Django framework. It is intended to be a "batteries included"
-option, ultimately offering out of the box features such as authentication and 
-user management, an admin section, commenting, and much more.
+This repository contains some ideas for a web application framework for ASP.NET
+MVC, inspired at least in part by Python's Django framework. It was originally
+intended to be a "batteries included" option, ultimately offering out of the box
+features such as authentication and  user management, an admin section,
+commenting, and much more.
 
-There are no releases as yet: this project is currently still in the early
-stages of development.
-
+This project has been superseded by [Dolstagis.Web](https://github.com/jammycakes/dolstagis.web),
+my new ALT.MVC framework.
